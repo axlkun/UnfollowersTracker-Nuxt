@@ -152,8 +152,7 @@
 
 <script>
 
-import axios from 'axios';
-import { scrollToSection } from '../utils/utils';
+import { scrollToSection } from '../utils';
 import instagramLogo from '../assets/instagram-logo.svg';
 import imgResults from '../assets/imagen-results.svg';
 
