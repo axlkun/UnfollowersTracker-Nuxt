@@ -1,0 +1,75 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    scroll-behavior: smooth;
+  }
+  
+  ul,
+  ol {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .skeleton {
+    width: 90%;
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+  
+  .html-content{
+    margin: 15px 0 30px 0;
+  }
+  
+  .html-content h2,
+  .html-content h3 {
+    color: #E91E63;
+    margin-bottom: 15px;
+    font-size: 25px;
+  
+    @media only screen and (min-width: 1024px) {
+      font-size: 35px;
+    }
+  }
+  
+  .html-content h3,
+  .html-content h3 {
+    font-size: 20px;
+  
+    @media only screen and (min-width: 1024px) {
+      font-size: 25px;
+    }
+  }
+  
+  .html-content ul{
+    list-style-type: disc;
+    padding-left: 30px;
+  
+    @media only screen and (min-width: 1024px) {
+      padding-left: 50px;
+    }
+  }
+  
+  .html-content img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Esto ayuda a manejar márgenes y alineación dentro del contenedor */
+    margin: 0 auto; /* Esto centra la imagen dentro de su contenedor */
+    max-height: 100%; /* Opcional: si también deseas limitar la altura */
+  }
