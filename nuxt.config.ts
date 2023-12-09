@@ -25,12 +25,28 @@ export default defineNuxtConfig({
   hooks: {
     'pages:extend'(pages) {
       // add a route
-      pages.push({
-        name: 'cookies',
-        path: '/politica-de-cookies-unfollowerstracker',
-        file: '~/pages/Cookies.vue'
-      })
+      pages.push(
+        {
+          name: 'cookies',
+          path: '/politica-de-cookies-unfollowerstracker',
+          file: '~/pages/Cookies.vue'
+        },
+        {
+          name: 'Terminos',
+          path: '/terminos-y-condiciones-unfollowerstracker',
+          file: '~/pages/Terms.vue'
+        },
+        {
+          name: 'Privacidad',
+          path: '/politica-de-privacidad-unfollowerstracker',
+          file: '~/pages/Privacy.vue'
+        },
+        {
+          name: 'articleDetail',
+          path: '/blog/:slug',
+          file: '~/pages/blog/[...slug].vue',
+        }
+      )
     }
-  }
-
+  },
 })
