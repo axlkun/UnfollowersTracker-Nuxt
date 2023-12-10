@@ -27,7 +27,8 @@
                         class="custom-sizing" @click:clear="clearFile">
                     </v-file-input>
 
-                    <v-sheet class="d-flex flex-sm-row flex-column text-center mt-5 mb-5 justify-center w-100 bg-grey-lighten-4">
+                    <v-sheet
+                        class="d-flex flex-sm-row flex-column text-center mt-5 mb-5 justify-center w-100 bg-grey-lighten-4">
                         <v-btn prepend-icon="mdi mdi-account-remove" variant="elevated" @click="requestAPI" class="ma-3"
                             color="pink">
                             Buscar
@@ -84,7 +85,7 @@
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="grey-darken-3" :href="item.enlace"
                                     target="_blank">Ver perfil</v-btn>
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="pink"
-                                    @click="removeItem(index, 'unfollowers')">Quitar de la lista<v-tooltip
+                                    @click="removeItemUnfollowers(index)">Quitar de la lista<v-tooltip
                                         activator="parent" location="top">Indica que ya lo dejaste de
                                         seguir</v-tooltip></v-btn>
                             </div>
@@ -118,7 +119,7 @@
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="grey-darken-3" :href="item.enlace"
                                     target="_blank">Ver perfil</v-btn>
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="green-darken-4"
-                                    @click="removeItem(index, 'fans')">Quitar de la lista<v-tooltip activator="parent"
+                                    @click="removeItemFans(index)">Quitar de la lista<v-tooltip activator="parent"
                                         location="top">Indica que ya lo sigues</v-tooltip></v-btn>
                             </div>
                         </div>
@@ -150,264 +151,251 @@
     </div>
 </template>
 
-<script>
-
+<script setup>
 import api from '../api';
 import { scrollToSection } from '../utils';
+import { ref, computed, watch } from 'vue';
 import instagramLogo from '../assets/instagram-logo.svg';
-import imgResults from '../assets/imagen-results.svg';
 
-export default {
+const rules = ref([
+    value => {
+        return !value || !value.length || value[0].size < 5000000 || 'El archivo ZIP debe pesar menos de 5MB';
+    },
+]);
 
-    data: () => ({
+const selectedFile = ref(null);
+const alert = ref(false);
+const alertText = ref('');
+const tab = ref('unfollowers');
+const unfollowers = ref(null);
+const fans = ref(null);
+let itemsPerPage = ref(10);
+const currentPaginationUnfollowers = ref(1);
+const visibleItemsUnfollowers = ref([]);
+const currentPaginationFans = ref(1);
+const visibleItemsFans = ref([]);
+const isLoading = ref(false);
 
-        instagramLogo,
-        imgResults,
-        scrollToSection, //se importa la funcion de scroll o redireccion
+const handleFileChange = (event) => {
+    const files = event.target.files;
+    if (files.length > 0) {
+        selectedFile.value = files[0];
+    } else {
+        clearFile();
+    }
+};
 
-        rules: [ // reglas de validacion del zip
-            value => {
-                return !value || !value.length || value[0].size < 5000000 || 'El archivo ZIP debe pesar menos de 5MB'
-            },
-        ],
-        selectedFile: null, // bandera para detectar el zip
-
-        // notificacion
-        alert: false,
-        alertText: '',
-
-        // seccion de resultados
-        tab: 'unfollowers',
-        unfollowers: null,
-        fans: null,
-
-        itemsPerPage: 10,
-        currentPaginationUnfollowers: 1,
-        visibleItemsUnfollowers: [],
-        currentPaginationFans: 1,
-        visibleItemsFans: [],
-
-        isLoading: false
-
-    }),
-
-    methods: {
-        // Asignamos el ZIP recibido a la variable selectedFile
-        handleFileChange(event) {
-            const files = event.target.files;
-            if (files.length > 0) {
-                this.selectedFile = files[0];
-            } else {
-                this.clearFile();
-            }
-        },
-
-        // Realizamos la solicitud a la API 
-        async requestAPI() {
-
-            try {
-
-                // Validar si se ha seleccionado un archivo ZIP
-                if (!this.selectedFile) {
-                    this.alertText = 'No se ha seleccionado el archivo ZIP.';
-                    this.alert = true;
-                    return;
-                }
-
-                // Obtener el nombre de usuario del archivo ZIP
-                const user = this.getUser();
-
-                // console.log('User: ' + user);
-
-                if (!user) {
-                    this.alertText = 'Lo siento, parece que el nombre del archivo ZIP no es el original o no es el ZIP esperado.';
-                    this.alert = true;
-                    return;
-                }
-
-                this.isLoading = true; // Mostrar el loader
-
-                // Enviar el archivo ZIP y verificar si se envió correctamente
-                const sendZip = await this.sendZIP();
-
-                if (!sendZip) {
-                    this.isLoading = false;
-                    this.alertText = 'Se ha producido un error al enviar el archivo ZIP. Inténtalo más tarde.';
-                    this.alert = true;
-                    return;
-                }
-
-                // Obtener la lista de unfollowers y fans
-                this.unfollowers = await this.getUnfollowers(user);
-                this.fans = await this.getFans(user);
-
-                // Verificar si ocurrió un error en las solicitudes de la lista de unfollowers y fans
-                if (!this.unfollowers && !this.fans) {
-                    this.isLoading = false;
-                    this.alertText = 'Se ha producido un error al obtener la lista de unfollowers y fans. Inténtalo más tarde.';
-                    this.alert = true;
-                    return;
-                }
-                this.loadPageData('unfollowers');
-                this.loadPageData('fans');
-
-            } catch (error) {
-                this.alertText = 'Se ha producido un error inesperado. Inténtalo más tarde.';
-                this.alert = true;
-            } finally {
-                this.isLoading = false;
-
-                if(this.unfollowers && this.fans){
-                    setTimeout(() => {
-                    this.scrollToSection('results');
-                }, 100);
-                }
-                
-            }
-        },
-
-        // Limpiamos de memoria el archivo deseleccionado
-        clearFile() {
-            this.selectedFile = null;
-        },
-
-        getUser() {
-
-            const fileName = this.selectedFile.name;
-
-            if (fileName.includes('-')) {
-
-                const split = fileName.split('-');
-
-                if (split[0] == 'instagram' && split[split.length - 1].includes('.zip')) {
-
-                    const lastElement = split[split.length - 1];
-
-                    return lastElement.replace('.zip', '');
-
-                }
-
-            }
-
-            return false;
-        },
-
-        async sendZIP() { //peticion al endpoint para mandar el zip
-            const endpoint = '/api/store';
-
-            const formData = new FormData();
-            formData.append('username', 'nombreDeUsuario');
-            formData.append('file', this.selectedFile);
-
-            try {
-                const response = await api.post(endpoint, formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                });
-
-                if (response.data.status == 200) {
-                    // console.log('Data stored');
-                    return true;
-                } else {
-                    // console.log('Error storing data');
-                    return false;
-                }
-
-            } catch (error) {
-                // console.log('Error storing data: ' + error);
-                return false;
-            }
-        },
-
-        async getUnfollowers(user) { // peticion al endpoint para obtener unfollowers
-            const apiUrl = `/api/unfollowers/${user}`;
-
-            try {
-                const response = await api.get(apiUrl);
-
-                if (response.data.status == 200) {
-                    // console.log('Get unfollowers');
-                    return response.data.unfollowers;
-                } else {
-                    // console.log('Error getting unfollowers: ' + response);
-                    return false;
-                }
-            } catch (error) {
-                // console.log('Error getting unfollowers: ' + error);
-                return false;
-            }
-        },
-
-        async getFans(user) { // peticion al endpoint para obtener fans
-            const apiUrl = `/api/unfollowing/${user}`;
-
-            try {
-                const response = await api.get(apiUrl);
-
-                if (response.data.status == 200) {
-                    // console.log('Get fans');
-                    return response.data.unfollowing;
-                } else {
-                    // console.log('Error getting fans: ' + response);
-                    return false;
-                }
-            } catch (error) {
-                // console.log('Error getting fans: ' + error);
-                return false;
-            }
-        },
-
-        loadPageData(dataset) {
-            if (this[dataset]) {
-                const capitalDataset = this.capitalizeFirstLetter(dataset);
-                const startIndex = (this[`currentPagination${capitalDataset}`] - 1) * this.itemsPerPage;
-                const endIndex = startIndex + this.itemsPerPage;
-
-                this[`visibleItems${capitalDataset}`] = this[dataset].slice(startIndex, endIndex);
-            }
-        },
-
-        removeItem(index, dataset) {
-            if (this[dataset]) {
-                this[dataset].splice(index, 1);
-                this.loadPageData(dataset);
-            }
-        },
-
-        capitalizeFirstLetter(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
+const requestAPI = async () => {
+    try {
+        if (!selectedFile.value) {
+            alertText.value = 'No se ha seleccionado el archivo ZIP.';
+            alert.value = true;
+            return;
         }
 
+        const user = getUser();
 
-    },
+        if (!user) {
+            alertText.value = 'Lo siento, parece que el nombre del archivo ZIP no es el original o no es el ZIP esperado.';
+            alert.value = true;
+            return;
+        }
 
-    computed: {
+        console.log('Usuario: ' + user);
 
-        // Calcula el número total de páginas
+        isLoading.value = true;
 
-        totalPagesUnfollowers() {
-            return Math.ceil(this.unfollowers.length / this.itemsPerPage);
-        },
+        const sendZip = await sendZIP();
 
-        totalPagesFans() {
-            return Math.ceil(this.fans.length / this.itemsPerPage);
-        },
-    },
+        if (!sendZip) {
+            isLoading.value = false;
+            alertText.value = 'Se ha producido un error al enviar el archivo ZIP. Inténtalo más tarde.';
+            alert.value = true;
+            return;
+        }
 
-    watch: {
+        const unfollowersData = await getUnfollowers(user);
+        const fansData = await getFans(user);
 
-        // Detecta cambios en v-pagination
-        currentPaginationUnfollowers(newPage) {
-            this.loadPageData('unfollowers');
-        },
+        unfollowers.value = unfollowersData;
+        fans.value = fansData;
 
-        currentPaginationFans(newPage) {
-            this.loadPageData('fans');
-        },
-    },
-}
+        // console.log('Unfollowers:', JSON.stringify(unfollowers.value));
+        // console.log('Fans:', JSON.stringify(fans.value));
+
+        if (!unfollowers.value && !fans.value) {
+            isLoading.value = false;
+            alertText.value = 'Se ha producido un error al obtener la lista de unfollowers y fans. Inténtalo más tarde.';
+            alert.value = true;
+            return;
+        }
+
+        loadPageDataUnfollowers();
+        loadPageDataFans();
+
+    } catch (error) {
+        alertText.value = 'Se ha producido un error inesperado. Inténtalo más tarde.';
+        console.log('Catch error: ' + error);
+        alert.value = true;
+    } finally {
+        isLoading.value = false;
+
+        if (unfollowers.value && fans.value) {
+            setTimeout(() => {
+                scrollToSection('results');
+            }, 100);
+        }
+    }
+};
+
+const clearFile = () => {
+    selectedFile.value = null;
+};
+
+const getUser = () => {
+    const fileName = selectedFile.value.name;
+
+    if (fileName.includes('-')) {
+        const split = fileName.split('-');
+
+        if (split[0] === 'instagram' && split[split.length - 1].includes('.zip')) {
+            const lastElement = split[split.length - 1];
+            return lastElement.replace('.zip', '');
+        }
+    }
+
+    return false;
+};
+
+const sendZIP = async () => {
+    const endpoint = '/api/store';
+
+    const formData = new FormData();
+    formData.append('username', 'nombreDeUsuario');
+    formData.append('file', selectedFile.value);
+
+    try {
+        const response = await api.post(endpoint, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+
+        if (response.data.status == 200) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        return false;
+    }
+};
+
+const getUnfollowers = async (user) => {
+    const apiUrl = `/api/unfollowers/${user}`;
+
+    try {
+        const response = await api.get(apiUrl);
+
+        if (response.data.status == 200) {
+            return response.data.unfollowers;
+        } else {
+            console.log('Error: ' + response);
+            return false;
+        }
+    } catch (error) {
+        console.log('Error: ' + error);
+        return false;
+    }
+};
+
+const getFans = async (user) => {
+    const apiUrl = `/api/unfollowing/${user}`;
+
+    try {
+        const response = await api.get(apiUrl);
+
+        if (response.data.status == 200) {
+            return response.data.unfollowing;
+        } else {
+            console.log('Error: ' + response);
+            return false;
+        }
+    } catch (error) {
+        console.log('Error: ' + error);
+        return false;
+    }
+};
+
+const loadPageDataUnfollowers = () => {
+    const startIndex = (currentPaginationUnfollowers.value - 1) * itemsPerPage.value;
+    const endIndex = startIndex + itemsPerPage.value;
+
+    visibleItemsUnfollowers.value = unfollowers.value.slice(startIndex, endIndex);
+};
+
+const loadPageDataFans = () => {
+    const startIndex = (currentPaginationFans.value - 1) * itemsPerPage.value;
+    const endIndex = startIndex + itemsPerPage.value;
+
+    visibleItemsFans.value = fans.value.slice(startIndex, endIndex);
+};
+
+const removeItemUnfollowers = (index) => {
+    if (unfollowers) {
+        unfollowers.splice(index, 1);
+        loadPageDataUnfollowers();
+    }
+};
+
+const removeItemFans = (index) => {
+    if (fans) {
+        fans.splice(index, 1);
+        loadPageDataFans();
+    }
+};
+
+const totalPagesUnfollowers = computed(() => {
+    return Math.ceil(unfollowers.length / itemsPerPage.value);
+});
+
+const totalPagesFans = computed(() => {
+    return Math.ceil(fans.length / itemsPerPage.value);
+});
+
+
+watch(currentPaginationUnfollowers, (newPage) => {
+    loadPageDataUnfollowers();
+});
+
+watch(currentPaginationFans, (newPage) => {
+    loadPageDataFans();
+});
+
+
+useSeoMeta({
+
+    robots: 'index, follow',
+
+    title: 'UnfollowersTracker | Results',
+    author: 'Axel Cruz',
+    description: 'Descubre quién no te sigue en Instagram. Herramienta gratuita para gestionar tu lista de seguidores sin contraseñas.',
+    keywords: 'Instagram, seguidores, no seguidores, herramienta gratuita, gestión de seguidores, optimización de Instagram, alcance en Instagram, no contraseña, seguimiento de seguidores, analítica de seguidores, estadísticas de Instagram, monitorización de seguidores.',
+
+    ogTitle: 'UnfollowersTracker',
+    ogDescription: 'Descubre quién no te sigue en Instagram. Herramienta gratuita para gestionar tu lista de seguidores sin contraseñas.',
+    ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
+    ogUrl: 'https://unfollowerstracker.com/',
+    ogType: 'website',
+
+    twitterCreator: '@Axlkun',
+    twitterImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'UnfollowersTracker | Conoce quien no te sigue en Instagram',
+    twitterDescription: 'Descubre quién no te sigue en Instagram. Herramienta gratuita para gestionar tu lista de seguidores sin contraseñas.'
+})
 </script>
+
 
 <style scoped>
 .custom-sizing-card {
