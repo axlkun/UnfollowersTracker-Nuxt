@@ -152,6 +152,7 @@
 
 <script>
 
+import api from '../api';
 import { scrollToSection } from '../utils';
 import instagramLogo from '../assets/instagram-logo.svg';
 import imgResults from '../assets/imagen-results.svg';
@@ -215,6 +216,8 @@ export default {
 
                 // Obtener el nombre de usuario del archivo ZIP
                 const user = this.getUser();
+
+                // console.log('User: ' + user);
 
                 if (!user) {
                     this.alertText = 'Lo siento, parece que el nombre del archivo ZIP no es el original o no es el ZIP esperado.';
@@ -290,58 +293,67 @@ export default {
         },
 
         async sendZIP() { //peticion al endpoint para mandar el zip
-            const endpoint = 'https://admin.unfollowerstracker.com/api/store';
+            const endpoint = '/api/store';
 
             const formData = new FormData();
             formData.append('username', 'nombreDeUsuario');
             formData.append('file', this.selectedFile);
 
             try {
-                const response = await axios.post(endpoint, formData, {
+                const response = await api.post(endpoint, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
                 });
 
                 if (response.data.status == 200) {
+                    // console.log('Data stored');
                     return true;
                 } else {
+                    // console.log('Error storing data');
                     return false;
                 }
 
             } catch (error) {
+                // console.log('Error storing data: ' + error);
                 return false;
             }
         },
 
         async getUnfollowers(user) { // peticion al endpoint para obtener unfollowers
-            const apiUrl = `https://admin.unfollowerstracker.com/api/unfollowers/${user}`;
+            const apiUrl = `/api/unfollowers/${user}`;
 
             try {
-                const response = await axios.get(apiUrl);
+                const response = await api.get(apiUrl);
 
                 if (response.data.status == 200) {
+                    // console.log('Get unfollowers');
                     return response.data.unfollowers;
                 } else {
+                    // console.log('Error getting unfollowers: ' + response);
                     return false;
                 }
             } catch (error) {
+                // console.log('Error getting unfollowers: ' + error);
                 return false;
             }
         },
 
         async getFans(user) { // peticion al endpoint para obtener fans
-            const apiUrl = `https://admin.unfollowerstracker.com/api/unfollowing/${user}`;
+            const apiUrl = `/api/unfollowing/${user}`;
 
             try {
-                const response = await axios.get(apiUrl);
+                const response = await api.get(apiUrl);
 
                 if (response.data.status == 200) {
+                    // console.log('Get fans');
                     return response.data.unfollowing;
                 } else {
+                    // console.log('Error getting fans: ' + response);
                     return false;
                 }
             } catch (error) {
+                // console.log('Error getting fans: ' + error);
                 return false;
             }
         },
