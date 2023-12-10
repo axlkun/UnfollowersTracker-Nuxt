@@ -2,6 +2,11 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'UnfollowersTracker'
+    }
+  },
   build: {
     transpile: ['vuetify'],
   },
