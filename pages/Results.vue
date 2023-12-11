@@ -201,11 +201,9 @@ const requestAPI = async () => {
             return;
         }
 
-        console.log('Usuario: ' + user);
-
         isLoading.value = true;
 
-        const sendZip = await sendZIP();
+        const sendZip = await sendZIP(user);
 
         if (!sendZip) {
             isLoading.value = false;
@@ -267,11 +265,11 @@ const getUser = () => {
     return false;
 };
 
-const sendZIP = async () => {
+const sendZIP = async (user) => {
     const endpoint = '/api/store';
 
     const formData = new FormData();
-    formData.append('username', 'nombreDeUsuario');
+    formData.append('username', user);
     formData.append('file', selectedFile.value);
 
     try {
