@@ -85,8 +85,8 @@
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="grey-darken-3" :href="item.enlace"
                                     target="_blank">Ver perfil</v-btn>
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="pink"
-                                    @click="removeItemUnfollowers(index)">Quitar de la lista<v-tooltip
-                                        activator="parent" location="top">Indica que ya lo dejaste de
+                                    @click="removeItemUnfollowers(index)">Quitar de la lista<v-tooltip activator="parent"
+                                        location="top">Indica que ya lo dejaste de
                                         seguir</v-tooltip></v-btn>
                             </div>
                         </div>
@@ -167,8 +167,8 @@ const selectedFile = ref(null);
 const alert = ref(false);
 const alertText = ref('');
 const tab = ref('unfollowers');
-const unfollowers = ref(null);
-const fans = ref(null);
+const unfollowers = ref([]);
+const fans = ref([]);
 let itemsPerPage = ref(10);
 const currentPaginationUnfollowers = ref(1);
 const visibleItemsUnfollowers = ref([]);
@@ -342,25 +342,25 @@ const loadPageDataFans = () => {
 };
 
 const removeItemUnfollowers = (index) => {
-    if (unfollowers) {
-        unfollowers.splice(index, 1);
-        loadPageDataUnfollowers();
-    }
+
+    unfollowers.value.splice(index, 1);
+    loadPageDataUnfollowers();
+
 };
 
 const removeItemFans = (index) => {
-    if (fans) {
-        fans.splice(index, 1);
-        loadPageDataFans();
-    }
+
+    fans.value.splice(index, 1);
+    loadPageDataFans();
+
 };
 
 const totalPagesUnfollowers = computed(() => {
-    return Math.ceil(unfollowers.length / itemsPerPage.value);
+    return Math.ceil(unfollowers.value.length / itemsPerPage.value);
 });
 
 const totalPagesFans = computed(() => {
-    return Math.ceil(fans.length / itemsPerPage.value);
+    return Math.ceil(fans.value.length / itemsPerPage.value);
 });
 
 
