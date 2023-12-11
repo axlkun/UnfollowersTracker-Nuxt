@@ -9,44 +9,33 @@
     </main>
     
     <myFooter :blogEntry="blogEntry"></myFooter>
+
   </v-app>
 </template>
 
-<script>
+<script setup>
 import api from './api';
 
 import myHeader from './components/Header.vue';
 import myFooter from './components/Footer.vue';
 
-export default {
+const blogEntry = ref([]);
 
-  components: {
-    myHeader, // Registra el componente
-    myFooter
-  },
-
-  data: () => ({
-    blogEntry: [],
-    sheet: true,
-    currentRoute: '',
-  }),
-
-  methods: {
-    getArticles() {
-      api.get('/api/articles?limit=3')
+const getArticles = () => {
+  api.get('/api/articles?limit=3')
         .then(response => {
-          this.blogEntry = response.data.data;
+          blogEntry = response.data.data;
         })
         .catch(error => {
           console.error('Error al hacer la solicitud GET:', error);
         });
-    },
-  },
-
-  mounted() {
-    this.getArticles();
-  }
 }
+  
+onMounted(() => {
+    getArticles();
+});
+
+
 </script>
 
 <style>
