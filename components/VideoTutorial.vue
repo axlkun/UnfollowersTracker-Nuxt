@@ -1,9 +1,9 @@
 <template>
 
     <v-sheet class="d-flex flex-column align-center justify-center background-custom" id="steps" style="min-height: 100vh;">
-        <v-sheet class="pa-5 text-center bg-transparent">
+        <v-sheet class="pa-5 text-center bg-transparent custom-sheet">
             <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">Video tutorial: Cómo utilizar nuestra herramienta</h2>
-            <p class="text-h7 ma-5 font-weight-bold text-grey-darken-1">Aprende paso a paso cómo sacar el máximo
+            <p class="text-h7 text-md-h6 ma-5 font-weight-bold text-grey-darken-1">Aprende paso a paso cómo sacar el máximo
                 provecho de <span class="text-pink">Unfollowers Tracker</span> para descubrir quiénes no te siguen de
                 vuelta en Instagram.</p>
         </v-sheet>
@@ -44,5 +44,11 @@ export default {
 .video {
     aspect-ratio: 16 / 9;
     width: 100%;
+}
+
+.custom-sheet {
+    @media only screen and (min-width: 960px) {
+        width: 70%;
+    }
 }
 </style>

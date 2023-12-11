@@ -3,14 +3,14 @@
 
         <v-sheet class="pa-5 text-center">
             <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">¿Cómo funciona Unfollowers Tracker?</h2>
-            <p class="text-h7 ma-5 font-weight-bold text-grey-darken-1">Nuestra herramienta analiza tus datos
+            <p class="text-h7 text-md-h6 ma-5 font-weight-bold text-grey-darken-1">Nuestra herramienta analiza tus datos
                 proporcionados y compara tu lista de seguidores con la lista de personas a las que sigues. Luego, te
                 muestra quiénes no te siguen de vuelta.</p>
         </v-sheet>
 
         <v-expansion-panels>
             <v-expansion-panel v-for="item in stepsItems" :key="item.id" :class="item.color" class="ma-5">
-                <v-expansion-panel-title expand-icon="mdi-plus" collapse-icon="mdi-minus" class="text-h6"
+                <v-expansion-panel-title expand-icon="mdi-plus" collapse-icon="mdi-minus" class="text-h7 text-md-h6"
                     style="min-height: 80px" :class="item.color2">
                     <span class="mdi ma-2" :class="item.icon"></span> {{ item.title }}
                 </v-expansion-panel-title>
