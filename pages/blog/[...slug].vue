@@ -68,13 +68,14 @@
             </v-sheet>
 
             <v-sheet class="img-container">
-                <v-img :src="`${dominio}${article.imageUrl}`" alt="Imagen artículo" max-height="500" aspect-ratio="16/9" cover></v-img>
+                <v-img :src="`${dominio}${article.imageUrl}`" alt="Imagen artículo" max-height="500" aspect-ratio="16/9"
+                    cover></v-img>
             </v-sheet>
 
             <v-sheet class="article-content">
                 <v-sheet class="html-content" v-html="article.description"></v-sheet>
             </v-sheet>
-            
+
         </v-sheet>
 
         <v-sheet class="title-container">
@@ -88,85 +89,88 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
 import { ref, watch, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import api from '../api';
 import ArticlesList from '../components/ArticlesList.vue';
 import CallToAction from '../components/CallToAction.vue';
 
-export default {
-  name: 'articleDetail',
+const route = useRoute();
+const router = useRouter();
+const slug = ref(route.params.slug);
+const dominio = api.defaults.baseURL;
+const article = ref(null);
+const articles = ref(null);
+const loading = ref(true);
 
-  components: {
-    ArticlesList,
-    CallToAction
-  },
+const loadData = async () => {
+    loading.value = true;
 
-  setup() {
-    const route = useRoute();
-    const router = useRouter();
-    const slug = ref(route.params.slug);
-    const dominio = api.defaults.baseURL;
-    const article = ref(null);
-    const articles = ref(null);
-    const loading = ref(true);
-
-    const loadData = async () => {
-      loading.value = true;
-
-      try {
+    try {
         const articleResponse = await loadArticle();
         if (articleResponse.status === 200) {
-          article.value = articleResponse.data.data;
+            article.value = articleResponse.data.data;
+
+            useSeoMeta({
+
+robots: 'index, follow',
+title: () => "UnfollowersTracker | " + article.value.title,
+author: 'Axel Cruz',
+description: () => article.value.summary,
+keywords: 'Instagram, seguidores, no seguidores, herramienta gratuita, gestión de seguidores, optimización de Instagram, alcance en Instagram, no contraseña, seguimiento de seguidores, analítica de seguidores, estadísticas de Instagram, monitorización de seguidores.',
+
+ogTitle: 'UnfollowersTracker',
+ogDescription: 'Descubre quién no te sigue en Instagram. Herramienta gratuita para gestionar tu lista de seguidores sin contraseñas.',
+ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
+ogUrl: 'https://unfollowerstracker.com/',
+ogType: 'website',
+
+twitterCreator: '@Axlkun',
+twitterImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
+twitterCard: 'summary_large_image',
+twitterTitle: 'UnfollowersTracker | Conoce quien no te sigue en Instagram',
+twitterDescription: 'Descubre quién no te sigue en Instagram. Herramienta gratuita para gestionar tu lista de seguidores sin contraseñas.'
+})
         } else {
-          router.push('/');
+            router.push('/');
         }
-      } catch (error) {
+    } catch (error) {
         handleError(error);
-      } finally {
+    } finally {
         loading.value = false;
-      }
+    }
 
-      loadRelatedArticles();
-    };
+    loadRelatedArticles();
+};
 
-    const loadArticle = async () => {
-      return await api.get(`/api/articles/${slug.value}`);
-    };
+const loadArticle = async () => {
+    return await api.get(`/api/articles/${slug.value}`);
+};
 
-    const loadRelatedArticles = async () => {
-      try {
+const loadRelatedArticles = async () => {
+    try {
         const relatedArticlesResponse = await api.get(`/api/related-articles/${slug.value}`);
         articles.value = relatedArticlesResponse.data.data;
-      } catch (error) {
+    } catch (error) {
         console.error('Error al obtener artículos relacionados:', error);
-      }
-    };
-
-    const handleError = (error) => {
-      console.error('Error al hacer la solicitud GET:', error);
-      router.push('/');
-    };
-
-    watch(() => route.params.slug, () => {
-      slug.value = route.params.slug;
-      loadData();
-    });
-
-    onMounted(() => {
-      loadData();
-    });
-
-    return {
-      slug,
-      dominio,
-      article,
-      articles,
-      loading
-    };
-  }
+    }
 };
+
+const handleError = (error) => {
+    console.error('Error al hacer la solicitud GET:', error);
+    router.push('/');
+};
+
+watch(() => route.params.slug, () => {
+    slug.value = route.params.slug;
+    loadData();
+});
+
+onMounted(() => {
+    loadData();
+});
+
 </script>
 
 <style scoped>
@@ -208,7 +212,7 @@ export default {
 .img-container {
 
     width: 100%;
-    
+
     @media only screen and (min-width: 1024px) {
         margin-bottom: 30px;
         width: 70%;
