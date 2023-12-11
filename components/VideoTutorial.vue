@@ -2,7 +2,7 @@
 
     <v-sheet class="d-flex flex-column align-center justify-center background-custom" id="steps" style="min-height: 100vh;">
         <v-sheet class="pa-5 text-center bg-transparent">
-            <h2 class="text-h4 ma-1 font-weight-black text-pink">Video tutorial: Cómo utilizar nuestra herramienta</h2>
+            <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">Video tutorial: Cómo utilizar nuestra herramienta</h2>
             <p class="text-h7 ma-5 font-weight-bold text-grey-darken-1">Aprende paso a paso cómo sacar el máximo
                 provecho de <span class="text-pink">Unfollowers Tracker</span> para descubrir quiénes no te siguen de
                 vuelta en Instagram.</p>

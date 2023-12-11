@@ -2,7 +2,7 @@
     <v-sheet class="d-flex flex-column justify-center custom-sizing mx-auto" style="min-height: 100vh" id="how-works">
 
         <v-sheet class="pa-5 text-center">
-            <h2 class="text-h4 ma-1 font-weight-black text-pink">¿Cómo funciona Unfollowers Tracker?</h2>
+            <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">¿Cómo funciona Unfollowers Tracker?</h2>
             <p class="text-h7 ma-5 font-weight-bold text-grey-darken-1">Nuestra herramienta analiza tus datos
                 proporcionados y compara tu lista de seguidores con la lista de personas a las que sigues. Luego, te
                 muestra quiénes no te siguen de vuelta.</p>

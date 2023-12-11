@@ -2,7 +2,7 @@
 
     <v-sheet class="d-flex flex-column justify-center" style="min-height: 100vh">
         <v-sheet class="pa-5 text-center">
-            <h2 class="text-h4 ma-1 font-weight-black text-pink">¿Por qué usar Unfollowers Tracker?</h2>
+            <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">¿Por qué usar Unfollowers Tracker?</h2>
             <p class="text-h6 ma-1 font-weight-bold text-grey-darken-1">La manera mas segura de conocer tus unfollowers
                 y fans</p>
         </v-sheet>

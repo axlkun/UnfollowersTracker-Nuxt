@@ -5,7 +5,7 @@
                 Blog
             </v-chip>
 
-            <h2 class="pt-5 text-h4 ma-1 font-weight-black text-pink">Artículos sobre estrategias en redes sociales, como alimentar el algoritmo, planes para crecer
+            <h2 class="pt-5 text-h5 text-md-h4  ma-1 font-weight-black text-pink">Artículos sobre estrategias en redes sociales, como alimentar el algoritmo, planes para crecer
                 una audencia y mucho más...</h2>
 
             <p class="pt-5 text-h7 ma-5 font-weight-bold text-grey-darken-1">Lee los últimos artículos redactados, encuentra uno nuevo cada semana y maneja tus redes
