@@ -47,7 +47,7 @@
         </v-sheet>
 
         <!-- seccion de resultados -->
-        <v-sheet v-if="unfollowers != null" class="d-flex flex-column bg-white pt-sm-16 pt-0" style="min-height: 100vh"
+        <v-sheet v-if="unfollowers != null" class="d-flex flex-column bg-white pt-sm-16 pt-0 pb-10" style="min-height: 100vh"
             id="results">
 
             <v-tabs v-model="tab" fixed-tabs class="bg-transparent w-100 ma-5">
