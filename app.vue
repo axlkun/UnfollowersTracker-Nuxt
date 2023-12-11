@@ -21,10 +21,10 @@ import myFooter from './components/Footer.vue';
 
 const blogEntry = ref([]);
 
-const getArticles = () => {
+const getArticles  = async () => {
   api.get('/api/articles?limit=3')
         .then(response => {
-          blogEntry = response.data.data;
+          blogEntry.value = response.data.data;
         })
         .catch(error => {
           console.error('Error al hacer la solicitud GET:', error);
