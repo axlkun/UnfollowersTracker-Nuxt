@@ -118,10 +118,10 @@ robots: 'index, follow',
 title: () => "UnfollowersTracker | " + article.value.title,
 author: 'Axel Cruz',
 description: () => article.value.summary,
-keywords: 'Instagram, seguidores, no seguidores, herramienta gratuita, gestión de seguidores, optimización de Instagram, alcance en Instagram, no contraseña, seguimiento de seguidores, analítica de seguidores, estadísticas de Instagram, monitorización de seguidores.',
+keywords: 'Instagram, followers, non-followers, free tool, follower management, Instagram optimization, reach on Instagram, no password, follower tracking, follower analytics, Instagram statistics, follower monitoring.',
 
 ogTitle: 'UnfollowersTracker',
-ogDescription: 'Descubre quién no te sigue en Instagram. Herramienta gratuita para gestionar tu lista de seguidores sin contraseñas.',
+ogDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
 ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
 ogUrl: 'https://unfollowerstracker.com/',
 ogType: 'website',
@@ -129,8 +129,8 @@ ogType: 'website',
 twitterCreator: '@Axlkun',
 twitterImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
 twitterCard: 'summary_large_image',
-twitterTitle: 'UnfollowersTracker | Conoce quien no te sigue en Instagram',
-twitterDescription: 'Descubre quién no te sigue en Instagram. Herramienta gratuita para gestionar tu lista de seguidores sin contraseñas.'
+twitterTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
+twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
 })
         } else {
             router.push('/');

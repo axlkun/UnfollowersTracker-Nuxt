@@ -67,11 +67,11 @@ useSeoMeta({
 
     title: 'UnfollowersTracker | Blog',
     author: 'Axel Cruz',
-    description: 'Descubre artículos relacionados con crecimiento en redes sociales, tips de como crecer una audiencia, secretos del algoritmo y mucho mas en el Blog de Unfollowers Tracker, herramienta gratuita para gestionar tu lista de seguidores de Instagram sin contraseñas.',
-    keywords: 'Instagram, seguidores, no seguidores, herramienta gratuita, gestión de seguidores, optimización de Instagram, alcance en Instagram, no contraseña, seguimiento de seguidores, analítica de seguidores, estadísticas de Instagram, monitorización de seguidores.',
+    description: 'Discover articles related to social media growth, tips on growing an audience, algorithm secrets, and much more on the Unfollowers Tracker Blog, a free tool to manage your Instagram follower list without passwords.',
+    keywords: 'Instagram, followers, non-followers, free tool, follower management, Instagram optimization, reach on Instagram, no password, follower tracking, follower analytics, Instagram statistics, follower monitoring.',
 
     ogTitle: 'UnfollowersTracker',
-    ogDescription: 'Descubre quién no te sigue en Instagram. Herramienta gratuita para gestionar tu lista de seguidores sin contraseñas.',
+    ogDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
     ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
     ogUrl: 'https://unfollowerstracker.com/',
     ogType: 'website',
@@ -79,8 +79,8 @@ useSeoMeta({
     twitterCreator: '@Axlkun',
     twitterImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'UnfollowersTracker | Conoce quien no te sigue en Instagram',
-    twitterDescription: 'Descubre quién no te sigue en Instagram. Herramienta gratuita para gestionar tu lista de seguidores sin contraseñas.'
+    twitterTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
+    twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
 })
 
 </script>
