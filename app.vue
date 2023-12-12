@@ -14,16 +14,16 @@
         <v-bottom-sheet v-model="sheet" v-if="!cookiesAccepted">
           <v-card class="text-center">
             <v-card-text>
-              <div>
+              <div class="text-caption">
                 Usamos cookies para mejorar tu experiencia y mostrar anuncios. Al navegar en el sitio, aceptas nuestra
                 Política de cookies. Puedes cambiar la configuración en tu navegador en cualquier momento.
               </div>
             </v-card-text>
             <v-card-actions class="mx-auto">
-              <v-btn variant="text" color="pink" href="/politica-de-cookies-unfollowerstracker">
+              <v-btn size="small" variant="text" color="pink" href="/politica-de-cookies-unfollowerstracker">
                 Leer más
               </v-btn>
-              <v-btn variant="tonal" color="pink" @click="acceptCookies">
+              <v-btn size="x-small" variant="tonal" color="pink" @click="acceptCookies">
                 Aceptar
               </v-btn>
             </v-card-actions>
