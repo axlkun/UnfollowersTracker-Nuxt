@@ -4,6 +4,13 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'en',
+      },
+      meta: [
+        { 'http-equiv': 'content-language', content: 'en' },
+        // ...otras etiquetas meta
+      ],
       title: 'UnfollowersTracker',
 
       script: [
