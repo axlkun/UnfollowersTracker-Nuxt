@@ -83,7 +83,7 @@
 
                             <div class="d-flex flex-sm-row flex-column">
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="grey-darken-3" :href="item.enlace"
-                                    target="_blank">Ver perfil</v-btn>
+                                    target="_blank">View profile</v-btn>
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="pink"
                                     @click="removeItemUnfollowers(index)">Remove<v-tooltip activator="parent"
                                         location="top">Indicate that you have unfollowed</v-tooltip></v-btn>
@@ -116,7 +116,7 @@
 
                             <div class="d-flex flex-sm-row flex-column">
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="grey-darken-3" :href="item.enlace"
-                                    target="_blank">Ver perfil</v-btn>
+                                    target="_blank">View profile</v-btn>
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="green-darken-4"
                                     @click="removeItemFans(index)">Remove<v-tooltip activator="parent"
                                         location="top">Indicate that you are already following</v-tooltip></v-btn>
