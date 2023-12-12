@@ -15,16 +15,16 @@
           <v-card class="text-center">
             <v-card-text>
               <div class="text-caption">
-                Usamos cookies para mejorar tu experiencia y mostrar anuncios. Al navegar en el sitio, aceptas nuestra
-                Política de cookies. Puedes cambiar la configuración en tu navegador en cualquier momento.
+                We use cookies to enhance your experience and display ads. By browsing the site, you agree to our
+Cookie Policy. You can change settings in your browser at any time.
               </div>
             </v-card-text>
             <v-card-actions class="mx-auto">
               <v-btn size="small" variant="text" color="pink" href="/politica-de-cookies-unfollowerstracker">
-                Leer más
+                Read more
               </v-btn>
               <v-btn size="x-small" variant="tonal" color="pink" @click="acceptCookies">
-                Aceptar
+                Accept
               </v-btn>
             </v-card-actions>
           </v-card>

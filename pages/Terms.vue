@@ -1,63 +1,84 @@
 <template>
     <v-sheet>
-    
+
         <v-sheet class="privacy">
-    
+
             <div class="section">
-                <h1>Términos y condiciones para Unfollowers Tracker</h1>
-                <p>Lea estos términos antes de utilizar nuestro servicio.</p>
-    
-                <p class="fecha">Fecha de entrada en vigencia 07/09/2023</p>
+                <h1>Terms and Conditions for Unfollowers Tracker</h1>
+                <p>Please read these terms before using our service.</p>
+
+                <p class="fecha">Effective Date 07/09/2023</p>
+
             </div>
-            
-        
+
+
             <div class="section">
-                <h2>1. Introducción</h2>
-        
-                <p>Unfollowers Tracker proporciona el servicio que le permite a los usuarios obtener información sobre quiénes no les siguen de vuelta en Instagram mediante el uso de datos públicos proporcionados por el propio usuario. Al utilizar nuestro servicio, usted acepta los Términos y Condiciones de acuerdo con lo declarado a continuación.</p>
+                <h2>1. Introduction</h2>
+
+                <p>Unfollowers Tracker provides the service that allows users to obtain information about
+                    who doesn't follow them back on Instagram using publicly available data provided by the
+                    user. By using our service, you agree to the Terms and Conditions as stated below.</p>
+
             </div>
 
             <div class="section">
-                <h2>2. Uso del Servicio</h2>
-        
-                <p>Nuestro servicio permite a los usuarios obtener información sobre quiénes no les siguen de vuelta en Instagram utilizando datos públicos proporcionados por el propio usuario. No accedemos a Instagram directamente ni solicitamos ni almacenamos las credenciales de inicio de sesión de Instagram.</p>
+                <h2>2. Use of the Service</h2>
+
+                <p>Our service allows users to obtain information about who doesn't follow them back on
+                    Instagram using publicly available data provided by the user. We do not directly access
+                    Instagram, nor do we request or store Instagram login credentials.</p>
+
             </div>
 
             <div class="section">
-                <h2>3. Privacidad</h2>
-        
-                <p>Respetamos tu privacidad. Consulta nuestra <a href="/politica-de-privacidad-unfollowerstracker">Política de Privacidad</a> para obtener más información sobre cómo recopilamos, utilizamos y protegemos tus datos personales.</p>
+                <h2>3. Privacy</h2>
+
+                <p>We respect your privacy. Please refer to our <a href="/politica-de-privacidad-unfollowerstracker">Privacy
+                        Policy</a> for more information on how we collect, use, and protect your
+                    personal data.</p>
             </div>
 
             <div class="section">
-                <h2>4. Uso Responsable</h2>
-        
-                <p> Los usuarios se comprometen a utilizar nuestro servicio de manera responsable y de conformidad con todas las leyes y regulaciones aplicables. No deben utilizar nuestro servicio para fines ilegales, inmorales o inapropiados, ni para acosar, difamar o violar los derechos de privacidad de otros usuarios. Unfollowers Tracker se deslinda y no se hace responsable del mal uso que los usuarios puedan dar a la aplicación, incluyendo, pero no limitado a, los usos inadecuados, ilegales o inmorales mencionados en estos términos. Los usuarios son responsables de su propio comportamiento y del uso que hacen de los resultados proporcionados por nuestro servicio.</p>
+                <h2>4. Responsible Use</h2>
+
+                <p>Users agree to use our service responsibly and in compliance with all applicable laws
+                    and regulations. They should not use our service for illegal, immoral, or inappropriate
+                    purposes, nor to harass, defame, or violate the privacy rights of other users. Unfollowers
+                    Tracker disclaims and is not responsible for the misuse that users may give to the
+                    application, including, but not limited to, inappropriate, illegal, or immoral uses
+                    mentioned in these terms. Users are responsible for their own behavior and the use they
+                    make of the results provided by our service.</p>
+
             </div>
 
             <div class="section">
-                <h2>5. Limitaciones del Servicio</h2>
-        
-                <p>El servicio proporcionado por Unfollowers Tracker tiene ciertas limitaciones. Los resultados pueden variar y no garantizamos la precisión total o la disponibilidad continua de la información proporcionada. Los usuarios comprenden que el servicio se basa en datos públicos proporcionados por Instagram y que los cambios en la plataforma de Instagram pueden afectar la disponibilidad y la exactitud de los datos recopilados.</p>
+                <h2>5. Service Limitations</h2>
+
+                <p>The service provided by Unfollowers Tracker has certain limitations. Results may
+                    vary, and we do not guarantee complete accuracy or continuous availability of the
+                    provided information. Users understand that the service relies on publicly available
+                    data provided by Instagram, and changes in the Instagram platform may affect the
+                    availability and accuracy of the collected data.</p>
+
             </div>
 
             <div class="section">
-                <h2>6. Cambios en los Términos</h2>
-        
-                <p>Nos reservamos el derecho de actualizar o modificar estos Términos en cualquier momento. Cualquier cambio se publicará en esta página y entrará en vigencia inmediatamente. Al utilizar este sitio web, usted acepta estar sujeto a la versión vigente en ese momento de estos términos de servicio.</p>
+                <h2>6. Changes to the Terms</h2>
+
+                <p>We reserve the right to update or modify these Terms at any time. Any changes
+                    will be posted on this page and will take effect immediately. By using this website, you
+                    agree to be bound by the current version of these terms of service.</p>
+
             </div>
-            
+
         </v-sheet>
-       
-    
+
+
     </v-sheet>
-    </template>
+</template>
     
-    <script>
+<script>
+
+</script>
     
-    </script>
-    
-    <style scoped>
-    
-    
-    </style>
+<style scoped></style>

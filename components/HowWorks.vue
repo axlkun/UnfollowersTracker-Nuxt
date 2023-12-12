@@ -2,10 +2,10 @@
     <v-sheet class="d-flex flex-column justify-center custom-sizing mx-auto" style="min-height: 100vh" id="how-works">
 
         <v-sheet class="pa-5 text-center">
-            <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">¿Cómo funciona Unfollowers Tracker?</h2>
-            <p class="text-h7 text-md-h6 ma-5 font-weight-bold text-grey-darken-1">Nuestra herramienta analiza tus datos
-                proporcionados y compara tu lista de seguidores con la lista de personas a las que sigues. Luego, te
-                muestra quiénes no te siguen de vuelta.</p>
+            <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">How does UnfollowersTracker work?</h2>
+            <p class="text-h7 text-md-h6 ma-5 font-weight-bold text-grey-darken-1">Our tool analyzes your provided data and
+                compares your list of followers with the list of people you follow. It then shows you who doesn't follow you
+                back.</p>
         </v-sheet>
 
         <v-expansion-panels>
@@ -30,31 +30,31 @@ export default {
     name: 'HowWorks',
 
     data: () => ({
-        
+
         stepsItems: [ /* texto para la seccion de tutorial */
             {
                 id: 1,
                 color: 'bg-green-lighten-5',
                 color2: 'text-green-darken-4',
                 icon: 'mdi-instagram',
-                title: '1- Solicita tu información a Instagram',
-                description: '1- En tu dispositivo móvil ingresa a tu cuenta de Instagram, dirigete a tu perfil y abre el menú superior derecho, posteriormente accede a "Tu actividad" y selecciona "Descargar tu información"<br> 2- Toca en "Solicitar descarga", selecciona tu perfil de Instagram y presiona en "Siguiente"<br> 3- Ahora, dentro de la sección "Seleccionar tipos de información", escoge únicamente "Seguidores y seguidos" y presiona "Siguiente"<br> 4- Ahora en "Formato" selecciona "JSON" y en "Intervalo de fechas" selecciona "Desde el principio" y finalmente presiona "Enviar solicitud"'
+                title: '1- Request Your Information from Instagram',
+                description: '1- On your mobile device, log in to your Instagram account, go to your profile, open the top-right menu, then access "Your Activity" and select "Download Your Information."<br> 2- Tap on "Request Download," choose your Instagram profile, and press "Next."<br> 3- Now, in the "Select Types of Information" section, choose only "Followers and Following," and press "Next."<br> 4- In the "Format" section, select "JSON," and in the "Date Range," choose "From the beginning." Finally, press "Submit Request."'
             },
             {
                 id: 2,
                 color: 'bg-indigo-lighten-5',
                 color2: 'text-indigo-darken-4',
                 icon: 'mdi-download-box-outline',
-                title: '2- Descarga el ZIP',
-                description: '1- Ahora en tu navegador (computadora) abre la cuenta de correo asociado a tu Instagram <br> 2- Abre el correo electrónico enviado por Instagram con asunto "La descarga de tu información de Meta está lista" y da clic en "Descargar tu información" <br> 3- Esto te abrirá una nueva pestaña de Instagram donde te muestra la descarga disponible, da clic en "Descargar" y confirma que es tu cuenta. La descarga comenzará automaticamente',
+                title: '2- Download the ZIP',
+                description: '1- Now, in your web browser (on your computer), open the email account associated with your Instagram.<br> 2- Open the email sent by Instagram with the subject "Your Meta information download is ready" and click on "Download Your Information."<br> 3- This will open a new Instagram tab showing the available download. Click on "Download" and confirm that it\'s your account. The download will start automatically.'
             },
             {
                 id: 3,
                 color: 'bg-yellow-lighten-5',
                 color2: 'text-yellow-darken-4',
                 icon: 'mdi-folder-upload-outline',
-                title: '3- Carga el ZIP',
-                description: 'En Unfollowerstracker.com presiona "QUIEN NO ME SIGUE". Después da clic en "Selecciona el archivo ZIP" para abrir el explorador de archivos y elige el archivo ZIP que descargaste previamente. Una vez cargado el archivo da clic en "Buscar" y conoce los resultados!',
+                title: '3- Upload the ZIP',
+                description: 'On Unfollowerstracker.com, click "DISCOVER UNFOLLOWERS." Then, click on "Select the ZIP file" to open the file explorer, and choose the ZIP file you downloaded earlier. Once the file is uploaded, click "Search" and discover the results!'
             }
         ],
     }),

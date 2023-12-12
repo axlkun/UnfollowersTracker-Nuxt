@@ -2,13 +2,13 @@
     <header class="header">
         <nav>
             <div class="logo">
-                <a href="/"><span>Un</span>followers</a>
+                <a href="/"><span>Un</span>followersTracker</a>
             </div>
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
             <ul class="menu">
-                <li><a href="/results">Quien no me sigue</a></li>
-                <li><a href="/#how-works">¿Como funciona?</a></li>
+                <li><a href="/results">Who doesn't follow me back on Instagram</a></li>
+                <li><a href="/#how-works">How it works</a></li>
                 <li><a href="/#steps">Video Tutorial</a></li>
                 <li><a href="/blog">Blog</a></li>
             </ul>

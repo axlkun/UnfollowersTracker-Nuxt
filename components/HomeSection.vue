@@ -4,9 +4,7 @@
         <v-sheet class="d-flex flex-md-row flex-column justify-center align-center home-container" style="gap: 20px;">
             <v-sheet class="d-flex flex-column justify-center align-center bg-grey-lighten-4 custom-sizing">
                 <v-sheet class=" mx-auto mb-8 bg-grey-lighten-4">
-                    <h1 class="text-h4 text-md-h3 mb-2 font-weight-bold text-grey-darken-3">Descubre quién no te sigue de
-                        vuelta
-                        en <span class="text-pink">Instagram</span>
+                    <h1 class="text-h4 text-md-h3 mb-2 font-weight-bold text-grey-darken-3">Discover who doesn't follow you back on <span class="text-pink">Instagram</span>
                         <a href="https://www.instagram.com/" target="_blank">
                             <v-icon>
                                 <img :src="instagramLogo" alt="Icono Instagram SVG" style="width: 32px; height: 32px;"
@@ -16,15 +14,13 @@
                     </h1>
 
                     <p class="text-h7 text-md-h5 text-grey-darken-1 font-weight-bold">
-                        ¡Descubre al instante quién no te sigue en Instagram sin necesidad de contraseñas! Toma el control
-                        de tu
-                        círculo social de forma sencilla y segura.
+                        Instantly find out who isn't following you on Instagram without the need for passwords! Take control of your social circle easily and securely.
                     </p>
 
                     <v-sheet class="d-flex flex-md-row flex-column align-center bg-grey-lighten-4">
                         <v-btn prepend-icon="mdi mdi-account-remove" variant="elevated" href="/results"
                             class="mt-10 mx-center" color="pink">
-                            Quién no me sigue
+                            Discover Unfollowers
                         </v-btn>
                     </v-sheet>
 

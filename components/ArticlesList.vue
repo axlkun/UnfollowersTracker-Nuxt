@@ -23,7 +23,7 @@
 
             <v-card-actions>
                 <v-btn color="pink" :href="'/blog/' + article.slug">
-                    Leer
+                    Read more
                 </v-btn>
             </v-card-actions>
         </v-card>

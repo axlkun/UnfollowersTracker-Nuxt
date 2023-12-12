@@ -1,81 +1,106 @@
 <template>
-<v-sheet>
+    <v-sheet>
 
-    <v-sheet class="privacy">
+        <v-sheet class="privacy">
 
-        <div class="section">
-            <h1>Política de Privacidad para Unfollowers Tracker</h1>
-            <p>Valoramos su seguridad, privacidad y derechos de datos.</p>
+            <div class="section">
+                <h1>Privacy Policy for Unfollowers Tracker</h1>
+                <p>We value your security, privacy, and data rights.</p>
 
-            <p class="fecha">Fecha de entrada en vigencia 07/09/2023</p>
-        </div>
-        
-    
-        <div class="section">
-            <h2>1. Introducción</h2>
-    
-            <p>Esta Política de Privacidad describe nuestras políticas y procedimientos sobre la recopilación y uso de Su información cuando utiliza el servicio. Utilizamos sus datos personales para proporcionar y mejorar el servicio. Al utilizar el Servicio, usted acepta la recopilación y el uso de información de acuerdo con esta Política de Privacidad.</p>
-        </div>
-        
-    
-        <div class="section">
-            <h2>2. Información que Recopilamos</h2>
-    
-            <p>Para proporcionarle los servicios de nuestro sitio web, permitimos que usted, como usuario, nos proporcione un archivo ZIP que contiene información pública sobre las cuentas a las que sigue y quienes le siguen en Instagram. Esta información es pública dentro de Instagram y está disponible para cualquier usuario de la plataforma. No recopilamos esta información directamente de Instagram ni la compartimos con terceros.</p>
-        </div>
-
-        <div class="section">
-            <h3>2.2. Información de Cookies y Tecnologías Similares</h3>
-    
-            <p>Utilizamos cookies y tecnologías similares para recopilar información sobre su actividad en el sitio web. Estas tecnologías nos permiten mejorar su experiencia en el sitio, analizar tendencias y administrar el sitio de manera efectiva. Puede encontrar más información sobre cómo utilizamos las cookies en nuestra Política de Cookies (ver Sección 4).</p>
-        </div>
-
-        <div class="section">
-            <h2>3. Uso de la Información</h2>
-            <p>Utilizamos la información que usted nos proporciona, específicamente los datos de seguidos y seguidores de Instagram, para los siguientes fines:</p>
-        
-                <li>Para calcular y mostrar la lista de usuarios que no le siguen en Instagram.</li>
-                <li>Para proporcionarle información sobre sus seguidos y seguidores en Instagram, basándonos en los datos proporcionados por usted.</li>
-                <li>Para mejorar y personalizar su experiencia en nuestro sitio web.</li>
-        </div>
-
-        <div class="section">
-            <h2>4. Política de Cookies</h2>
-            <p>Nuestra Política de Cookies se encuentra disponible en <a href="/politica-de-cookies-unfollowrstracker">Cookies</a>. Lea esta política para obtener información detallada sobre cómo utilizamos las cookies y cómo puede administrar sus preferencias de cookies.</p>
-        </div>
-
-        <div class="section">
-            <h2>5. Divulgación de la Información</h2>
-            <p>No vendemos, alquilamos ni compartimos la información de los datos de seguidos y seguidores de Instagram que usted proporciona con terceros. Los datos se utilizan exclusivamente para proporcionarle los servicios ofrecidos en nuestro sitio web.</p>
-        </div>
-
-        <div class="section">
-            <h2>6. Seguridad de Datos</h2>
-            <p>Tomamos medidas razonables para proteger los datos que usted nos proporciona. Sin embargo, tenga en cuenta que estos datos son públicos en Instagram, y no podemos garantizar la seguridad absoluta de los mismos.</p>
-        </div>
-
-        <div class="section">
-            <h2>7. Cambios en el Acuerdo</h2>
-            <p>Nos reservamos el derecho de actualizar y modificar este acuerdo en cualquier momento. Cualquier cambio será comunicado a través del sitio web. Le recomendamos que revise periódicamente este acuerdo para estar al tanto de cualquier cambio.</p>
-        </div>
+                <p class="fecha">Effective Date 07/09/2023</p>
+            </div>
 
 
-        <div class="section">
-            <h2>8. Preguntas y Contacto</h2>    
-            <p>Si tiene alguna pregunta o comentario sobre este acuerdo o sobre nuestras prácticas de privacidad y cookies, no dude en ponerse en contacto con nosotros a través de <a href="mailto:axelcruz.dev@gmail.com" class="">axelcruz.dev@gmail.com.</a>.</p>
-        </div>
-        
-        
+            <div class="section">
+                <h2>1. Introduction</h2>
+
+                <p>This Privacy Policy describes our policies and procedures regarding the collection and use of
+                    Your information when you use the service. We use your personal data to provide and improve
+                    the service. By using the Service, you agree to the collection and use of information in accordance
+                    with this Privacy Policy.</p>
+            </div>
+
+
+            <div class="section">
+                <h2>2. Information We Collect</h2>
+
+                <p>To provide you with the services of our website, we allow you, as a user, to provide us
+                    with a ZIP file containing public information about the accounts you follow and those
+                    who follow you on Instagram. This information is public within Instagram and is available
+                    to any user on the platform. We do not collect this information directly from Instagram
+                    nor do we share it with third parties.</p>
+
+            </div>
+
+            <div class="section">
+                <h3>2.2. Cookie and Similar Technologies Information</h3>
+
+                <p>We use cookies and similar technologies to collect information about your activity on the website.
+                    These technologies enable us to enhance your experience on the site, analyze trends, and manage the
+                    site effectively. You can find more information about how we use cookies in our
+                    Cookies Policy (see Section 4).</p>
+
+            </div>
+
+            <div class="section">
+                <h2>3. Use of Information</h2>
+
+                <p>We use the information you provide to us, specifically the data of those you follow and your followers
+                    on Instagram, for the following purposes:</p>
+
+                <li>To calculate and display the list of users who don't follow you on Instagram.</li>
+                <li>To provide you with information about your following and followers on Instagram, based on the data
+                    provided by you.</li>
+                <li>To enhance and personalize your experience on our website.</li>
+
+            </div>
+
+            <div class="section">
+                <h2>4. Cookies Policy</h2>
+                <p>Our Cookies Policy is available at <a href="/politica-de-cookies-unfollowrstracker">Cookies</a>. LPlease
+                    read this policy for detailed information on how we use cookies and how you can manage your cookie
+                    preferences.</p>
+            </div>
+
+            <div class="section">
+                <h2>5. Disclosure of Information</h2>
+                <p>We do not sell, rent, or share the information of the Instagram following and followers data
+                    you provide with third parties. The data is used exclusively to provide you with the
+                    services offered on our website.</p>
+
+            </div>
+
+            <div class="section">
+                <h2>6. Data Security</h2>
+                <p>We take reasonable measures to protect the data you provide to us. However, please be
+                    aware that this data is public on Instagram, and we cannot guarantee its absolute security.</p>
+
+            </div>
+
+            <div class="section">
+                <h2>7. Changes to the Agreement</h2>
+                <p>We reserve the right to update and modify this agreement at any time. Any changes
+                    will be communicated through the website. We recommend reviewing this agreement periodically
+                    to stay informed about any changes.</p>
+
+            </div>
+
+
+            <div class="section">
+                <h2>8. Questions and Contact</h2>
+                <p>If you have any questions or comments about this agreement or our privacy and
+                    cookie practices, feel free to contact us via <a href="mailto:axelcruz.dev@gmail.com">axelcruz.dev@gmail.com.</a>.</p>
+            </div>
+
+
+        </v-sheet>
+
+
     </v-sheet>
-   
-
-</v-sheet>
 </template>
 
 <script>
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

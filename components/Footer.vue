@@ -4,27 +4,27 @@
     <div class="d-flex flex-sm-row flex-column justify-space-between footer-section">
 
       <div class="section">
-        <p>Navegacion</p>
+        <p>Navigation</p>
 
         <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/#how-works">¿Cómo funciona?</a></li>
-          <li><a href="/#steps">Tutorial</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#how-works">How it works</a></li>
+          <li><a href="/#steps">Video Tutorial</a></li>
           <li><a href="/blog">Blog</a></li>
         </ul>
       </div>
 
       <div class="section">
-        <p>Herramientas Gratis</p>
+        <p>Free tools</p>
 
         <ul>
-          <li><a href="/results">Quien no me sigue en Instagram</a></li>
+          <li><a href="/results">Who doesn't follow me back on Instagram</a></li>
         </ul>
 
       </div>
 
       <div class="section">
-        <p class="ultimos-acrticulos">Últimos artículos</p>
+        <p class="ultimos-acrticulos">Latest articles</p>
         <ul>
           <li v-for="article in blogEntry"><a :href="'/blog/' + article.slug">{{ article.title }}</a></li>
         </ul>
@@ -34,18 +34,18 @@
         <p>Legal</p>
 
         <ul>
-          <li><a href="/terminos-y-condiciones-unfollowerstracker">Términos</a></li>
-          <li><a href="/politica-de-privacidad-unfollowerstracker">Privacidad</a></li>
+          <li><a href="/terminos-y-condiciones-unfollowerstracker">Terms</a></li>
+          <li><a href="/politica-de-privacidad-unfollowerstracker">Privacy</a></li>
           <li><a href="/politica-de-cookies-unfollowerstracker">Cookies</a></li>
         </ul>
       </div>
 
       <div class="section">
-        <p>¿Tienes preguntas?</p>
+        <p>Have questions?</p>
 
         <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated" href="mailto:axelcruz.dev@gmail.com"
           class="ma-5" color="pink">
-          Contáctanos
+          Contact us
         </v-btn>
       </div>
 

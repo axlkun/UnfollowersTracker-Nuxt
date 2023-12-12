@@ -6,8 +6,8 @@
             style="min-height: 90vh">
             <v-sheet class="d-flex flex-column justify-center bg-grey-lighten-4">
                 <v-sheet class="custom-sizing mx-auto mb-8 bg-grey-lighten-4">
-                    <h1 class="text-sm-h2 text-h3 mb-8 font-weight-bold text-grey-darken-3">Conoce tu lista de Fans
-                        y <span class="text-pink">Unfollowers</span>
+                    <h1 class="text-sm-h2 text-h3 mb-8 font-weight-bold text-grey-darken-3">Discover your fans
+                        and <span class="text-pink">Unfollowers</span>
                         <a href="https://www.instagram.com/" target="_blank">
                             <v-icon>
                                 <img :src="instagramLogo" alt="Icono Instagram SVG" style="width: 32px; height: 32px;"
@@ -16,14 +16,14 @@
                         </a>
                     </h1>
 
-                    <p class="text-h6 text-grey-darken-1 font-weight-bold">Gestiona tu lista de seguidos y seguidores. Solo
-                        adjunta el ZIP que solicitaste a Instagram aquí abajo &#128071;
+                    <p class="text-h6 text-grey-darken-1 font-weight-bold">Manage your list of following and followers. Simply
+                        attach the ZIP file you requested from Instagram below. &#128071;
                     </p>
                 </v-sheet>
 
                 <v-sheet class="w-100 d-flex flex-column justify-center align-center bg-grey-lighten-4">
 
-                    <v-file-input :rules="rules" accept=".zip" label="Selecciona el archivo ZIP" @change="handleFileChange"
+                    <v-file-input :rules="rules" accept=".zip" label="Select the ZIP file" @change="handleFileChange"
                         class="custom-sizing" @click:clear="clearFile">
                     </v-file-input>
 
@@ -31,11 +31,11 @@
                         class="d-flex flex-sm-row flex-column text-center mt-5 mb-5 justify-center w-100 bg-grey-lighten-4">
                         <v-btn prepend-icon="mdi mdi-account-remove" variant="elevated" @click="requestAPI" class="ma-3"
                             color="pink">
-                            Buscar
+                            Discover Unfollowers
                         </v-btn>
 
                         <v-btn href="/#steps" prepend-icon="mdi mdi-help" variant="tonal" class="ma-3">
-                            Cómo obtengo el ZIP
+                            How can I get the ZIP
                         </v-btn>
                     </v-sheet>
                 </v-sheet>
@@ -65,7 +65,7 @@
                 <v-window-item key="unfollowers" value="unfollowers" class="bg-transparent mb-sm-0 mb-5">
 
                     <div class="custom-sizing-card pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
-                        <p>{{ unfollowers.length }} usuarios no te siguen de vuelta</p>
+                        <p>{{ unfollowers.length }} users don't follow you back</p>
                     </div>
 
                     <div>
@@ -77,7 +77,7 @@
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1">@{{ item.user_name }}</p>
-                                    <p class="ma-1 text-grey" style="font-size: 14px;">Desde {{ item.date }}</p>
+                                    <p class="ma-1 text-grey" style="font-size: 14px;">Since {{ item.date }}</p>
                                 </div>
                             </div>
 
@@ -85,9 +85,8 @@
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="grey-darken-3" :href="item.enlace"
                                     target="_blank">Ver perfil</v-btn>
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="pink"
-                                    @click="removeItemUnfollowers(index)">Quitar de la lista<v-tooltip activator="parent"
-                                        location="top">Indica que ya lo dejaste de
-                                        seguir</v-tooltip></v-btn>
+                                    @click="removeItemUnfollowers(index)">Remove<v-tooltip activator="parent"
+                                        location="top">Indicate that you have unfollowed</v-tooltip></v-btn>
                             </div>
                         </div>
 
@@ -99,7 +98,7 @@
                 <!-- seccion de fans -->
                 <v-window-item key="fans" value="fans">
                     <div class="custom-sizing-card pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
-                        <p>{{ fans.length }} usuarios no sigues de vuelta</p>
+                        <p>{{ fans.length }} you dont' follow back</p>
                     </div>
 
                     <div>
@@ -111,7 +110,7 @@
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1">@{{ item.user_name }}</p>
-                                    <p class="ma-1 text-grey" style="font-size: 14px;">Desde {{ item.date }}</p>
+                                    <p class="ma-1 text-grey" style="font-size: 14px;">Since {{ item.date }}</p>
                                 </div>
                             </div>
 
@@ -119,8 +118,8 @@
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="grey-darken-3" :href="item.enlace"
                                     target="_blank">Ver perfil</v-btn>
                                 <v-btn size="x-small" class="ma-2" variant="tonal" color="green-darken-4"
-                                    @click="removeItemFans(index)">Quitar de la lista<v-tooltip activator="parent"
-                                        location="top">Indica que ya lo sigues</v-tooltip></v-btn>
+                                    @click="removeItemFans(index)">Remove<v-tooltip activator="parent"
+                                        location="top">Indicate that you are already following</v-tooltip></v-btn>
                             </div>
                         </div>
 

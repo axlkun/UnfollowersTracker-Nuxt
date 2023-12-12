@@ -5,11 +5,9 @@
                 Blog
             </v-chip>
 
-            <h2 class="pt-5 text-h5 text-md-h4  ma-1 font-weight-black text-pink">Artículos sobre estrategias en redes sociales, como alimentar el algoritmo, planes para crecer
-                una audencia y mucho más...</h2>
+            <h2 class="pt-5 text-h5 text-md-h4  ma-1 font-weight-black text-pink">Articles on social media strategies, such as feeding the algorithm, plans to grow an audience, and much more...</h2>
 
-            <p class="pt-5 text-h7 text-md-h6 ma-5 font-weight-bold text-grey-darken-1">Lee los últimos artículos redactados, encuentra uno nuevo cada semana y maneja tus redes
-                sociales como un profesional!</p>
+            <p class="pt-5 text-h7 text-md-h6 ma-5 font-weight-bold text-grey-darken-1">Read the latest well-crafted articles, discover a new one every week, and manage your social media like a professional!</p>
         </v-sheet>
 
 
