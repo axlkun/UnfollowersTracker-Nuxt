@@ -51,4 +51,11 @@ export default {
     background: transparent;
     margin: 0 auto;
 }
+
+.text-visible {
+    white-space: nowrap;
+    overflow: hidden;
+    white-space: initial;
+    line-height: 1.2;
+}
 </style>

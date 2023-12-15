@@ -11,9 +11,9 @@
         </v-sheet>
 
 
-        <v-sheet class="d-flex flex-md-row flex-column justify-center bg-transparent mb-10" style="gap: 30px;">
+        <v-sheet class="d-flex justify-center justify-md-space-between flex-wrap ga-3 bg-transparent mb-10 custom-grid">
            
-            <v-card v-for="article in blogEntry" class="mx-auto rounded-lg" max-width="350" variant="elevated">
+            <v-card v-for="article in blogEntry" class="rounded-lg mb-5" max-width="350" variant="elevated">
                 <v-img height="200" :src="`${dominio}${article.imageUrl}`"
                     cover>
                     
@@ -66,10 +66,18 @@ export default {
     }
 }
 
+.custom-grid{
+
+    width: 95%;
+    @media only screen and (min-width: 960px) {
+        width: 80%;
+    }
+}
+
 .text-visible {
     white-space: nowrap;
     overflow: hidden;
     white-space: initial;
-    line-height: 1;
+    line-height: 1.2;
 }
 </style>
