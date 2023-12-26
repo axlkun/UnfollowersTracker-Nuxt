@@ -52,15 +52,15 @@
 
                     <v-sheet class="project-info">
                         <v-sheet class="link-container">
-                            <h3>Autor</h3>
+                            <h3>Writer</h3>
                             <a href="https://twitter.com/Axlkun">Axel Cruz</a>
                         </v-sheet>
                         <v-sheet class="link-container">
-                            <h3>Fecha</h3>
+                            <h3>Date</h3>
                             <p> {{ article.created_date }} </p>
                         </v-sheet>
                         <v-sheet class="link-container">
-                            <h3>Tiempo de lectura</h3>
+                            <h3>Time reading</h3>
                             <p>3 min</p>
                         </v-sheet>
                     </v-sheet>
@@ -79,7 +79,7 @@
         </v-sheet>
 
         <v-sheet class="title-container">
-            <h2>Artículos relacionados</h2>
+            <h2>Related articles</h2>
         </v-sheet>
 
         <ArticlesList :blogEntry="articles"></articlesList>
