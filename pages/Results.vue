@@ -16,7 +16,8 @@
                         </a>
                     </h1>
 
-                    <p class="text-h6 text-grey-darken-1 font-weight-bold">Manage your list of following and followers. Simply
+                    <p class="text-h6 text-grey-darken-1 font-weight-bold">Manage your list of following and followers.
+                        Simply
                         attach the ZIP file you requested from Instagram below. &#128071;
                     </p>
                 </v-sheet>
@@ -47,8 +48,8 @@
         </v-sheet>
 
         <!-- seccion de resultados -->
-        <v-sheet v-if="unfollowers.length > 0" class="d-flex flex-column bg-white pt-sm-16 pt-0 pb-10" style="min-height: 100vh"
-            id="results">
+        <v-sheet v-if="unfollowers.length > 0" class="d-flex flex-column bg-white pt-sm-16 pt-0 pb-10"
+            style="min-height: 100vh" id="results">
 
             <v-tabs v-model="tab" fixed-tabs class="bg-transparent w-100 ma-5">
                 <v-tab>
@@ -252,16 +253,26 @@ const clearFile = () => {
 const getUser = () => {
     const fileName = selectedFile.value.name;
 
-    if (fileName.includes('-')) {
-        const split = fileName.split('-');
+    // if (fileName.includes('-')) {
+    //     const split = fileName.split('-');
 
-        if (split[0] === 'instagram' && split[split.length - 1].includes('.zip')) {
-            const lastElement = split[split.length - 1];
-            return lastElement.replace('.zip', '');
-        }
+    //     if (split[0] === 'instagram' && split[split.length - 1].includes('.zip')) {
+    //         const lastElement = split[split.length - 1];
+    //         return lastElement.replace('.zip', '');
+    //     }
+    // }
+
+    // return false;
+
+    // Define el patrón de la expresión regular
+    const patron = /^.*instagram.*\.zip$/;
+
+    // Prueba si el string cumple con el patrón
+    if (patron.test(fileName)) {
+        return fileName; // El string cumple con la validación
+    } else {
+        return false; // El string no cumple con la validación
     }
-
-    return false;
 };
 
 const sendZIP = async (user) => {
