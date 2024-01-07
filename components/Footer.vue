@@ -36,7 +36,7 @@
         <ul>
           <li><a href="/terminos-y-condiciones-unfollowerstracker">Terms</a></li>
           <li><a href="/politica-de-privacidad-unfollowerstracker">Privacy</a></li>
-          <li><a href="/politica-de-cookies-unfollowerstracker">Cookies</a></li>
+          <li><a href="/cookie-policy-unfollowerstracker">Cookies</a></li>
         </ul>
       </div>
 

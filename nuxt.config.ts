@@ -11,7 +11,7 @@ export default defineNuxtConfig({
         { 'http-equiv': 'content-language', content: 'en' },
         // ...otras etiquetas meta
       ],
-      title: 'UnfollowersTracker',
+      title: 'UnfollowersTracker | Discover your Instagram Unfollowers',
 
       script: [
         {
@@ -59,7 +59,7 @@ export default defineNuxtConfig({
       pages.push(
         {
           name: 'cookies',
-          path: '/politica-de-cookies-unfollowerstracker',
+          path: '/cookie-policy-unfollowerstracker',
           file: '~/pages/Cookies.vue'
         },
         {

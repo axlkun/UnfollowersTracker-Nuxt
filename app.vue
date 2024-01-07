@@ -20,7 +20,7 @@ Cookie Policy. You can change settings in your browser at any time.
               </div>
             </v-card-text>
             <v-card-actions class="mx-auto">
-              <v-btn size="small" variant="text" color="pink" href="/politica-de-cookies-unfollowerstracker">
+              <v-btn size="small" variant="text" color="pink" href="/cookie-policy-unfollowerstracker">
                 Read more
               </v-btn>
               <v-btn size="x-small" variant="tonal" color="pink" @click="acceptCookies">
