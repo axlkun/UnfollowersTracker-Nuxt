@@ -33,7 +33,7 @@
             <div class="section">
                 <h2>3. Privacy</h2>
 
-                <p>We respect your privacy. Please refer to our <a href="/politica-de-privacidad-unfollowerstracker">Privacy
+                <p>We respect your privacy. Please refer to our <a href="/privacy-policy-unfollowerstracker">Privacy
                         Policy</a> for more information on how we collect, use, and protect your
                     personal data.</p>
             </div>

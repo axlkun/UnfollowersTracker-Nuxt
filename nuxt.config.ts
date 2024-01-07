@@ -69,7 +69,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'Privacidad',
-          path: '/politica-de-privacidad-unfollowerstracker',
+          path: '/privacy-policy-unfollowerstracker',
           file: '~/pages/Privacy.vue'
         },
         {
