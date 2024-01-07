@@ -64,7 +64,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'Terminos',
-          path: '/terminos-y-condiciones-unfollowerstracker',
+          path: '/terms-and-conditions-unfollowerstracker',
           file: '~/pages/Terms.vue'
         },
         {
