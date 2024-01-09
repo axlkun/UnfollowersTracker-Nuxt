@@ -193,8 +193,6 @@ const requestAPI = async () => {
             return;
         }
 
-        const user = getUser();
-
         console.log(user);
 
         if (!user) {
