@@ -255,24 +255,26 @@ const getUser = () => {
 
     if (fileName.includes("instagram") && fileName.endsWith(".zip")) {
         // Obtener el año actual
-        const year = new Date().getFullYear().toString();
+        // const year = new Date().getFullYear().toString();
 
-        // Construir la cadena que indica el año actual
-        const yearString = year.toString();
+        // // Construir la cadena que indica el año actual
+        // const yearString = year.toString();
 
-        // Extraer la parte entre "instagram" y el año actual
-        const startIndex = fileName.indexOf("instagram") + "instagram".length;
-        const endIndex = fileName.indexOf(yearString);
+        // // Extraer la parte entre "instagram" y el año actual
+        // const startIndex = fileName.indexOf("instagram") + "instagram".length;
+        // const endIndex = fileName.indexOf(yearString);
 
-        if (startIndex < 0 || endIndex < 0) {
-            // Si no se encuentra la información necesaria, devolver null o manejar el error según sea necesario
-            return false;
-        }
+        // if (startIndex < 0 || endIndex < 0) {
+        //     // Si no se encuentra la información necesaria, devolver null o manejar el error según sea necesario
+        //     return false;
+        // }
 
-        const usuarioConGuiones = fileName.substring(startIndex, endIndex);
+        // const usuarioConGuiones = fileName.substring(startIndex, endIndex);
 
-        // Eliminar los guiones y obtener el nombre de usuario final
-        const nombreUsuario = usuarioConGuiones.replace(/-/g, '');
+        // // Eliminar los guiones y obtener el nombre de usuario final
+        // const nombreUsuario = usuarioConGuiones.replace(/-/g, '');
+
+        const nombreUsuario = fileName.replace(/\./g, '-');
 
         return nombreUsuario;
     } else {
