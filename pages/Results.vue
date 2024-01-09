@@ -195,6 +195,8 @@ const requestAPI = async () => {
 
         const user = getUser();
 
+        console.log(user);
+
         if (!user) {
             alertText.value = 'Im sorry, it seems that the ZIP file name is not original or not the expected ZIP';
             alert.value = true;
@@ -253,25 +255,31 @@ const clearFile = () => {
 const getUser = () => {
     const fileName = selectedFile.value.name;
 
-    // if (fileName.includes('-')) {
-    //     const split = fileName.split('-');
+    if (fileName.includes("instagram") && fileName.endsWith(".zip")) {
+        // Obtener el año actual
+        const year = new Date().getFullYear().toString();
 
-    //     if (split[0] === 'instagram' && split[split.length - 1].includes('.zip')) {
-    //         const lastElement = split[split.length - 1];
-    //         return lastElement.replace('.zip', '');
-    //     }
-    // }
+        // Construir la cadena que indica el año actual
+        const yearString = year.toString();
 
-    // return false;
+        // Extraer la parte entre "instagram" y el año actual
+        const startIndex = fileName.indexOf("instagram") + "instagram".length;
+        const endIndex = fileName.indexOf(yearString);
 
-    // Define el patrón de la expresión regular
-    const patron = /^.*instagram.*\.zip$/;
+        if (startIndex < 0 || endIndex < 0) {
+            // Si no se encuentra la información necesaria, devolver null o manejar el error según sea necesario
+            return false;
+        }
 
-    // Prueba si el string cumple con el patrón
-    if (patron.test(fileName)) {
-        return fileName; // El string cumple con la validación
+        const usuarioConGuiones = fileName.substring(startIndex, endIndex);
+
+        // Eliminar los guiones y obtener el nombre de usuario final
+        const nombreUsuario = usuarioConGuiones.replace(/-/g, '');
+
+        return nombreUsuario;
     } else {
-        return false; // El string no cumple con la validación
+        // Si el nombre de archivo no cumple con los requisitos, devolver null o manejar el error según sea necesario
+        return false;
     }
 };
 
