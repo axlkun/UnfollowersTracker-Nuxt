@@ -159,7 +159,7 @@ import instagramLogo from '../assets/instagram-logo.svg';
 
 const rules = ref([
     value => {
-        return !value || !value.length || value[0].size < 5000000 || 'El archivo ZIP debe pesar menos de 5MB';
+        return !value || !value.length || value[0].size < 5000000 || 'The ZIP file size must be less than 5MB';
     },
 ]);
 
@@ -188,7 +188,7 @@ const handleFileChange = (event) => {
 const requestAPI = async () => {
     try {
         if (!selectedFile.value) {
-            alertText.value = 'No se ha seleccionado el archivo ZIP.';
+            alertText.value = 'The ZIP file has not been selected';
             alert.value = true;
             return;
         }
@@ -196,7 +196,7 @@ const requestAPI = async () => {
         const user = getUser();
 
         if (!user) {
-            alertText.value = 'Lo siento, parece que el nombre del archivo ZIP no es el original o no es el ZIP esperado.';
+            alertText.value = 'Im sorry, it seems that the ZIP file name is not original or not the expected ZIP';
             alert.value = true;
             return;
         }
@@ -207,7 +207,7 @@ const requestAPI = async () => {
 
         if (!sendZip) {
             isLoading.value = false;
-            alertText.value = 'Se ha producido un error al enviar el archivo ZIP. Inténtalo más tarde.';
+            alertText.value = 'An error occurred while sending the ZIP file. Please try again later';
             alert.value = true;
             return;
         }
@@ -223,7 +223,7 @@ const requestAPI = async () => {
 
         if (!unfollowers.value && !fans.value) {
             isLoading.value = false;
-            alertText.value = 'Se ha producido un error al obtener la lista de unfollowers y fans. Inténtalo más tarde.';
+            alertText.value = 'An error occurred while getting the list of unfollowers and fans. Please try again later';
             alert.value = true;
             return;
         }
@@ -232,7 +232,7 @@ const requestAPI = async () => {
         loadPageDataFans();
 
     } catch (error) {
-        alertText.value = 'Se ha producido un error inesperado. Inténtalo más tarde.';
+        alertText.value = 'An unexpected error has occurred. Please try again later.';
         console.log('Catch error: ' + error);
         alert.value = true;
     } finally {
