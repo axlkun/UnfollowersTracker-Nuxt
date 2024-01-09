@@ -134,7 +134,7 @@
         <!-- Utilidades -->
 
         <!-- notificacion -->
-        <v-snackbar v-model="alert" :timeout="5000" min-height="80px" transition="scroll-y-reverse-transition">
+        <v-snackbar v-model="alert" :timeout="5000" min-height="80px" transition="scroll-y-reverse-transition" location="top right" class="ma-5">
             {{ alertText }}
 
             <template v-slot:actions>
