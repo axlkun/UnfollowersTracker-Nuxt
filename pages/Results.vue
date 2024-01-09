@@ -193,7 +193,7 @@ const requestAPI = async () => {
             return;
         }
 
-        console.log(user);
+        const user = getUser();
 
         if (!user) {
             alertText.value = 'Im sorry, it seems that the ZIP file name is not original or not the expected ZIP';
