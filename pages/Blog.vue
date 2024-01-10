@@ -77,7 +77,7 @@ useSeoMeta({
     ogType: 'website',
 
     twitterCreator: '@Axlkun',
-    twitterImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
+    twitterImage: 'https://unfollowerstracker.com/unfollowers-twitter-image.png',
     twitterCard: 'summary_large_image',
     twitterTitle: 'UnfollowersTracker | Blog',
     twitterDescription: 'Discover articles related to social media growth, tips on growing an audience, algorithm secrets, and much more on the Unfollowers Tracker Blog, a free tool to manage your Instagram follower list without passwords..'

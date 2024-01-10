@@ -127,7 +127,7 @@ ogUrl: 'https://unfollowerstracker.com/',
 ogType: 'website',
 
 twitterCreator: '@Axlkun',
-twitterImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
+twitterImage: 'https://unfollowerstracker.com/unfollowers-twitter-image.png',
 twitterCard: 'summary_large_image',
 twitterTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
 twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
