@@ -31,9 +31,6 @@ const reloadPage = () => {
     location.reload(true);
 };
 
-onMounted(() => {
-  console.log("Valor recibido: " + props.adblock);
-});
 </script>
 
 <style scoped></style>
