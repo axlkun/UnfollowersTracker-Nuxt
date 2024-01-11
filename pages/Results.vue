@@ -162,6 +162,7 @@ import { scrollToSection } from '../utils';
 import { ref, computed, watch } from 'vue';
 import instagramLogo from '../assets/instagram-logo.svg';
 import AntiAdblocker from '~/components/AntiAdblocker.vue';
+import {checkAdblocker} from '../utils/utils';
 
 const rules = ref([
     value => {
@@ -418,28 +419,28 @@ useSeoMeta({
     twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
 })
 
-const checkAdblocker = () => {
-  try {
-    fetch(
-      new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
-        method: 'HEAD',
-        mode: 'no-cors'
-      })
-    ).then(() => {
-      console.log('Bloqueador de anuncios desactivado');
-    }).catch((error) => {
-      console.log('Bloqueador de anuncios activado');
-      adblocker.value = true;
-    });
-  } catch (e) {
-    // La solicitud falló, probablemente debido al bloqueador de anuncios
-    console.log('Bloqueador de anuncios activado');
-    adblocker.value = true;
-  }
-}
+// const checkAdblocker = () => {
+//   try {
+//     fetch(
+//       new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
+//         method: 'HEAD',
+//         mode: 'no-cors'
+//       })
+//     ).then(() => {
+//       console.log('Bloqueador de anuncios desactivado');
+//     }).catch((error) => {
+//       console.log('Bloqueador de anuncios activado');
+//       adblocker.value = true;
+//     });
+//   } catch (e) {
+//     // La solicitud falló, probablemente debido al bloqueador de anuncios
+//     console.log('Bloqueador de anuncios activado');
+//     adblocker.value = true;
+//   }
+// }
 
-onMounted(() => {
-  checkAdblocker();
+onMounted(async () => {
+  adblocker.value = await checkAdblocker();
 });
 </script>
 
