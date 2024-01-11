@@ -29,15 +29,22 @@
         </v-sheet>
 
         <BlogSection v-else :blogEntry="blogEntry"></BlogSection>
+        
+        <ClientOnly>
+            <AntiAdblocker v-if="adblocker" :adblock="adblocker"></AntiAdblocker>
+        </ClientOnly>
     </v-sheet>
 </template>
 
 <script setup>
 import api from '../api';
 import BlogSection from '../components/BlogSection.vue';
+import AntiAdblocker from '~/components/AntiAdblocker.vue';
+import {checkAdblocker} from '../utils/utils';
 
 const blogEntry = ref([]);
 const loading = ref(true);
+const adblocker = ref(false);
 
 const getArticles = async () => {
     try {
@@ -57,8 +64,9 @@ const getArticles = async () => {
     }
 };
 
-onMounted(() => {
-    getArticles();
+onMounted(async () => {
+  adblocker.value = await checkAdblocker();
+  getArticles();
 });
 
 useSeoMeta({
