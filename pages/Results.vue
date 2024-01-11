@@ -148,6 +148,11 @@
         <v-overlay :model-value="isLoading" class="align-center justify-center">
             <v-progress-circular color="pink" indeterminate size="64"></v-progress-circular>
         </v-overlay>
+
+        <ClientOnly>
+            <AntiAdblocker v-if="adblocker" :adblock="adblocker"></AntiAdblocker>
+        </ClientOnly>
+        
     </div>
 </template>
 
@@ -156,6 +161,7 @@ import api from '../api';
 import { scrollToSection } from '../utils';
 import { ref, computed, watch } from 'vue';
 import instagramLogo from '../assets/instagram-logo.svg';
+import AntiAdblocker from '~/components/AntiAdblocker.vue';
 
 const rules = ref([
     value => {
@@ -175,6 +181,7 @@ const visibleItemsUnfollowers = ref([]);
 const currentPaginationFans = ref(1);
 const visibleItemsFans = ref([]);
 const isLoading = ref(false);
+const adblocker = ref(false);
 
 const handleFileChange = (event) => {
     const files = event.target.files;
@@ -410,6 +417,30 @@ useSeoMeta({
     twitterTitle: 'UnfollowersTracker | List of Unfollowers',
     twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
 })
+
+const checkAdblocker = () => {
+  try {
+    fetch(
+      new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
+        method: 'HEAD',
+        mode: 'no-cors'
+      })
+    ).then(() => {
+      console.log('Bloqueador de anuncios desactivado');
+    }).catch((error) => {
+      console.log('Bloqueador de anuncios activado');
+      adblocker.value = true;
+    });
+  } catch (e) {
+    // La solicitud falló, probablemente debido al bloqueador de anuncios
+    console.log('Bloqueador de anuncios activado');
+    adblocker.value = true;
+  }
+}
+
+onMounted(() => {
+  checkAdblocker();
+});
 </script>
 
 
