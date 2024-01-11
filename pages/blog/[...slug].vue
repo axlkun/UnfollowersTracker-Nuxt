@@ -86,6 +86,10 @@
 
         <CallToAction></CallToAction>
 
+        <ClientOnly>
+            <AntiAdblocker v-if="adblocker" :adblock="adblocker"></AntiAdblocker>
+        </ClientOnly>
+
     </v-sheet>
 </template>
 
@@ -95,6 +99,8 @@ import { useRoute, useRouter } from 'vue-router';
 import api from '../api';
 import ArticlesList from '../components/ArticlesList.vue';
 import CallToAction from '../components/CallToAction.vue';
+import AntiAdblocker from '~/components/AntiAdblocker.vue';
+import { checkAdblocker } from '../../utils/utils';
 
 const route = useRoute();
 const router = useRouter();
@@ -103,6 +109,7 @@ const dominio = api.defaults.baseURL;
 const article = ref(null);
 const articles = ref(null);
 const loading = ref(true);
+const adblocker = ref(false);
 
 const loadData = async () => {
     loading.value = true;
@@ -167,8 +174,13 @@ watch(() => route.params.slug, () => {
     loadData();
 });
 
-onMounted(() => {
-    loadData();
+// onMounted(() => {
+//     loadData();
+// });
+
+onMounted(async () => {
+  adblocker.value = await checkAdblocker();
+  loadData();
 });
 
 </script>
