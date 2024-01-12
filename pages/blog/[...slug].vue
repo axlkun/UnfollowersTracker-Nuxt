@@ -33,7 +33,7 @@
 
             <v-sheet class="description-container">
 
-                <v-breadcrumbs :items="items" divider=">" color="pink"></v-breadcrumbs>
+                <v-breadcrumbs class="pl-0" :items="items" divider=">" color="pink"></v-breadcrumbs>
                 <v-sheet class="project-data">
                     <v-sheet class="project-description">
                         <v-sheet class="title">
