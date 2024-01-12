@@ -2,10 +2,10 @@
     <v-sheet class="d-flex flex-column justify-center custom-sizing mx-auto" style="min-height: 100vh" id="how-works">
 
         <v-sheet class="pa-5 text-center">
-            <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">How does UnfollowersTracker work?</h2>
+            <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">How does the Unfollowers Tracker tool work?</h2>
             <p class="text-h7 text-md-h6 ma-5 font-weight-bold text-grey-darken-1">Our tool analyzes your provided data and
                 compares your list of followers with the list of people you follow. It then shows you who doesn't follow you
-                back.</p>
+                back on Instagram.</p>
         </v-sheet>
 
         <v-expansion-panels>
