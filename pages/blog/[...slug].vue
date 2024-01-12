@@ -32,6 +32,8 @@
         <v-sheet class="container" v-else>
 
             <v-sheet class="description-container">
+
+                <v-breadcrumbs :items="items" divider=">" color="pink"></v-breadcrumbs>
                 <v-sheet class="project-data">
                     <v-sheet class="project-description">
                         <v-sheet class="title">
@@ -102,6 +104,23 @@ import CallToAction from '../components/CallToAction.vue';
 import AntiAdblocker from '~/components/AntiAdblocker.vue';
 import { checkAdblocker } from '../../utils/utils';
 
+const items = ref([
+    {
+          title: 'UnfollowersTracker',
+          disabled: false,
+          href: '/',
+        },
+        {
+          title: 'Blog',
+          disabled: false,
+          href: '/blog',
+        },
+        {
+          title: 'Article',
+          disabled: true,
+        },
+])
+
 const route = useRoute();
 const router = useRouter();
 const slug = ref(route.params.slug);
@@ -121,24 +140,24 @@ const loadData = async () => {
 
             useSeoMeta({
 
-robots: 'index, follow',
-title: () => "UnfollowersTracker | " + article.value.title,
-author: 'Axel Cruz',
-description: () => article.value.summary,
-keywords: 'Instagram, followers, non-followers, free tool, follower management, Instagram optimization, reach on Instagram, no password, follower tracking, follower analytics, Instagram statistics, follower monitoring.',
+                robots: 'index, follow',
+                title: () => "UnfollowersTracker | " + article.value.title,
+                author: 'Axel Cruz',
+                description: () => article.value.summary,
+                keywords: 'Instagram, followers, non-followers, free tool, follower management, Instagram optimization, reach on Instagram, no password, follower tracking, follower analytics, Instagram statistics, follower monitoring.',
 
-ogTitle: 'UnfollowersTracker',
-ogDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
-ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
-ogUrl: 'https://unfollowerstracker.com/',
-ogType: 'website',
+                ogTitle: 'UnfollowersTracker',
+                ogDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
+                ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
+                ogUrl: 'https://unfollowerstracker.com/',
+                ogType: 'website',
 
-twitterCreator: '@Axlkun',
-twitterImage: 'https://unfollowerstracker.com/unfollowers-twitter-image.png',
-twitterCard: 'summary_large_image',
-twitterTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
-twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
-})
+                twitterCreator: '@Axlkun',
+                twitterImage: 'https://unfollowerstracker.com/unfollowers-twitter-image.png',
+                twitterCard: 'summary_large_image',
+                twitterTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
+                twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
+            })
         } else {
             router.push('/');
         }
@@ -179,8 +198,8 @@ watch(() => route.params.slug, () => {
 // });
 
 onMounted(async () => {
-  adblocker.value = await checkAdblocker();
-  loadData();
+    adblocker.value = await checkAdblocker();
+    loadData();
 });
 
 </script>
