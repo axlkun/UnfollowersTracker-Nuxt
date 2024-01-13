@@ -5,7 +5,7 @@
             <h2 class="text-h5 text-md-h4 ma-5 font-weight-black text-pink">Contactar</h2>
             <p class="text-h5 ma-5 font-weight-bold text-grey-darken-1">¿Tienes alguna pregunta, inquietud o simplemente
                 quieres decir hola? No dudes en ponerte en contacto.</p>
-            <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated" href="mailto:axelcruz.dev@gmail.com"
+            <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated" href="mailto:unfollowerstracker2024@gmail.com"
                 class="ma-5" color="pink">
                 Escribir un correo
             </v-btn>

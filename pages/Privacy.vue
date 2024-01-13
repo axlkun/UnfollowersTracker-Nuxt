@@ -89,7 +89,7 @@
             <div class="section">
                 <h2>8. Questions and Contact</h2>
                 <p>If you have any questions or comments about this agreement or our privacy and
-                    cookie practices, feel free to contact us via <a href="mailto:axelcruz.dev@gmail.com">axelcruz.dev@gmail.com.</a>.</p>
+                    cookie practices, feel free to contact us via <a href="mailto:unfollowerstracker2024@gmail.com">email</a>.</p>
             </div>
 
 

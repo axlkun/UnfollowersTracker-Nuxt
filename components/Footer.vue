@@ -43,7 +43,7 @@
       <div class="section">
         <p>Have questions?</p>
 
-        <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated" href="mailto:axelcruz.dev@gmail.com"
+        <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated" href="mailto:unfollowerstracker2024@gmail.com"
           class="ma-5" color="pink">
           Contact us
         </v-btn>
