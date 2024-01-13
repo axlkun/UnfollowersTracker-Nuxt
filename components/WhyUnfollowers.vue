@@ -1,6 +1,6 @@
 <template>
 
-    <v-sheet class="d-flex flex-column justify-center" style="min-height: 100vh">
+    <v-sheet class="d-flex flex-column justify-center mb-5" style="min-height: 100vh">
         <v-sheet class="pa-5 text-center">
             <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">Why use Unfollowers Tracker?</h2>
             <p class="text-h7 text-md-h6 ma-1 font-weight-bold text-grey-darken-1">The safest way to know your unfollowers
