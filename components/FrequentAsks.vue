@@ -11,7 +11,7 @@
                 <v-expansion-panel v-for="item in stepsItems" class="ma-2 bg-grey-lighten-3">
                     <v-expansion-panel-title expand-icon="mdi-plus" collapse-icon="mdi-minus" class="text-h7 text-md-h6 text-grey-darken-4"
                         style="min-height: 80px">
-                        {{ item.title }}
+                        <h3>{{ item.title }}</h3>
                     </v-expansion-panel-title>
                     <v-expansion-panel-text style="line-height: 2;">
                         <div v-html="item.description"></div>
