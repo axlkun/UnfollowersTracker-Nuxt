@@ -8,7 +8,7 @@
             </v-sheet>
     
             <v-expansion-panels>
-                <v-expansion-panel v-for="item in stepsItems" class="ma-2 bg-grey-lighten-3">
+                <v-expansion-panel v-for="item in stepsItems" class="ma-2 mb-4 bg-grey-lighten-3">
                     <v-expansion-panel-title expand-icon="mdi-plus" collapse-icon="mdi-minus" class="text-h7 text-md-h6 text-grey-darken-4"
                         style="min-height: 80px">
                         <h3>{{ item.title }}</h3>
