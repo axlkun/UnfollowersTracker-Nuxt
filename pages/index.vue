@@ -15,6 +15,8 @@
         <!-- seccion de Por que Unfollowers -->
         <WhyUnfollowers></WhyUnfollowers>
 
+       <FrequentAsks></FrequentAsks> 
+
         <!-- seccion de contacto  -->
         <!-- <ContactSection></ContactSection> -->
         
@@ -30,6 +32,7 @@ import VideoTutorial from '../components/VideoTutorial.vue';
 import BlogSection from '../components/BlogSection.vue';
 import WhyUnfollowers from '../components/WhyUnfollowers.vue';
 import ContactSection from '../components/ContactSection.vue';
+import FrequentAsks from '~/components/FrequentAsks.vue';
 import CallToAction from '../components/CallToAction.vue';
 
 const props = defineProps(['blogEntry']);
