@@ -45,7 +45,7 @@
                         </v-sheet>
 
                         <v-sheet class="d-flex flex-wrap justify-start mt-2 mb-2">
-                            <v-chip v-for="category in article.categories" class="mr-2 mb-2" color="#E91E63">
+                            <v-chip v-for="category in article.categories" class="mr-2 mb-2" color="#424242">
                                 {{ category.name }}
                             </v-chip>
                         </v-sheet>
@@ -224,7 +224,7 @@ onMounted(async () => {
 .title {
     font-size: 25px;
     font-weight: bold;
-    color: #E91E63;
+    color: #212121;
     text-align: start;
     line-height: 1.1;
 
@@ -237,7 +237,7 @@ onMounted(async () => {
 
 .description {
     margin: 15px 0;
-    color: #E91E63;
+    color: #212121;
 }
 
 .img-container {
@@ -296,7 +296,7 @@ onMounted(async () => {
 }
 
 .project-info h3 {
-    color: #E91E63;
+    color: #212121;
 }
 
 .article-content {
@@ -313,10 +313,10 @@ onMounted(async () => {
     width: 90%;
     font-size: 25px;
     margin: 15px auto;
-    color: #E91E63;
+    color: #212121;
     background: transparent;
     text-align: start;
-    border-top: 1px solid #E91E63;
+    border-top: 1px solid #212121;
 
     @media only screen and (min-width: 1024px) {
         font-size: 35px;

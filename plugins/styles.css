@@ -39,17 +39,19 @@
   
   .html-content h2,
   .html-content h3 {
-    color: #E91E63;
+    /* color: #E91E63; */
+    color: #212121;
     margin-bottom: 15px;
     font-size: 25px;
   
     @media only screen and (min-width: 1024px) {
-      font-size: 35px;
+      font-size: 30px;
     }
   }
   
   .html-content h3,
   .html-content h3 {
+    color: #424242;
     font-size: 20px;
   
     @media only screen and (min-width: 1024px) {
