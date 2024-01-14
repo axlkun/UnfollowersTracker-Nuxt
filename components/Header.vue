@@ -10,6 +10,7 @@
                 <li><a href="/results">Who doesn't follow me back on Instagram</a></li>
                 <li><a href="/#how-works">How it works</a></li>
                 <li><a href="/#steps">Video Tutorial</a></li>
+                <li><a href="/#faqs">FAQ</a></li>
                 <li><a href="/blog">Blog</a></li>
             </ul>
         </nav>
