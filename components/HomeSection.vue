@@ -7,11 +7,6 @@
             <v-sheet class="d-flex flex-column bg-grey-lighten-4 custom-sizing">
                 <v-sheet class=" mx-auto mb-8 bg-grey-lighten-4">
                     <h1 class="text-h5 text-center text-md-h3 text-md-left mt-5 mb-10 font-weight-bold text-grey-darken-3">Track Instagram Unfollowers - Check Who Doesn't Follow You Back on <span class="text-pink">Instagram</span>
-
-                        <v-icon>
-                            <img :src="instagramLogo" alt="Icono Instagram SVG" style="width: 32px; height: 32px;"
-                                loading="lazy" />
-                        </v-icon>
                     </h1>
 
                     <h2 class="text-subtitle-1 text-center text-md-left text-grey-darken-1 mb-5 font-weight-bold">
@@ -40,7 +35,6 @@
 </template>
 
 <script setup>
-import instagramLogo from '../assets/instagram-logo.svg';
 import imgHome from '../assets/hero.png';
 
 </script>
