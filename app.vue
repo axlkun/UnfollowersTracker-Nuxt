@@ -55,7 +55,7 @@ const acceptCookies = () => {
 };
 
 const getArticles = async () => {
-  api.get('/api/articles?limit=3')
+  api.get('/api/articles?limit=6')
     .then(response => {
       blogEntry.value = response.data.data;
     })
