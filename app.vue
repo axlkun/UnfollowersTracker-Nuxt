@@ -89,12 +89,15 @@ onMounted(() => {
 
 .custom-sizing-img {
   aspect-ratio: 1 / 1;
-  width: 80%;
+  width: 100%;
   object-fit: contain;
-  margin: -15px auto;
+  margin: 0 auto;
+  margin-top: -75px;
+  margin-bottom: -35px;
 
   @media only screen and (min-width: 1024px) {
     width: 100%;
+    margin: 0;
 
   }
 }
