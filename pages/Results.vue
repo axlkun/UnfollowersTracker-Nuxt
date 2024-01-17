@@ -9,10 +9,7 @@
                     <h1 class="text-sm-h2 text-h3 mb-8 font-weight-bold text-grey-darken-3">Discover your fans
                         and <span class="text-pink">Unfollowers</span>
                         <a href="https://www.instagram.com/" target="_blank">
-                            <v-icon>
-                                <img :src="instagramLogo" alt="Icono Instagram SVG" style="width: 32px; height: 32px;"
-                                    loading="lazy" />
-                            </v-icon>
+                            
                         </a>
                     </h1>
 
@@ -160,7 +157,6 @@
 import api from '../api';
 import { scrollToSection } from '../utils';
 import { ref, computed, watch } from 'vue';
-import instagramLogo from '../assets/instagram-logo.svg';
 import AntiAdblocker from '~/components/AntiAdblocker.vue';
 import {checkAdblocker} from '../utils/utils';
 
