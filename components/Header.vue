@@ -99,7 +99,7 @@ nav {
     transform: scale(1, 1);
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 960px) {
 
     .header {
         position: static;

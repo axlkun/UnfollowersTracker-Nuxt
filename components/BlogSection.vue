@@ -84,7 +84,7 @@ export default {
     grid-template-columns: 1fr;
     /* Establece una columna por defecto */
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 960px) {
         grid-template-columns: repeat(3, 1fr);
         /* Cambia a dos columnas en pantallas más grandes */
         grid-row-gap: 2rem;

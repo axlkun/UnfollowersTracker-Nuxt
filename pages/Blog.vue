@@ -1,5 +1,8 @@
 <template>
     <v-sheet color="#F5F5F5">
+        <v-sheet class="blog-container">
+
+        
         <v-sheet v-if="loading" class="skeleton-blog">
             <!-- Contenedor principal -->
             <v-sheet>
@@ -10,7 +13,7 @@
                     <v-skeleton-loader type="subtitle" color="#F5F5F5"></v-skeleton-loader>
                     <v-skeleton-loader type="subtitle" color="#F5F5F5"></v-skeleton-loader>
 
-                    <v-sheet class="d-flex flex-column-reverse flex-md-column">
+                    <v-sheet class="d-flex flex-column-reverse flex-md-column" color="#F5F5F5">
                         <template v-for="rowIndex in 1">
                             <v-row :class="rowIndex === 1 ? 'pt-md-10' : ''">
                                 <template v-for="colIndex in 3">
@@ -33,6 +36,7 @@
         <ClientOnly>
             <AntiAdblocker v-if="adblocker" :adblock="adblocker"></AntiAdblocker>
         </ClientOnly>
+    </v-sheet>
     </v-sheet>
 </template>
 
@@ -95,12 +99,19 @@ useSeoMeta({
 
 <style scoped>
 .skeleton-blog{
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.blog-container{
     width: 95%;
     max-width: 120rem;
     margin: 0 auto;
+    background-color: #F5F5F5;
 
-    @media only screen and (min-width: 600px) {
-        width: 70%;
+    @media only screen and (min-width: 1200px) {
+        width: 75%;
     }
 }
 </style>
