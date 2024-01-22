@@ -56,6 +56,7 @@ const getArticles = async () => {
 
         if (response.status === 200) {
             blogEntry.value = response.data.data;
+            showAdblockModal();
         } else {
             console.error('Respuesta no exitosa:', response);
             $router.push('/');
@@ -68,8 +69,14 @@ const getArticles = async () => {
     }
 };
 
+const showAdblockModal = async () => {
+    setTimeout(async () => {
+    adblocker.value = await checkAdblocker();
+  }, 2000);
+}
+
 onMounted(async () => {
-  adblocker.value = await checkAdblocker();
+  
   getArticles();
 });
 
