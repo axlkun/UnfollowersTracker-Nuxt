@@ -158,6 +158,9 @@ const loadData = async () => {
                 twitterTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
                 twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
             })
+
+            showAdblockModal();
+
         } else {
             router.push('/');
         }
@@ -193,12 +196,13 @@ watch(() => route.params.slug, () => {
     loadData();
 });
 
-// onMounted(() => {
-//     loadData();
-// });
+const showAdblockModal = async () => {
+    setTimeout(async () => {
+    adblocker.value = await checkAdblocker();
+  }, 3000);
+}
 
 onMounted(async () => {
-    adblocker.value = await checkAdblocker();
     loadData();
 });
 

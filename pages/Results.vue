@@ -415,28 +415,10 @@ useSeoMeta({
     twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
 })
 
-// const checkAdblocker = () => {
-//   try {
-//     fetch(
-//       new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
-//         method: 'HEAD',
-//         mode: 'no-cors'
-//       })
-//     ).then(() => {
-//       console.log('Bloqueador de anuncios desactivado');
-//     }).catch((error) => {
-//       console.log('Bloqueador de anuncios activado');
-//       adblocker.value = true;
-//     });
-//   } catch (e) {
-//     // La solicitud falló, probablemente debido al bloqueador de anuncios
-//     console.log('Bloqueador de anuncios activado');
-//     adblocker.value = true;
-//   }
-// }
-
 onMounted(async () => {
-  adblocker.value = await checkAdblocker();
+    setTimeout(async () => {
+    adblocker.value = await checkAdblocker();
+  }, 2000);
 });
 </script>
 
