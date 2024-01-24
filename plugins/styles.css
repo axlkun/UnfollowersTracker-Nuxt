@@ -76,3 +76,14 @@
     margin: 0 auto; /* Esto centra la imagen dentro de su contenedor */
     max-height: 100%; /* Opcional: si también deseas limitar la altura */
   }
+
+  .html-content table{
+    width: 100%;
+    border-spacing: 0;
+  }
+
+  .html-content th, .html-content td{
+    border: 1px solid grey;
+    text-align: left;
+    padding: 2px;
+  }
