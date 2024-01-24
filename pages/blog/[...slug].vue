@@ -70,7 +70,7 @@
             </v-sheet>
 
             <v-sheet class="img-container">
-                <v-img :src="`${dominio}${article.imageUrl}`" alt="Imagen artículo" max-height="500" aspect-ratio="16/9"
+                <v-img :src="`${dominio}${article.imageUrl}`" :alt="article.alt_image" max-height="500" aspect-ratio="16/9"
                     cover></v-img>
             </v-sheet>
 
@@ -143,10 +143,10 @@ const loadData = async () => {
                 robots: 'index, follow',
                 title: () => "UnfollowersTracker | " + article.value.title,
                 author: 'Axel Cruz',
-                description: () => article.value.summary,
-                keywords: 'Instagram, followers, non-followers, free tool, follower management, Instagram optimization, reach on Instagram, no password, follower tracking, follower analytics, Instagram statistics, follower monitoring.',
+                description: () => article.value.meta_description,
+                keywords: () => article.value.keywords,
 
-                ogTitle: 'UnfollowersTracker',
+                ogTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
                 ogDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
                 ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
                 ogUrl: 'https://unfollowerstracker.com/',
