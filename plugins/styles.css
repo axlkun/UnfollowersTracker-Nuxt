@@ -87,3 +87,7 @@
     text-align: left;
     padding: 2px;
   }
+
+  .html-content a{
+    text-decoration: underline;
+  }
