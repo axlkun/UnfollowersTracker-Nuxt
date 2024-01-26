@@ -57,7 +57,7 @@
 
             <div class="section">
                 <h2>4. Cookies Policy</h2>
-                <p>Our Cookies Policy is available at <a href="/politica-de-cookies-unfollowrstracker">Cookies</a>. LPlease
+                <p>Our Cookies Policy is available at <a href="/cookie-policy-unfollowerstracker">Cookies</a>. LPlease
                     read this policy for detailed information on how we use cookies and how you can manage your cookie
                     preferences.</p>
             </div>
