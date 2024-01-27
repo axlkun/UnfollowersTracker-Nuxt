@@ -2,41 +2,40 @@
     <v-sheet color="#F5F5F5">
         <v-sheet class="blog-container">
 
-        
-        <v-sheet v-if="loading" class="skeleton-blog">
-            <!-- Contenedor principal -->
-            <v-sheet>
+            <v-sheet v-if="loading" class="skeleton-blog">
+                <!-- Contenedor principal -->
                 <v-sheet>
+                    <v-sheet>
 
-                    <v-skeleton-loader type="chip" color="#F5F5F5"></v-skeleton-loader>
-                    <v-skeleton-loader type="heading" color="#F5F5F5"></v-skeleton-loader>
-                    <v-skeleton-loader type="subtitle" color="#F5F5F5"></v-skeleton-loader>
-                    <v-skeleton-loader type="subtitle" color="#F5F5F5"></v-skeleton-loader>
+                        <v-skeleton-loader type="chip" color="#F5F5F5"></v-skeleton-loader>
+                        <v-skeleton-loader type="heading" color="#F5F5F5"></v-skeleton-loader>
+                        <v-skeleton-loader type="subtitle" color="#F5F5F5"></v-skeleton-loader>
+                        <v-skeleton-loader type="subtitle" color="#F5F5F5"></v-skeleton-loader>
 
-                    <v-sheet class="d-flex flex-column-reverse flex-md-column" color="#F5F5F5">
-                        <template v-for="rowIndex in 1">
-                            <v-row :class="rowIndex === 1 ? 'pt-md-10' : ''">
-                                <template v-for="colIndex in 3">
-                                    <v-col cols="12" md="4">
-                                        <v-skeleton-loader :height="rowIndex == 1 ? 500 : 400" type="image, article, chip"
-                                            color="#F5F5F5"></v-skeleton-loader>
-                                    </v-col>
-                                </template>
-                            </v-row>
-                        </template>
+                        <v-sheet class="d-flex flex-column-reverse flex-md-column" color="#F5F5F5">
+                            <template v-for="rowIndex in 1">
+                                <v-row :class="rowIndex === 1 ? 'pt-md-10' : ''">
+                                    <template v-for="colIndex in 3">
+                                        <v-col cols="12" md="4">
+                                            <v-skeleton-loader :height="rowIndex == 1 ? 500 : 400"
+                                                type="image, article, chip" color="#F5F5F5"></v-skeleton-loader>
+                                        </v-col>
+                                    </template>
+                                </v-row>
+                            </template>
+                        </v-sheet>
+
                     </v-sheet>
-
                 </v-sheet>
+
             </v-sheet>
 
-        </v-sheet>
+            <BlogSection v-else :blogEntry="blogEntry"></BlogSection>
 
-        <BlogSection v-else :blogEntry="blogEntry"></BlogSection>
-        
-        <ClientOnly>
-            <AntiAdblocker v-if="adblocker" :adblock="adblocker"></AntiAdblocker>
-        </ClientOnly>
-    </v-sheet>
+            <ClientOnly>
+                <AntiAdblocker v-if="adblocker" :adblock="adblocker"></AntiAdblocker>
+            </ClientOnly>
+        </v-sheet>
     </v-sheet>
 </template>
 
@@ -44,7 +43,7 @@
 import api from '../api';
 import BlogSection from '../components/BlogSection.vue';
 import AntiAdblocker from '~/components/AntiAdblocker.vue';
-import {checkAdblocker} from '../utils/utils';
+import { checkAdblocker } from '../utils/utils';
 
 const blogEntry = ref([]);
 const loading = ref(true);
@@ -71,13 +70,13 @@ const getArticles = async () => {
 
 const showAdblockModal = async () => {
     setTimeout(async () => {
-    adblocker.value = await checkAdblocker();
-  }, 2000);
+        adblocker.value = await checkAdblocker();
+    }, 2000);
 }
 
 onMounted(async () => {
-  
-  getArticles();
+
+    getArticles();
 });
 
 useSeoMeta({
@@ -105,20 +104,20 @@ useSeoMeta({
 </script>
 
 <style scoped>
-.skeleton-blog{
+.skeleton-blog {
     max-width: 120rem;
     margin: 0 auto;
     width: 95%;
 }
 
-.blog-container{
+.blog-container {
     width: 95%;
     max-width: 120rem;
     margin: 0 auto;
     background-color: #F5F5F5;
 
     @media only screen and (min-width: 1200px) {
-        width: 75%;
+        width: 95%;
     }
 }
 </style>

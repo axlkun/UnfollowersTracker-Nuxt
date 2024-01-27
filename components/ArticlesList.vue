@@ -1,5 +1,5 @@
 <template>
-    <v-sheet class="d-flex flex-md-row flex-column bg-transparent pb-10 articlelist-container" style="gap: 30px;">
+    <v-sheet class="d-flex flex-wrap" style="gap: 30px;">
            
         <v-card v-for="article in blogEntry" class="rounded-lg" max-width="350" variant="elevated">
             <v-img height="200" :src="`${dominio}${article.imageUrl}`"
@@ -46,11 +46,6 @@ export default {
 </script>
 
 <style scoped>
-.articlelist-container{
-    max-width: 90%;
-    background: transparent;
-    margin: 0 auto;
-}
 
 .text-visible {
     white-space: nowrap;
