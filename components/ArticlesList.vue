@@ -1,5 +1,5 @@
 <template>
-    <v-sheet class="d-flex flex-wrap" style="gap: 30px;">
+    <v-sheet class="d-flex flex-wrap bg-transparent" style="gap: 30px;">
            
         <v-card v-for="article in blogEntry" class="rounded-lg" max-width="350" variant="elevated">
             <v-img height="200" :src="`${dominio}${article.imageUrl}`"

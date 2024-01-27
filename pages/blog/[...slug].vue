@@ -80,11 +80,11 @@
 
         </v-sheet>
 
-        <v-sheet class="title-container">
+        <v-sheet class="related-articles">
             <h2>Related articles</h2>
-        </v-sheet>
 
-        <ArticlesList :blogEntry="articles"></articlesList>
+            <ArticlesList :blogEntry="articles"></articlesList>
+        </v-sheet>
 
         <CallToAction></CallToAction>
 
@@ -313,17 +313,16 @@ onMounted(async () => {
     }
 }
 
-.title-container {
+.related-articles {
     width: 90%;
-    font-size: 20px;
     margin: 15px auto;
     color: #212121;
     background: transparent;
-    text-align: start;
     border-top: 1px solid #212121;
+}
 
-    @media only screen and (min-width: 1024px) {
-        font-size: 30px;
-    }
+.related-articles h2{
+    text-align: start;
+    margin: 15px 0;
 }
 </style>
