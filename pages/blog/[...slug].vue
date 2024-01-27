@@ -226,14 +226,14 @@ onMounted(async () => {
 }
 
 .title {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     color: #212121;
     text-align: start;
     line-height: 1.1;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 35px;
+        font-size: 30px;
 
     }
 
@@ -273,7 +273,7 @@ onMounted(async () => {
 
     @media only screen and (min-width: 1024px) {
         flex-direction: row;
-        font-size: 20px;
+        font-size: 18px;
 
     }
 }
@@ -308,14 +308,14 @@ onMounted(async () => {
     margin-bottom: 60px;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
         width: 70%;
     }
 }
 
 .title-container {
     width: 90%;
-    font-size: 25px;
+    font-size: 20px;
     margin: 15px auto;
     color: #212121;
     background: transparent;
@@ -323,7 +323,7 @@ onMounted(async () => {
     border-top: 1px solid #212121;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 35px;
+        font-size: 30px;
     }
 }
 </style>

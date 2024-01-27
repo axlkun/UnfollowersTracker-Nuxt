@@ -29,9 +29,9 @@
   }
   
   .skeleton {
-    width: 90%;
+    width: 90% !important;
     max-width: 120rem;
-    margin: 0 auto;
+    margin: 0 auto !important;
   }
   
   .html-content{
@@ -52,7 +52,7 @@
   
   .html-content h3,
   .html-content h3 {
-    color: #424242;
+    color: #E91E63;
     font-size: 20px;
   
     @media only screen and (min-width: 1024px) {
