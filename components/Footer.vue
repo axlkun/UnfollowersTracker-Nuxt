@@ -58,10 +58,6 @@
         <a class="reset-style" href="https://www.instagram.com/axlkun/" target="_blank">
           By <strong>@axlkun</strong>&#129489;
         </a>
-        Illustration by <a class="reset-style"
-          href="https://freeicons.io/mobile-illustrations-2/dcbf-spotify-account-illustration-472" target="_blank">Athul
-          Mc</a>
-        on <a class="reset-style" href="https://freeicons.io" target="_blank">freeicons.io</a>
       </p>
 
     </div>
