@@ -5,7 +5,8 @@
 
     <!-- contenido principal que cambia acorde a la ruta -->
     <main>
-      <router-view :blogEntry="blogEntry"></router-view>
+      <!-- <router-view :blogEntry="blogEntry"></router-view> -->
+      <NuxtPage :blogEntry="blogEntry" />
     </main>
 
     <ClientOnly fallback-tag="span" fallback="Loading comments...">
