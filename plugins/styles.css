@@ -80,13 +80,18 @@
   .html-content table{
     width: 100%;
     border-spacing: 0;
+    font-size: 16px;
   }
 
   .html-content th, .html-content td{
-    border: 1px solid grey;
+    border: 1px solid rgb(207, 197, 197);
     text-align: left;
-    padding: 2px;
+    padding: 5px;
   }
+
+  .html-content table tr:first-child {
+    font-weight: bold;
+}
 
   .html-content a{
     text-decoration: underline;
