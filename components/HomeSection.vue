@@ -10,7 +10,7 @@
                     </h1>
 
                     <h2 class="text-subtitle-1 text-center text-md-left text-grey-darken-1 mb-5 font-weight-bold">
-                        Free App to see who Unfollowed you on Instagram. No passwords needed. Easily manage your social circle
+                        Free website to see who Unfollowed you on Instagram. No passwords needed. Easily manage your social circle
                     </h2>
 
                     <v-sheet class="d-flex flex-md-row flex-column align-center bg-grey-lighten-4">
