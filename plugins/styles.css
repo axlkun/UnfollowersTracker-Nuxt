@@ -68,6 +68,12 @@
       padding-left: 50px;
     }
   }
+
+  .html-content  ol {
+    list-style-type: decimal; /* Asegura que los elementos estén numerados */
+    margin: 1em 0; /* Restablece el margen superior e inferior */
+    padding-left: 40px; /* Restablece el relleno izquierdo */
+  }
   
   .html-content img {
     max-width: 100%;
