@@ -8,6 +8,6 @@ export const checkAdblocker = async () => {
       );
       return false;
     } catch (error) {
-      return true;
+      return false;
     }
   };
