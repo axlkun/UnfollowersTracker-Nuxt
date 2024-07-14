@@ -131,7 +131,7 @@
         <!-- Utilidades -->
 
         <!-- notificacion -->
-        <v-snackbar v-model="alert" :timeout="5000" min-height="80px" transition="scroll-y-reverse-transition" location="top right" class="ma-5">
+        <v-snackbar v-model="alert" :timeout="10000" min-height="80px" transition="scroll-y-reverse-transition" location="top right" class="ma-5">
             {{ alertText }}
 
             <template v-slot:actions>
@@ -162,7 +162,7 @@ import {checkAdblocker} from '../utils/utils';
 
 const rules = ref([
     value => {
-        return !value || !value.length || value[0].size < 5000000 || 'The ZIP file size must be less than 5MB';
+        return !value || !value.length || value[0].size < 15000000 || 'The ZIP file size must be less than 15MB';
     },
 ]);
 
@@ -222,9 +222,6 @@ const requestAPI = async () => {
         unfollowers.value = unfollowersData;
         fans.value = fansData;
 
-        // console.log('Unfollowers:', JSON.stringify(unfollowers.value));
-        // console.log('Fans:', JSON.stringify(fans.value));
-
         if (!unfollowers.value && !fans.value) {
             isLoading.value = false;
             alertText.value = 'An error occurred while getting the list of unfollowers and fans. Please try again later';
@@ -258,26 +255,7 @@ const getUser = () => {
     const fileName = selectedFile.value.name;
 
     if (fileName.includes("instagram") && fileName.endsWith(".zip")) {
-        // Obtener el año actual
-        // const year = new Date().getFullYear().toString();
-
-        // // Construir la cadena que indica el año actual
-        // const yearString = year.toString();
-
-        // // Extraer la parte entre "instagram" y el año actual
-        // const startIndex = fileName.indexOf("instagram") + "instagram".length;
-        // const endIndex = fileName.indexOf(yearString);
-
-        // if (startIndex < 0 || endIndex < 0) {
-        //     // Si no se encuentra la información necesaria, devolver null o manejar el error según sea necesario
-        //     return false;
-        // }
-
-        // const usuarioConGuiones = fileName.substring(startIndex, endIndex);
-
-        // // Eliminar los guiones y obtener el nombre de usuario final
-        // const nombreUsuario = usuarioConGuiones.replace(/-/g, '');
-
+       
         const nombreUsuario = fileName.replace(/\./g, '-');
 
         return nombreUsuario;
