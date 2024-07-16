@@ -224,7 +224,7 @@ const requestAPI = async () => {
 
         if (!unfollowers.value && !fans.value) {
             isLoading.value = false;
-            alertText.value = 'An error occurred while getting the list of unfollowers and fans. Please try again later';
+            alertText.value = 'It appears the ZIP file content is incorrect. Please generate a new one or contact support';
             alert.value = true;
             return;
         }
