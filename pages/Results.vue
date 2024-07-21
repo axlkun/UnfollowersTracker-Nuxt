@@ -32,7 +32,7 @@
                             Discover Unfollowers
                         </v-btn>
 
-                        <v-btn href="/#steps" prepend-icon="mdi mdi-help" variant="tonal" class="ma-3">
+                        <v-btn href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers" prepend-icon="mdi mdi-help" variant="tonal" class="ma-3">
                             How can I get the ZIP
                         </v-btn>
                     </v-sheet>
