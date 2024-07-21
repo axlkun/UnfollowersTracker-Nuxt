@@ -38,7 +38,7 @@ export default {
                 color2: 'text-green-darken-4',
                 icon: 'mdi-instagram',
                 title: '1- Request Your Information from Instagram',
-                description: '1- On your mobile device, log in to your Instagram account, go to your profile, open the top-right menu, then access "Your Activity" and select "Download Your Information."<br> 2- Tap on "Request Download," choose your Instagram profile, and press "Next."<br> 3- Now, in the "Select Types of Information" section, choose only "Followers and Following," and press "Next."<br> 4- In the "Format" section, select "JSON," and in the "Date Range," choose "From the beginning." Finally, press "Submit Request."'
+                description: '1- On Instagram go to your profile, open the top-right menu, then access <strong>"Your Activity"</strong> and select <strong>"Download Your Information"</strong><br> 2- Tap on <strong>"Download or transfer information"</strong> choose your Instagram profile, and press "Next."<br> 3- Now, select <strong>"Some of your information"</strong>. Scroll to "Connections" section and choose only <strong>"Followers and Following"</strong> and press "Next."<br> 4- Select <strong>"Download to device"</strong> and press "Next". Click on <strong>"Date range"</strong> and select <strong>"All time"</strong> and "Save". Click on <strong>"Format"</strong> and select <strong>"JSON"</strong>. Finally, press <strong>"Create files."</strong>'
             },
             {
                 id: 2,
@@ -46,7 +46,7 @@ export default {
                 color2: 'text-indigo-darken-4',
                 icon: 'mdi-download-box-outline',
                 title: '2- Download the ZIP',
-                description: '1- Now, in your web browser (on your computer), open the email account associated with your Instagram.<br> 2- Open the email sent by Instagram with the subject "Your Meta information download is ready" and click on "Download Your Information."<br> 3- This will open a new Instagram tab showing the available download. Click on "Download" and confirm that it\'s your account. The download will start automatically.'
+                description: '1- Now, open the email account associated with your Instagram.<br> 2- Open the email sent by Instagram with the subject <strong>"Your Meta information download is ready"</strong> and click on <strong>"Download Your Information"</strong><br> 3- This will open a new Instagram tab showing the available download. Click on "Download" and confirm that it\'s your account. The download will start automatically.'
             },
             {
                 id: 3,
@@ -54,7 +54,7 @@ export default {
                 color2: 'text-yellow-darken-4',
                 icon: 'mdi-folder-upload-outline',
                 title: '3- Upload the ZIP',
-                description: 'On Unfollowerstracker.com, click "DISCOVER UNFOLLOWERS." Then, click on "Select the ZIP file" to open the file explorer, and choose the ZIP file you downloaded earlier. Once the file is uploaded, click "Search" and discover the results!'
+                description: 'On Unfollowerstracker.com, click "Discover Unfollowers" Then, click on "Select the ZIP file" to open the file explorer, and choose the ZIP file you downloaded earlier. Once the file is uploaded, click "Discover Unfolowers" and see the results!'
             }
         ],
     }),
