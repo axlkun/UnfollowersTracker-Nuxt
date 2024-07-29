@@ -6,16 +6,15 @@
             style="min-height: 90vh">
             <v-sheet class="d-flex flex-column justify-center bg-grey-lighten-4">
                 <v-sheet class="custom-sizing mx-auto mb-8 bg-grey-lighten-4">
-                    <h1 class="text-sm-h2 text-h3 mb-8 font-weight-bold text-grey-darken-3">Discover your fans
+                    <h1 class="text-sm-h2 text-h3 mb-8 font-weight-bold text-grey-darken-3 text-center">Discover your fans
                         and <span class="text-pink">Unfollowers</span>
                         <a href="https://www.instagram.com/" target="_blank">
                             
                         </a>
                     </h1>
 
-                    <p class="text-h6 text-grey-darken-1 font-weight-bold">Manage your list of following and followers.
-                        Simply
-                        attach the ZIP file you requested from Instagram below. &#128071;
+                    <p class="text-h6 text-grey-darken-1 font-weight-bold text-center">
+                        Simply attach the ZIP file you requested from Instagram below. &#128071;
                     </p>
                 </v-sheet>
 
@@ -44,8 +43,10 @@
             </v-sheet> -->
         </v-sheet>
 
+        <div id="top-table"></div>
+
         <!-- seccion de resultados -->
-        <v-sheet v-if="unfollowers.length > 0" class="d-flex flex-column bg-white pt-sm-16 pt-0 pb-10"
+        <v-card v-if="unfollowers.length > 0" class="d-flex flex-column bg-white pt-sm-16 pt-0 pb-10"
             style="min-height: 100vh" id="results">
 
             <v-tabs v-model="tab" fixed-tabs class="bg-transparent w-100 ma-5">
@@ -62,9 +63,9 @@
                 <!-- seccion de unfollowers -->
                 <v-window-item key="unfollowers" value="unfollowers" class="bg-transparent mb-sm-0 mb-5">
 
-                    <div class="custom-sizing-card pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
+                    <v-card class="custom-sizing-card pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
                         <p>{{ unfollowers.length }} users don't follow you back</p>
-                    </div>
+                    </v-card>
 
                     <div>
                         <div v-for="(item, index) in visibleItemsUnfollowers" :key="index"
@@ -95,9 +96,9 @@
 
                 <!-- seccion de fans -->
                 <v-window-item key="fans" value="fans">
-                    <div class="custom-sizing-card pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
-                        <p>{{ fans.length }} you dont' follow back</p>
-                    </div>
+                    <v-card class="custom-sizing-card pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
+                        <p>{{ fans.length }} you don't follow back</p>
+                    </v-card>
 
                     <div>
                         <div v-for="(item, index) in visibleItemsFans" :key="index"
@@ -126,7 +127,7 @@
                     </div>
                 </v-window-item>
             </v-window>
-        </v-sheet>
+        </v-card>
 
         <!-- Utilidades -->
 
@@ -364,10 +365,12 @@ const totalPagesFans = computed(() => {
 
 watch(currentPaginationUnfollowers, (newPage) => {
     loadPageDataUnfollowers();
+    scrollToSection('top-table');
 });
 
 watch(currentPaginationFans, (newPage) => {
     loadPageDataFans();
+    scrollToSection('top-table');
 });
 
 
