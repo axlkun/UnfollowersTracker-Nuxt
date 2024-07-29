@@ -7,9 +7,9 @@
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
             <ul class="menu">
-                <li><a href="/results">Who doesn't follow me back on Instagram</a></li>
+                <li><a href="/results">Discover Unfollowers</a></li>
                 <li><a href="/#how-works">How it works</a></li>
-                <li><a href="/#steps">Video Tutorial</a></li>
+                <li><a href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers">Tutorial</a></li>
                 <li><a href="/#faqs">FAQ</a></li>
                 <li><a href="/blog">Blog</a></li>
             </ul>
