@@ -5,8 +5,7 @@
 
     <!-- contenido principal que cambia acorde a la ruta -->
     <main>
-      <!-- <router-view :blogEntry="blogEntry"></router-view> -->
-      <NuxtPage :blogEntry="blogEntry" />
+      <NuxtPage/>
     </main>
 
     <ClientOnly fallback-tag="span" fallback="Loading comments...">
@@ -33,18 +32,16 @@ Cookie Policy. You can change settings in your browser at any time.
       </div>
     </ClientOnly>
 
-    <myFooter :blogEntry="blogEntry"></myFooter>
+    <myFooter></myFooter>
 
   </v-app>
 </template>
 
 <script setup>
-import api from './api';
 
 import myHeader from './components/Header.vue';
 import myFooter from './components/Footer.vue';
 
-const blogEntry = ref([]);
 const sheet = ref(true);
 const cookiesAccepted = ref(false);
 
@@ -55,19 +52,8 @@ const acceptCookies = () => {
   }
 };
 
-const getArticles = async () => {
-  api.get('/api/articles?limit=6')
-    .then(response => {
-      blogEntry.value = response.data.data;
-    })
-    .catch(error => {
-      console.error('Error al hacer la solicitud GET:', error);
-    });
-}
-
 onMounted(() => {
-  getArticles();
-
+  
   if (typeof localStorage !== 'undefined') {
     cookiesAccepted.value = localStorage.getItem('cookiesAccepted') === 'true';
     sheet.value = !cookiesAccepted.value;

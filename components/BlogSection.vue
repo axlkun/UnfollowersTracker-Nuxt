@@ -45,18 +45,26 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
 import api from '../api';
 
-export default {
-    name: 'BlogSection',
+const dominio = api.defaults.baseURL;
+const blogEntry = ref([]);
 
-    props: ['blogEntry'],
-
-    data: () => ({
-        dominio: api.defaults.baseURL
+const getArticles = async () => {
+  api.get('/api/articles?limit=6')
+    .then(response => {
+      blogEntry.value = response.data.data;
     })
+    .catch(error => {
+      console.error('Error al hacer la solicitud GET:', error);
+    });
 }
+
+onMounted(() => {
+  getArticles();
+});
+
 </script>
 
 <style scoped>

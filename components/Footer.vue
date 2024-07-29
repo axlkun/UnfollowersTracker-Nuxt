@@ -9,7 +9,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/#how-works">How it works</a></li>
-          <li><a href="/#steps">Video Tutorial</a></li>
+          <li><a href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers">Tutorial</a></li>
           <li><a href="/#faqs">FAQ</a></li>
           <li><a href="/blog">Blog</a></li>
         </ul>
@@ -22,13 +22,6 @@
           <li><a href="/results">Who doesn't follow me back on Instagram</a></li>
         </ul>
 
-      </div>
-
-      <div class="section">
-        <p class="ultimos-acrticulos">Latest articles</p>
-        <ul>
-          <li v-for="article in blogEntry"><a :href="'/blog/' + article.slug">{{ article.title }}</a></li>
-        </ul>
       </div>
 
       <div class="section">
@@ -64,17 +57,6 @@
 
   </v-footer>
 </template>
-
-<script>
-
-export default {
-
-  name: 'myFooter',
-
-  props: ['blogEntry'],
-
-}
-</script>
 
 <style scoped>
 .footer-section {
