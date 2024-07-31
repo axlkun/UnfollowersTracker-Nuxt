@@ -6,14 +6,14 @@
             style="min-height: 90vh">
             <v-sheet class="d-flex flex-column justify-center bg-grey-lighten-4">
                 <v-sheet class="custom-sizing mx-auto mb-8 bg-grey-lighten-4">
-                    <h1 class="text-sm-h2 text-h3 mb-8 font-weight-bold text-grey-darken-3 text-center">Discover your fans
+                    <h1 class="text-sm-h2 text-h4 mb-8 font-weight-bold text-grey-darken-3 text-center">Discover your fans
                         and <span class="text-pink">Unfollowers</span>
                         <a href="https://www.instagram.com/" target="_blank">
                             
                         </a>
                     </h1>
 
-                    <p class="text-h6 text-grey-darken-1 font-weight-bold text-center">
+                    <p class="text-sm-h6 text-h7 text-grey-darken-1 font-weight-bold text-center">
                         Simply attach the ZIP file you requested from Instagram below. &#128071;
                     </p>
                 </v-sheet>
@@ -35,6 +35,16 @@
                             How can I get the ZIP
                         </v-btn>
                     </v-sheet>
+
+                    <client-only>
+                        <Vue3Lottie
+                        v-if="unfollowers.length > 0"
+                            class="mt-3"
+                          animationLink="/result.json"
+                          :height="60"
+                          :width="60"
+                        />
+                      </client-only>
                 </v-sheet>
             </v-sheet>
 
@@ -160,6 +170,7 @@ import { scrollToSection } from '../utils';
 import { ref, computed, watch } from 'vue';
 import AntiAdblocker from '~/components/AntiAdblocker.vue';
 import {checkAdblocker} from '../utils/utils';
+import { Vue3Lottie } from 'vue3-lottie'
 
 const rules = ref([
     value => {
