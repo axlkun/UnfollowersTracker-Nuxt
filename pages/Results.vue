@@ -37,20 +37,22 @@
                     </v-sheet>
 
                     <client-only>
-                        <Vue3Lottie
-                        v-if="unfollowers.length > 0"
-                            class="mt-3"
-                          animationLink="/result.json"
-                          :height="60"
-                          :width="60"
-                        />
+                        <v-sheet v-if="unfollowers.length > 0" class="bg-grey-lighten-4">
+                            <p  class="text-subtitle-1 text-pink text-center">
+                                Results
+                            </p>
+                            <Vue3Lottie
+                                class="mt-3"
+                              animationLink="/result.json"
+                              :height="45"
+                              :width="45"
+                            />
+                        </v-sheet>
+                        
                       </client-only>
                 </v-sheet>
             </v-sheet>
 
-            <!-- <v-sheet class="mt-10 d-flex flex-column justify-center bg-grey-lighten-4">
-                <img :src="imgResults" alt="Imagen Results SVG" class="custom-sizing-img" loading="lazy" />
-            </v-sheet> -->
         </v-sheet>
 
         <div id="top-table"></div>
@@ -85,7 +87,7 @@
                                 <v-icon icon="mdi-face-man-profile" color="pink" class="ma-1"></v-icon>
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
-                                    <p class="ma-1">@{{ item.user_name }}</p>
+                                    <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
                                     <p class="ma-1 text-grey" style="font-size: 14px;">Since {{ item.date }}</p>
                                 </div>
                             </div>
@@ -118,7 +120,7 @@
                                 <v-icon icon="mdi-face-man-profile" color="pink" class="ma-1"></v-icon>
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
-                                    <p class="ma-1">@{{ item.user_name }}</p>
+                                    <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
                                     <p class="ma-1 text-grey" style="font-size: 14px;">Since {{ item.date }}</p>
                                 </div>
                             </div>
