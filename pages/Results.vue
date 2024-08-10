@@ -6,10 +6,11 @@
             style="min-height: 90vh">
             <v-sheet class="d-flex flex-column justify-center bg-grey-lighten-4">
                 <v-sheet class="custom-sizing mx-auto mb-8 bg-grey-lighten-4">
-                    <h1 class="text-sm-h2 text-h4 mb-8 font-weight-bold text-grey-darken-3 text-center">Discover your fans
+                    <h1 class="text-sm-h2 text-h4 mb-8 font-weight-bold text-grey-darken-3 text-center">Discover your
+                        fans
                         and <span class="text-pink">Unfollowers</span>
                         <a href="https://www.instagram.com/" target="_blank">
-                            
+
                         </a>
                     </h1>
 
@@ -31,37 +32,40 @@
                             Discover Unfollowers
                         </v-btn>
 
-                        <v-btn href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers" prepend-icon="mdi mdi-help" variant="tonal" class="ma-3">
+                        <v-btn
+                            href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
+                            prepend-icon="mdi mdi-help" variant="tonal" class="ma-3">
                             How can I get the ZIP
                         </v-btn>
                     </v-sheet>
 
                     <client-only>
                         <v-sheet v-if="unfollowers.length > 0" class="bg-grey-lighten-4">
-                            <p  class="text-subtitle-1 text-pink text-center">
+                            <p class="text-subtitle-1 text-pink text-center">
                                 Results
                             </p>
-                            <Vue3Lottie
-                                class="mt-3"
-                              animationLink="/result.json"
-                              :height="45"
-                              :width="45"
-                            />
+                            <Vue3Lottie class="mt-3" animationLink="/result.json" :height="45" :width="45" />
                         </v-sheet>
-                        
-                      </client-only>
+
+                    </client-only>
                 </v-sheet>
             </v-sheet>
 
         </v-sheet>
 
+        
+
         <div id="top-table"></div>
 
+        <v-alert v-if="unfollowers.length > 0"
+            text="The 'Unfollow / Follow' button will redirect you to the Instagram profile. You need to complete the action on Instagram"
+            title="Info" type="info" variant="tonal" class="custom-sizing-card mt-5 mb-5"></v-alert>
+
         <!-- seccion de resultados -->
-        <v-card v-if="unfollowers.length > 0" class="d-flex flex-column bg-white pt-sm-16 pt-0 pb-10"
+        <v-card v-if="unfollowers.length > 0" class="d-flex flex-column bg-white mb-10 custom-sizing-card"
             style="min-height: 100vh" id="results">
 
-            <v-tabs v-model="tab" fixed-tabs class="bg-transparent w-100 ma-5">
+            <v-tabs v-model="tab" fixed-tabs class="bg-transparent w-100 mb-5">
                 <v-tab>
                     Unfollowers
                 </v-tab>
@@ -75,13 +79,13 @@
                 <!-- seccion de unfollowers -->
                 <v-window-item key="unfollowers" value="unfollowers" class="bg-transparent mb-sm-0 mb-5">
 
-                    <v-card class="custom-sizing-card pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
+                    <v-card class="mb-5 pb-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
                         <p>{{ unfollowers.length }} users don't follow you back</p>
                     </v-card>
 
                     <div>
                         <div v-for="(item, index) in visibleItemsUnfollowers" :key="index"
-                            class="d-flex justify-space-between align-center custom-sizing-card bg-white pa-5 mb-5"
+                            class="d-flex justify-space-between align-center  bg-white pa-5 mb-5"
                             style="border-bottom: 1px solid #EEEEEE;">
                             <div class="d-flex align-center">
                                 <v-icon icon="mdi-face-man-profile" color="pink" class="ma-1"></v-icon>
@@ -93,11 +97,11 @@
                             </div>
 
                             <div class="d-flex flex-sm-row flex-column">
-                                <v-btn size="x-small" class="ma-2" variant="tonal" color="grey-darken-3" :href="item.enlace"
-                                    target="_blank">View profile</v-btn>
-                                <v-btn size="x-small" class="ma-2" variant="tonal" color="pink"
+                                <v-btn size="x-small" class="ma-2" variant="tonal" color="pink" :href="item.enlace"
+                                    target="_blank">Unfollow</v-btn>
+                                <!-- <v-btn size="x-small" class="ma-2" variant="tonal" color="pink"
                                     @click="removeItemUnfollowers(index)">Remove<v-tooltip activator="parent"
-                                        location="top">Indicate that you have unfollowed</v-tooltip></v-btn>
+                                        location="top">Indicate that you have unfollowed</v-tooltip></v-btn> -->
                             </div>
                         </div>
 
@@ -108,13 +112,13 @@
 
                 <!-- seccion de fans -->
                 <v-window-item key="fans" value="fans">
-                    <v-card class="custom-sizing-card pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
+                    <v-card class=" pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
                         <p>{{ fans.length }} you don't follow back</p>
                     </v-card>
 
                     <div>
                         <div v-for="(item, index) in visibleItemsFans" :key="index"
-                            class="d-flex justify-space-between align-center custom-sizing-card bg-white pa-5 mb-5"
+                            class="d-flex justify-space-between align-center  bg-white pa-5 mb-5"
                             style="border-bottom: 1px solid #EEEEEE;">
                             <div class="d-flex align-center">
                                 <v-icon icon="mdi-face-man-profile" color="pink" class="ma-1"></v-icon>
@@ -126,16 +130,16 @@
                             </div>
 
                             <div class="d-flex flex-sm-row flex-column">
-                                <v-btn size="x-small" class="ma-2" variant="tonal" color="grey-darken-3" :href="item.enlace"
-                                    target="_blank">View profile</v-btn>
-                                <v-btn size="x-small" class="ma-2" variant="tonal" color="green-darken-4"
+                                <v-btn size="x-small" class="ma-2" variant="tonal" color="green" :href="item.enlace"
+                                    target="_blank">Follow</v-btn>
+                                <!-- <v-btn size="x-small" class="ma-2" variant="tonal" color="green-darken-4"
                                     @click="removeItemFans(index)">Remove<v-tooltip activator="parent"
-                                        location="top">Indicate that you are already following</v-tooltip></v-btn>
+                                        location="top">Indicate that you are already following</v-tooltip></v-btn> -->
                             </div>
                         </div>
 
-                        <v-pagination v-model="currentPaginationFans" :length="totalPagesFans" @input="loadPageData('fans')"
-                            :total-visible="5" rounded="circle"></v-pagination>
+                        <v-pagination v-model="currentPaginationFans" :length="totalPagesFans"
+                            @input="loadPageData('fans')" :total-visible="5" rounded="circle"></v-pagination>
                     </div>
                 </v-window-item>
             </v-window>
@@ -144,7 +148,8 @@
         <!-- Utilidades -->
 
         <!-- notificacion -->
-        <v-snackbar v-model="alert" :timeout="10000" min-height="80px" transition="scroll-y-reverse-transition" location="top right" class="ma-5">
+        <v-snackbar v-model="alert" :timeout="10000" min-height="80px" transition="scroll-y-reverse-transition"
+            location="top right" class="ma-5">
             {{ alertText }}
 
             <template v-slot:actions>
@@ -162,7 +167,7 @@
         <ClientOnly>
             <AntiAdblocker v-if="adblocker" :adblock="adblocker"></AntiAdblocker>
         </ClientOnly>
-        
+
     </div>
 </template>
 
@@ -171,7 +176,7 @@ import api from '../api';
 import { scrollToSection } from '../utils';
 import { ref, computed, watch } from 'vue';
 import AntiAdblocker from '~/components/AntiAdblocker.vue';
-import {checkAdblocker} from '../utils/utils';
+import { checkAdblocker } from '../utils/utils';
 import { Vue3Lottie } from 'vue3-lottie'
 
 const rules = ref([
@@ -253,7 +258,10 @@ const requestAPI = async () => {
     } finally {
         isLoading.value = false;
 
-        if (unfollowers.value && fans.value) {
+        console.log(unfollowers.value)
+        console.log(fans.value)
+
+        if (unfollowers.value.length >= 1 || fans.value.length >= 1) {
             setTimeout(() => {
                 scrollToSection('results');
             }, 100);
@@ -269,7 +277,7 @@ const getUser = () => {
     const fileName = selectedFile.value.name;
 
     if (fileName.includes("instagram") && fileName.endsWith(".zip")) {
-       
+
         const nombreUsuario = fileName.replace(/\./g, '-');
 
         return nombreUsuario;
@@ -411,8 +419,8 @@ useSeoMeta({
 
 onMounted(async () => {
     setTimeout(async () => {
-    adblocker.value = await checkAdblocker();
-  }, 2000);
+        adblocker.value = await checkAdblocker();
+    }, 2000);
 });
 </script>
 
@@ -423,7 +431,7 @@ onMounted(async () => {
     margin: 0 auto;
 
     @media only screen and (min-width: 600px) {
-        width: 75%;
+        width: 70%;
         margin: 0 auto;
     }
 }
