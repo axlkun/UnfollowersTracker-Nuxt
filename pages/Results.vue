@@ -58,7 +58,7 @@
         <div id="top-table"></div>
 
         <v-alert v-if="unfollowers.length > 0"
-            text="The 'Unfollow / Follow' button will redirect you to the Instagram profile. You need to complete the action on Instagram"
+            text="The 'Unfollow / Follow' button will redirect you to the User Profile. You need to complete the action there"
             title="Info" type="info" variant="tonal" class="custom-sizing-card mt-5 mb-5"></v-alert>
 
         <!-- seccion de resultados -->
