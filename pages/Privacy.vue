@@ -99,8 +99,13 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
+useSeoMeta({
+    robots: 'noindex, follow',
+    title: 'UnfollowersTracker | Privacy Policy',
+    description: 'This Privacy Policy is intended to inform you about the use of data on our website..'
 
+});
 </script>
 
 <style scoped></style>

@@ -73,8 +73,13 @@
     </v-sheet>
 </template>
     
-<script>
+<script setup>
+useSeoMeta({
+    robots: 'noindex, follow',
+    title: 'UnfollowersTracker | Cookies Policy',
+    description: 'This Cookies Policy is intended to inform you about the use of cookies on our website..'
 
+});
 </script>
     
 <style scoped>.section h3 {

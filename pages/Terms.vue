@@ -77,8 +77,11 @@
     </v-sheet>
 </template>
     
-<script>
+<script setup>
+useSeoMeta({
+    robots: 'noindex, follow',
+    title: 'UnfollowersTracker | Terms and Conditions',
+    description: 'The Terms and Conditions section is intended to inform the limitations about the use of our website.'
 
+});
 </script>
-    
-<style scoped></style>

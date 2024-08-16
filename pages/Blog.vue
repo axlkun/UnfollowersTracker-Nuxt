@@ -85,20 +85,20 @@ useSeoMeta({
 
     title: 'UnfollowersTracker | Blog',
     author: 'Axel Cruz',
-    description: 'Discover articles related to social media growth, tips on growing an audience, algorithm secrets, and much more on the Unfollowers Tracker Blog, a free tool to manage your Instagram follower list without passwords.',
+    description: 'Articles related to social media growth, tips on growing an audience, algorithm secrets, and much more!.',
     keywords: 'Instagram, followers, non-followers, free tool, follower management, Instagram optimization, reach on Instagram, no password, follower tracking, follower analytics, Instagram statistics, follower monitoring.',
 
-    ogTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
-    ogDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
+    ogTitle: 'UnfollowersTracker | Blog',
+    ogDescription: 'Articles related to social media growth, tips on growing an audience, algorithm secrets, and much more!.',
     ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
-    ogUrl: 'https://unfollowerstracker.com/',
+    ogUrl: 'https://unfollowerstracker.com/blog',
     ogType: 'website',
 
     twitterCreator: '@Axlkun',
     twitterImage: 'https://unfollowerstracker.com/unfollowers-twitter-image.png',
     twitterCard: 'summary_large_image',
     twitterTitle: 'UnfollowersTracker | Blog',
-    twitterDescription: 'Discover articles related to social media growth, tips on growing an audience, algorithm secrets, and much more on the Unfollowers Tracker Blog, a free tool to manage your Instagram follower list without passwords..'
+    twitterDescription: 'Articles related to social media growth, tips on growing an audience, algorithm secrets, and much more!.'
 })
 
 </script>

@@ -409,7 +409,7 @@ useSeoMeta({
     description: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
     keywords: 'Instagram, followers, non-followers, free tool, follower management, Instagram optimization, reach on Instagram, no password, follower tracking, follower analytics, Instagram statistics, follower monitoring.',
 
-    ogTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
+    ogTitle: 'UnfollowersTracker | List of Unfollowers',
     ogDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
     ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
     ogUrl: 'https://unfollowerstracker.com/',

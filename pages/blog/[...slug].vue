@@ -146,17 +146,17 @@ const loadData = async () => {
                 description: () => article.value.meta_description,
                 keywords: () => article.value.keywords,
 
-                ogTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
-                ogDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
-                ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
-                ogUrl: 'https://unfollowerstracker.com/',
+                ogTitle: () => "UnfollowersTracker | " + article.value.title,
+                ogDescription: () => article.value.meta_description,
+                ogImage: () => dominio + article.value.imageUrl,
+                ogUrl: () => dominio + "/blog/" + article.value.slug,
                 ogType: 'website',
 
                 twitterCreator: '@Axlkun',
-                twitterImage: 'https://unfollowerstracker.com/unfollowers-twitter-image.png',
+                twitterImage: () => dominio + article.value.imageUrl,
                 twitterCard: 'summary_large_image',
-                twitterTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
-                twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
+                twitterTitle: () => 'UnfollowersTracker | ' + article.value.title,
+                twitterDescription: () => article.value.summary
             })
 
             showAdblockModal();
