@@ -37,8 +37,9 @@
       <div class="section">
         <p>Have questions?</p>
 
-        <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated" href="mailto:unfollowerstracker2024@gmail.com"
-          class="ma-5" color="pink">
+        <v-btn variant="elevated" href="mailto:unfollowerstracker2024@gmail.com"
+                class="ma-5" color="pink">
+                <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiEmailArrowRightOutline"></svg-icon>
           Contact us
         </v-btn>
       </div>
@@ -57,6 +58,11 @@
 
   </v-footer>
 </template>
+
+<script setup>
+import SvgIcon from '@jamescoyle/vue-icon';
+import {  mdiEmailArrowRightOutline } from '@mdi/js';
+</script>
 
 <style scoped>
 .footer-section {

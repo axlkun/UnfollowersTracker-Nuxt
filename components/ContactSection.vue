@@ -5,8 +5,9 @@
             <h2 class="text-h5 text-md-h4 ma-5 font-weight-black text-pink">Contactar</h2>
             <p class="text-h5 ma-5 font-weight-bold text-grey-darken-1">¿Tienes alguna pregunta, inquietud o simplemente
                 quieres decir hola? No dudes en ponerte en contacto.</p>
-            <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated" href="mailto:unfollowerstracker2024@gmail.com"
+            <v-btn variant="elevated" href="mailto:unfollowerstracker2024@gmail.com"
                 class="ma-5" color="pink">
+                <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiEmailArrowRightOutline"></svg-icon>
                 Escribir un correo
             </v-btn>
         </v-sheet>
@@ -15,19 +16,10 @@
     </v-sheet>
 </template>
     
-<script>
+<script setup>
+import SvgIcon from '@jamescoyle/vue-icon';
+import {  mdiEmailArrowRightOutline } from '@mdi/js';
 import imgContacto from '../assets/imagen-contacto.svg';
-
-
-export default {
-
-    name: 'ContactSection',
-
-    data: () => ({
-        imgContacto
-    }),
-}
-
 </script>
     
 <style scoped>

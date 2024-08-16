@@ -14,8 +14,9 @@
                     </h2>
 
                     <v-sheet class="d-flex flex-md-row flex-column align-center bg-grey-lighten-4">
-                        <v-btn prepend-icon="mdi mdi-account-remove" variant="elevated" href="/results"
+                        <v-btn variant="elevated" href="/results"
                             class="mt-10 mx-center" color="pink">
+                            <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon>
                             Discover Unfollowers
                         </v-btn>
                     </v-sheet>
@@ -35,6 +36,9 @@
 </template>
 
 <script setup>
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiAccountRemove } from '@mdi/js';
+
 import imgHome from '../assets/hero.png';
 
 </script>

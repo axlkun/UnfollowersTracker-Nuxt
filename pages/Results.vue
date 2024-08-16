@@ -27,14 +27,16 @@
 
                     <v-sheet
                         class="d-flex flex-sm-row flex-column text-center mt-5 mb-5 justify-center w-100 bg-grey-lighten-4">
-                        <v-btn prepend-icon="mdi mdi-account-remove" variant="elevated" @click="requestAPI" class="ma-3"
+                        <v-btn variant="elevated" @click="requestAPI" class="ma-3"
                             color="pink">
+                            <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon>
                             Discover Unfollowers
                         </v-btn>
 
                         <v-btn
                             href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
-                            prepend-icon="mdi mdi-help" variant="tonal" class="ma-3">
+                            variant="tonal" class="ma-3">
+                            <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon>
                             How can I get the ZIP
                         </v-btn>
                     </v-sheet>
@@ -56,10 +58,10 @@
         
 
         <div id="top-table"></div>
-
         <v-alert v-if="unfollowers.length > 0"
             text="The 'Unfollow / Follow' button will redirect you to the User Profile. You need to complete the action there"
-            title="Info" type="info" variant="tonal" class="custom-sizing-card mt-5 mb-5"></v-alert>
+            title="Info" type="info" variant="tonal" class="custom-sizing-card mt-5 mb-5">
+        </v-alert>
 
         <!-- seccion de resultados -->
         <v-card v-if="unfollowers.length > 0" class="d-flex flex-column bg-white mb-10 custom-sizing-card"
@@ -88,7 +90,8 @@
                             class="d-flex justify-space-between align-center  bg-white pa-5 mb-5"
                             style="border-bottom: 1px solid #EEEEEE;">
                             <div class="d-flex align-center">
-                                <v-icon icon="mdi-face-man-profile" color="pink" class="ma-1"></v-icon>
+                                
+                                <svg-icon class="ma-1" style="color: #E91E63;" type="mdi" :path="mdiFaceManProfile"></svg-icon>
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
@@ -121,7 +124,7 @@
                             class="d-flex justify-space-between align-center  bg-white pa-5 mb-5"
                             style="border-bottom: 1px solid #EEEEEE;">
                             <div class="d-flex align-center">
-                                <v-icon icon="mdi-face-man-profile" color="pink" class="ma-1"></v-icon>
+                                <svg-icon class="ma-1" style="color: #E91E63;" type="mdi" :path="mdiFaceManProfile"></svg-icon>
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
@@ -154,7 +157,7 @@
 
             <template v-slot:actions>
                 <v-btn color="pink" variant="text" @click="alert = false">
-                    <span class="mdi mdi-close"></span>
+                    <svg-icon style="color: white;" type="mdi" :path="mdiClose"></svg-icon>
                 </v-btn>
             </template>
         </v-snackbar>
@@ -178,6 +181,8 @@ import { ref, computed, watch } from 'vue';
 import AntiAdblocker from '~/components/AntiAdblocker.vue';
 import { checkAdblocker } from '../utils/utils';
 import { Vue3Lottie } from 'vue3-lottie'
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose, mdiInformation } from '@mdi/js';
 
 const rules = ref([
     value => {
