@@ -11,6 +11,11 @@ export default defineNuxtConfig({
         { 'http-equiv': 'content-language', content: 'en' },
         // ...otras etiquetas meta
       ],
+
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
+      
       title: 'UnfollowersTracker | Discover your Instagram Unfollowers',
 
       script: [
