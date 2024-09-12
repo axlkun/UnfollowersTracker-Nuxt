@@ -13,11 +13,17 @@
                         Free website to see who Unfollowed you on Instagram. No passwords needed. Easily manage your social circle
                     </h2>
 
-                    <v-sheet class="d-flex flex-md-row flex-column align-center bg-grey-lighten-4">
+                    <v-sheet class="d-flex flex-md-row flex-column align-center bg-grey-lighten-4 ga-5">
                         <v-btn variant="elevated" href="/results"
                             class="mt-10 mx-center" color="pink">
                             <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon>
                             Discover Unfollowers
+                        </v-btn>
+                        <v-btn
+                            href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
+                            variant="tonal" class="mt-5 mt-md-10 mx-center">
+                            <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon>
+                            How it works
                         </v-btn>
                     </v-sheet>
 
@@ -37,7 +43,7 @@
 
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiAccountRemove } from '@mdi/js';
+import { mdiAccountRemove, mdiHelp } from '@mdi/js';
 
 import imgHome from '../assets/hero.png';
 
