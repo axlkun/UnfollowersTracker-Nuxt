@@ -11,7 +11,8 @@
                             <v-skeleton-loader type="heading" color="#F5F5F5"></v-skeleton-loader>
                             <v-skeleton-loader type="subtitle" color="#F5F5F5"></v-skeleton-loader>
                             <v-skeleton-loader type="chip" color="#F5F5F5"></v-skeleton-loader>
-                            <v-skeleton-loader type="image" color="#F5F5F5" class="pt-md-12 pb-md-12"></v-skeleton-loader>
+                            <v-skeleton-loader type="image" color="#F5F5F5"
+                                class="pt-md-12 pb-md-12"></v-skeleton-loader>
                             <v-skeleton-loader type="paragraph" color="#F5F5F5"></v-skeleton-loader>
                             <v-skeleton-loader type="paragraph" color="#F5F5F5"></v-skeleton-loader>
                             <v-skeleton-loader type="paragraph" color="#F5F5F5"></v-skeleton-loader>
@@ -70,8 +71,8 @@
             </v-sheet>
 
             <v-sheet class="img-container">
-                <v-img :src="`${dominio}${article.imageUrl}`" :alt="article.alt_image" max-height="500" aspect-ratio="16/9"
-                    cover></v-img>
+                <v-img :src="`${dominio}${article.imageUrl}`" :alt="article.alt_image" max-height="500"
+                    aspect-ratio="16/9" cover></v-img>
             </v-sheet>
 
             <v-sheet class="article-content">
@@ -106,19 +107,19 @@ import { checkAdblocker } from '../../utils/utils';
 
 const items = ref([
     {
-          title: 'UnfollowersTracker',
-          disabled: false,
-          href: '/',
-        },
-        {
-          title: 'Blog',
-          disabled: false,
-          href: '/blog',
-        },
-        {
-          title: 'Article',
-          disabled: true,
-        },
+        title: 'UnfollowersTracker',
+        disabled: false,
+        href: '/',
+    },
+    {
+        title: 'Blog',
+        disabled: false,
+        href: '/blog',
+    },
+    {
+        title: 'Article',
+        disabled: true,
+    },
 ])
 
 const route = useRoute();
@@ -135,6 +136,8 @@ const loadData = async () => {
 
     try {
         const articleResponse = await loadArticle();
+
+        console.log(articleResponse);
         if (articleResponse.status === 200) {
             article.value = articleResponse.data.data;
 
@@ -161,16 +164,17 @@ const loadData = async () => {
 
             showAdblockModal();
 
+            loadRelatedArticles();
+
         } else {
-            router.push('/');
+            window.location.href = "/";
         }
     } catch (error) {
-        handleError(error);
+        window.location.href = "/";
+        
     } finally {
         loading.value = false;
     }
-
-    loadRelatedArticles();
 };
 
 const loadArticle = async () => {
@@ -186,11 +190,6 @@ const loadRelatedArticles = async () => {
     }
 };
 
-const handleError = (error) => {
-    console.error('Error al hacer la solicitud GET:', error);
-    router.push('/');
-};
-
 watch(() => route.params.slug, () => {
     slug.value = route.params.slug;
     loadData();
@@ -198,8 +197,8 @@ watch(() => route.params.slug, () => {
 
 const showAdblockModal = async () => {
     setTimeout(async () => {
-    adblocker.value = await checkAdblocker();
-  }, 3000);
+        adblocker.value = await checkAdblocker();
+    }, 3000);
 }
 
 onMounted(async () => {
@@ -321,7 +320,7 @@ onMounted(async () => {
     border-top: 1px solid #212121;
 }
 
-.related-articles h2{
+.related-articles h2 {
     text-align: start;
     margin: 15px 0;
 }
