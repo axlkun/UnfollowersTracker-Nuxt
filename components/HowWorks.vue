@@ -46,11 +46,11 @@ const adsenseCode = ref(`
        data-full-width-responsive="true"></ins>
 `);
 
-onMounted(() => {
+/*onMounted(() => {
     
     // Ejecutar el script de Google AdSense
     (window.adsbygoogle = window.adsbygoogle || []).push({});
-});
+});*/
 
 const stepsItems = [ /* texto para la seccion de tutorial */
     {
