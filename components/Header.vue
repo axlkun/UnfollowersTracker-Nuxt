@@ -37,7 +37,7 @@ export default {
 }
 
 .header {
-    /*position: sticky;*/
+    position: sticky;
     top: 0;
     width: 100%;
     background-color: #F5F5F5;
@@ -102,7 +102,7 @@ nav {
 @media only screen and (max-width: 960px) {
 
     .header {
-        position: static;
+        position: sticky;
     }
 
     .menu {
