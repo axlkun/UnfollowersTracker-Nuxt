@@ -37,7 +37,7 @@ export default {
 }
 
 .header {
-    position: sticky;
+    /*position: sticky;*/
     top: 0;
     width: 100%;
     background-color: #F5F5F5;
