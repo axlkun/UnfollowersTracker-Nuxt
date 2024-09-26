@@ -435,8 +435,8 @@ onMounted(async () => {
     width: 90%;
     margin: 0 auto;
 
-    @media only screen and (min-width: 600px) {
-        width: 70%;
+    @media only screen and (min-width: 960px) {
+        width: 50%;
         margin: 0 auto;
     }
 }
