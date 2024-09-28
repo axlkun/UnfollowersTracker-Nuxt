@@ -93,7 +93,6 @@ onMounted(() => {
 .ad-container {
     margin: 0 auto;
     width: 90%;
-    background-color: blueviolet;
 
     @media only screen and (min-width: 960px) {
         width: 70%;
