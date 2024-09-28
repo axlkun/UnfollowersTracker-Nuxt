@@ -9,7 +9,7 @@
                     <h1 class="text-h5 text-center text-md-h3 mt-5 mb-7 mb-md-10 font-weight-bold text-grey-darken-3">Track Instagram Unfollowers - Check Who Doesn't Follow You Back on <span class="text-pink">Instagram</span>
                     </h1>
 
-                    <h2 class="text-subtitle-1 text-center text-grey-darken-1 mb-2 font-weight-bold">
+                    <h2 class="text-subtitle-2 text-md-subtitle-1 text-center text-grey-darken-1 mb-2 font-weight-bold">
                         Free website to see who Unfollowed you on Instagram. No passwords needed. Easily manage your social circle
                     </h2>
 
@@ -67,12 +67,12 @@ const adsenseHtml = `
 // Ejecutar el script de AdSense cuando el componente esté montado
 onMounted(() => {
   // Asegurarse de que el script de AdSense se cargue
-   //(adsbygoogle = window.adsbygoogle || []).push({});
+   (adsbygoogle = window.adsbygoogle || []).push({});
 
-   setTimeout(() => {
-    // Asegurarse de que el script de AdSense se cargue
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  }, 1000);
+//    setTimeout(() => {
+//     // Asegurarse de que el script de AdSense se cargue
+//     (adsbygoogle = window.adsbygoogle || []).push({});
+//   }, 1000);
 });
 
 </script>
@@ -104,7 +104,7 @@ onMounted(() => {
     margin: 0 auto;
   
     @media only screen and (min-width: 960px) {
-      width: 60%;
+      width: 65%;
       margin: 0;
     }
   }
