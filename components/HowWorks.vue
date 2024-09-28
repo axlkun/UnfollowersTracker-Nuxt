@@ -13,9 +13,6 @@
 
         <v-expansion-panels>
 
-            <!-- Anuncio de Google AdSense -->
-            <div class="text-center" v-html="adsenseCode"></div>
-
             <v-expansion-panel v-for="item in stepsItems" :key="item.id" :class="item.color" class="ma-5">
                 <v-expansion-panel-title class="text-h7 text-md-h6 d-flex align-center" style="min-height: 80px"
                     :class="item.color2">
@@ -36,21 +33,6 @@
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiChevronDown } from '@mdi/js';
 import { onMounted, ref } from 'vue';
-
-const adsenseCode = ref(`
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1163363741001629"
-       data-ad-slot="9401390132"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-`);
-
-/*onMounted(() => {
-    
-    // Ejecutar el script de Google AdSense
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-});*/
 
 const stepsItems = [ /* texto para la seccion de tutorial */
     {
