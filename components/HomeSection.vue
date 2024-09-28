@@ -95,7 +95,7 @@ onMounted(() => {
     width: 90%;
 
     @media only screen and (min-width: 960px) {
-        width: 70%;
+        width: 80%;
       }
 }
 
