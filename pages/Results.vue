@@ -5,12 +5,12 @@
         <v-sheet class="bg-grey-lighten-4" style="min-height: 100vh">
             <v-sheet class="d-flex flex-column justify-center bg-grey-lighten-4">
                 <v-sheet class="mb-8 bg-grey-lighten-4">
-                    <h1 class="text-h5 text-center text-md-h3 mt-5 mb-5 mb-md-7 font-weight-bold text-grey-darken-3">
+                    <h1 class="text-h5 text-center mx-auto text-md-h3 mt-5 mb-5 mb-md-7 font-weight-bold text-grey-darken-3">
                         Discover your
                         Fans and <span class="text-pink">Unfollowers</span>
                     </h1>
 
-                    <p class="text-subtitle-2 text-md-subtitle-1 text-center text-grey-darken-1 mb-md-2 font-weight-bold custom-sizing">
+                    <p class="text-subtitle-2 mx-auto text-md-subtitle-1 text-center text-grey-darken-1 mb-md-2 font-weight-bold custom-sizing">
                         Simply attach the ZIP file you requested from Instagram below. &#128071;
                     </p>
                 </v-sheet>
@@ -168,9 +168,9 @@
             <v-progress-circular color="pink" indeterminate size="64"></v-progress-circular>
         </v-overlay>
 
-        <ClientOnly>
+        <!-- <ClientOnly>
             <AntiAdblocker v-if="adblocker" :adblock="adblocker"></AntiAdblocker>
-        </ClientOnly>
+        </ClientOnly> -->
 
     </div>
 </template>
@@ -179,8 +179,8 @@
 import api from '../api';
 import { scrollToSection } from '../utils';
 import { ref, computed, watch } from 'vue';
-import AntiAdblocker from '~/components/AntiAdblocker.vue';
-import { checkAdblocker } from '../utils/utils';
+//import AntiAdblocker from '~/components/AntiAdblocker.vue';
+//import { checkAdblocker } from '../utils/utils';
 import { Vue3Lottie } from 'vue3-lottie'
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose, mdiInformation } from '@mdi/js';
@@ -212,7 +212,7 @@ const visibleItemsUnfollowers = ref([]);
 const currentPaginationFans = ref(1);
 const visibleItemsFans = ref([]);
 const isLoading = ref(false);
-const adblocker = ref(false);
+//const adblocker = ref(false);
 
 const handleFileChange = (event) => {
     const files = event.target.files;
@@ -434,11 +434,19 @@ useSeoMeta({
 
 onMounted(async () => {
 
-    (adsbygoogle = window.adsbygoogle || []).push({});
+    // (adsbygoogle = window.adsbygoogle || []).push({});
 
-    setTimeout(async () => {
-        adblocker.value = await checkAdblocker();
-    }, 2000);
+    // setTimeout(async () => {
+    //     adblocker.value = await checkAdblocker();
+    // }, 2000);
+
+    const checkAdsbyGoogle = setInterval(() => {
+        if (window.adsbygoogle) {
+            // Inicializar el anuncio
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            clearInterval(checkAdsbyGoogle); // Detener el intervalo una vez que se ha cargado
+        }
+    }, 300);
 });
 </script>
 
