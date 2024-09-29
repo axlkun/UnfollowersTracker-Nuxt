@@ -90,22 +90,4 @@ onMounted(() => {
     background-color: transparent;
 }
 
-.ad-container {
-    margin: 0 auto;
-    width: 90%;
-
-    @media only screen and (min-width: 960px) {
-        width: 80%;
-      }
-}
-
-.hero-custom-sizing {
-    width: 90%;
-    margin: 0 auto;
-  
-    @media only screen and (min-width: 960px) {
-      width: 65%;
-      margin: 0;
-    }
-  }
 </style>

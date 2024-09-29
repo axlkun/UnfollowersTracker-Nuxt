@@ -89,6 +89,25 @@ onMounted(() => {
   }
 }
 
+.hero-custom-sizing {
+  width: 90%;
+  margin: 0 auto;
+
+  @media only screen and (min-width: 960px) {
+    width: 65%;
+    margin: 0;
+  }
+}
+
+.ad-container {
+  margin: 0 auto;
+  width: 90%;
+
+  @media only screen and (min-width: 960px) {
+      width: 80%;
+  }
+}
+
 .reset-style {
   /* le quita los estilos a los enlaces */
   text-decoration: none;

@@ -2,60 +2,59 @@
     <div>
 
         <!-- seccion para ingresar el zip -->
-        <v-sheet class="d-flex flex-sm-row flex-column justify-center align-center bg-grey-lighten-4"
-            style="min-height: 90vh">
+        <v-sheet class="bg-grey-lighten-4" style="min-height: 100vh">
             <v-sheet class="d-flex flex-column justify-center bg-grey-lighten-4">
-                <v-sheet class="custom-sizing mx-auto mb-8 bg-grey-lighten-4">
-                    <h1 class="text-sm-h2 text-h4 mb-8 font-weight-bold text-grey-darken-3 text-center">Discover your
-                        fans
-                        and <span class="text-pink">Unfollowers</span>
-                        <a href="https://www.instagram.com/" target="_blank">
-
-                        </a>
+                <v-sheet class="mb-8 bg-grey-lighten-4">
+                    <h1 class="text-h5 text-center text-md-h3 mt-5 mb-5 mb-md-7 font-weight-bold text-grey-darken-3">
+                        Discover your
+                        Fans and <span class="text-pink">Unfollowers</span>
                     </h1>
 
-                    <p class="text-sm-h6 text-h7 text-grey-darken-1 font-weight-bold text-center">
+                    <p class="text-subtitle-2 text-md-subtitle-1 text-center text-grey-darken-1 mb-md-2 font-weight-bold custom-sizing">
                         Simply attach the ZIP file you requested from Instagram below. &#128071;
                     </p>
                 </v-sheet>
 
-                <v-sheet class="w-100 d-flex flex-column justify-center align-center bg-grey-lighten-4">
+                <v-sheet class="custom-sizing mx-auto d-flex flex-column justify-center align-center bg-grey-lighten-4">
 
                     <v-file-input :rules="rules" accept=".zip" label="Select the ZIP file" @change="handleFileChange"
                         class="custom-sizing" @click:clear="clearFile">
                     </v-file-input>
 
                     <v-sheet
-                        class="d-flex flex-sm-row flex-column text-center mt-5 mb-5 justify-center w-100 bg-grey-lighten-4">
-                        <v-btn variant="elevated" @click="requestAPI" class="ma-3"
-                            color="pink">
+                        class="d-flex flex-sm-row flex-column text-center mt-md-5 mb-5 mb-md-7 justify-center w-100 bg-grey-lighten-4 ga-5">
+                        <v-btn variant="elevated" @click="requestAPI" color="pink">
                             <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon>
                             Discover Unfollowers
                         </v-btn>
 
                         <v-btn
                             href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
-                            variant="tonal" class="ma-3">
+                            variant="tonal">
                             <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon>
                             How can I get the ZIP
                         </v-btn>
                     </v-sheet>
 
                     <client-only>
-                        <v-sheet v-if="unfollowers.length > 0" class="bg-grey-lighten-4">
+                        <v-sheet v-if="unfollowers.length > 0" class="bg-grey-lighten-4 d-flex align-center">
                             <p class="text-subtitle-1 text-pink text-center">
                                 Results
                             </p>
-                            <Vue3Lottie class="mt-3" animationLink="/result.json" :height="45" :width="45" />
+                            <Vue3Lottie class="mt-2" animationLink="/result.json" :height="45" :width="45" />
                         </v-sheet>
 
                     </client-only>
                 </v-sheet>
             </v-sheet>
 
+            <!-- Bloque del anuncio -->
+            <div class="ad-container">
+                <div v-html="adsenseHtml"></div>
+            </div>
         </v-sheet>
 
-        
+
 
         <div id="top-table"></div>
         <v-alert v-if="unfollowers.length > 0"
@@ -90,8 +89,9 @@
                             class="d-flex justify-space-between align-center  bg-white pa-5 mb-5"
                             style="border-bottom: 1px solid #EEEEEE;">
                             <div class="d-flex align-center">
-                                
-                                <svg-icon class="ma-1" style="color: #E91E63;" type="mdi" :path="mdiFaceManProfile"></svg-icon>
+
+                                <svg-icon class="ma-1" style="color: #E91E63;" type="mdi"
+                                    :path="mdiFaceManProfile"></svg-icon>
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
@@ -124,7 +124,8 @@
                             class="d-flex justify-space-between align-center  bg-white pa-5 mb-5"
                             style="border-bottom: 1px solid #EEEEEE;">
                             <div class="d-flex align-center">
-                                <svg-icon class="ma-1" style="color: #E91E63;" type="mdi" :path="mdiFaceManProfile"></svg-icon>
+                                <svg-icon class="ma-1" style="color: #E91E63;" type="mdi"
+                                    :path="mdiFaceManProfile"></svg-icon>
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
@@ -183,6 +184,15 @@ import { checkAdblocker } from '../utils/utils';
 import { Vue3Lottie } from 'vue3-lottie'
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose, mdiInformation } from '@mdi/js';
+
+const adsenseHtml = `
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1163363741001629"
+       data-ad-slot="4903707508"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+`;
 
 const rules = ref([
     value => {
@@ -423,6 +433,9 @@ useSeoMeta({
 })
 
 onMounted(async () => {
+
+    (adsbygoogle = window.adsbygoogle || []).push({});
+
     setTimeout(async () => {
         adblocker.value = await checkAdblocker();
     }, 2000);
