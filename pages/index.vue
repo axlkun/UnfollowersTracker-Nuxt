@@ -34,8 +34,28 @@ import WhyUnfollowers from '../components/WhyUnfollowers.vue';
 import ContactSection from '../components/ContactSection.vue';
 import FrequentAsks from '~/components/FrequentAsks.vue';
 import CallToAction from '../components/CallToAction.vue';
+import api from '../api';
 
-const props = defineProps(['blogEntry']);
+const blogEntry = ref([]);
+
+const getArticles = async () => {
+    try {
+        const response = await api.get('/api/articles?limit=6');
+
+        if (response.status === 200) {
+            blogEntry.value = response.data.data;
+            //showAdblockModal();
+        } else {
+            console.error('Respuesta no exitosa:', response);
+            $router.push('/');
+        }
+    } catch (error) {
+        console.error('Error al hacer la solicitud GET:', error);
+        $router.push('/');
+    } finally {
+        loading.value = false;
+    }
+};
 
 useSeoMeta({
 
@@ -58,6 +78,12 @@ useSeoMeta({
   twitterTitle: 'UnfollowersTracker | Discover your Instagram Unfollowers',
   twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
 })
+
+onMounted(async () => {
+
+getArticles();
+});
+
 
 </script>
 

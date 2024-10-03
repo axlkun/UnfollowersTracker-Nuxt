@@ -47,22 +47,13 @@
 
 <script setup>
 import api from '../api';
-
 const dominio = api.defaults.baseURL;
-const blogEntry = ref([]);
 
-const getArticles = async () => {
-  api.get('/api/articles?limit=6')
-    .then(response => {
-      blogEntry.value = response.data.data;
-    })
-    .catch(error => {
-      console.error('Error al hacer la solicitud GET:', error);
-    });
-}
-
-onMounted(() => {
-  getArticles();
+const props = defineProps({
+  blogEntry: {
+    type: Array,
+    default: () => []
+  }
 });
 
 </script>

@@ -51,11 +51,11 @@ const adblocker = ref(false);
 
 const getArticles = async () => {
     try {
-        const response = await api.get('/api/articles');
+        const response = await api.get('/api/articles?limit=12');
 
         if (response.status === 200) {
             blogEntry.value = response.data.data;
-            showAdblockModal();
+            //showAdblockModal();
         } else {
             console.error('Respuesta no exitosa:', response);
             $router.push('/');
