@@ -100,8 +100,9 @@ onMounted(() => {
 }
 
 .ad-container {
-  margin: 0 auto;
   width: 90%;
+  max-width: 75rem;
+  margin: 0 auto;
 
   @media only screen and (min-width: 960px) {
       width: 80%;
