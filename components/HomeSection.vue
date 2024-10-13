@@ -1,7 +1,7 @@
 <template>
     <!-- Seccion de inicio -->
     <v-sheet class="bg-grey-lighten-4 container" id="home">
-        <v-sheet class="d-flex flex-md-row flex-column justify-center home-container">
+        <v-sheet class="d-flex flex-md-row flex-column justify-center home-container" style="min-height: 100vh">
 
             <v-sheet class="d-flex flex-column bg-grey-lighten-4 hero-custom-sizing">
                 <v-sheet class="mx-auto mb-8 bg-grey-lighten-4">
