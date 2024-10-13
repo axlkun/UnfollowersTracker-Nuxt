@@ -44,16 +44,10 @@ const getArticles = async () => {
 
         if (response.status === 200) {
             blogEntry.value = response.data.data;
-            //showAdblockModal();
-        } else {
-            console.error('Respuesta no exitosa:', response);
-            $router.push('/');
-        }
+        } 
     } catch (error) {
         console.error('Error al hacer la solicitud GET:', error);
-        $router.push('/');
-    } finally {
-        loading.value = false;
+        
     }
 };
 
