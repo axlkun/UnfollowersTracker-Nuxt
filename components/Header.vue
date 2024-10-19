@@ -53,6 +53,10 @@ nav {
     max-width: 120rem;
     margin: 0 auto;
     background-color: transparent;
+
+    @media only screen and (min-width: 1599px) {
+        width: 70%;
+      }
 }
 
 .logo a {

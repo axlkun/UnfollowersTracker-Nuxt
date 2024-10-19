@@ -89,5 +89,9 @@ const props = defineProps({
         grid-row-gap: 2rem;
         grid-column-gap: 4rem;
     }
+
+    @media only screen and (min-width: 1599px) {
+        width: 70%;
+    }
 }
 </style>

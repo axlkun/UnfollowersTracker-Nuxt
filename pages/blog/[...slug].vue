@@ -218,6 +218,10 @@ onMounted(async () => {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+
+    @media only screen and (min-width: 1599px) {
+        width: 70%;
+      }
 }
 
 .container * {
@@ -314,10 +318,14 @@ onMounted(async () => {
 
 .related-articles {
     width: 90%;
-    margin: 15px auto;
+    margin: 30px auto;
     color: #212121;
     background: transparent;
     border-top: 1px solid #212121;
+
+    @media only screen and (min-width: 1599px) {
+        width: 70%;
+      }
 }
 
 .related-articles h2 {

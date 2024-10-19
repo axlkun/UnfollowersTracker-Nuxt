@@ -1,5 +1,11 @@
 <template>
-    <v-sheet class="d-flex flex-column justify-center custom-sizing mx-auto" style="min-height: 100vh" id="how-works">
+<div>
+
+    <div class="ad-container">
+        <div v-html="adsenseHtml"></div>
+    </div>
+
+    <v-sheet class="d-flex flex-column justify-center custom-sizing mx-auto" style="min-height: 75vh" id="how-works">
 
         <v-sheet class="pa-5 text-center">
             <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">How does the Unfollowers Tracker tool work?
@@ -27,6 +33,7 @@
         </v-expansion-panels>
 
     </v-sheet>
+</div>
 </template>
 
 <script setup>
@@ -47,7 +54,7 @@ const stepsItems = [ /* texto para la seccion de tutorial */
         color: 'bg-indigo-lighten-5',
         color2: 'text-indigo-darken-4',
         title: '2 - Download the ZIP',
-        description: '1- Now, open the email account associated with your Instagram.<br> 2- Open the email sent by Instagram with the subject <strong>"Your Meta information download is ready"</strong> and click on <strong>"Download Your Information"</strong><br> 3- This will open a new Instagram tab showing the available download. Click on "Download" and confirm that it\'s your account. The download will start automatically.'
+        description: '1- You will receive an email from Instagram (this usually takes about 5 minutes).<br> 2- Open the email sent by Instagram with the subject <strong>"Your Meta information download is ready"</strong> and click on <strong>"Download Your Information"</strong><br> 3- This will open a new Instagram tab showing the available download. Click on "Download" and confirm that it\'s your account. The download will start automatically.'
     },
     {
         id: 3,
@@ -57,6 +64,26 @@ const stepsItems = [ /* texto para la seccion de tutorial */
         description: 'On Unfollowerstracker.com, click "Discover Unfollowers" Then, click on "Select the ZIP file" to open the file explorer, and choose the ZIP file you downloaded earlier. Once the file is uploaded, click "Discover Unfolowers" and see the results!'
     }
 ]
+
+const adsenseHtml = `
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1163363741001629"
+       data-ad-slot="3239804875"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+`;
+
+onMounted(() => {
+    
+    const checkAdsbyGoogle = setInterval(() => {
+        if (window.adsbygoogle) {
+            // Inicializar el anuncio
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            clearInterval(checkAdsbyGoogle); // Detener el intervalo una vez que se ha cargado
+        }
+    }, 300);
+});
 </script>
 
 <style scoped></style>

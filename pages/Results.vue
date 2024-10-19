@@ -4,8 +4,8 @@
         <!-- seccion para ingresar el zip -->
         <v-sheet class="bg-grey-lighten-4" style="min-height: 100vh">
             <v-sheet class="d-flex flex-column justify-center bg-grey-lighten-4">
-                <v-sheet class="mb-8 bg-grey-lighten-4">
-                    <h1 class="text-h5 text-center mx-auto text-md-h3 mt-5 mb-5 mb-md-7 font-weight-bold text-grey-darken-3">
+                <v-sheet class="mb-8 bg-grey-lighten-4 pl-2 pr-2">
+                    <h1 class="text-h5 text-center mx-auto text-md-h4 mt-5 mb-5 mb-md-7 font-weight-bold text-grey-darken-3">
                         Discover your
                         Fans and <span class="text-pink">Unfollowers</span>
                     </h1>

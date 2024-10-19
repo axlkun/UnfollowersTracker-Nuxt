@@ -71,7 +71,11 @@ import {  mdiEmailArrowRightOutline } from '@mdi/js';
   margin: 0 auto;
   text-align: center;
   border-bottom: 1px solid gray;
-  font-size: 15px
+  font-size: 15px;
+
+  @media only screen and (min-width: 1599px) {
+    width: 75%;
+}
 }
 
 .footer-section {

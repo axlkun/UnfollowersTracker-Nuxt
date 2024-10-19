@@ -1,6 +1,6 @@
 <template>
     <v-sheet color="#F5F5F5">
-        <v-sheet class="blog-container">
+        <v-sheet>
 
             <v-sheet v-if="loading" class="skeleton-blog">
                 <!-- Contenedor principal -->
@@ -108,16 +108,9 @@ useSeoMeta({
     max-width: 120rem;
     margin: 0 auto;
     width: 95%;
-}
 
-.blog-container {
-    width: 95%;
-    max-width: 120rem;
-    margin: 0 auto;
-    background-color: #F5F5F5;
-
-    @media only screen and (min-width: 1200px) {
-        width: 95%;
+    @media only screen and (min-width: 1599px) {
+        width: 75%;
     }
 }
 </style>
