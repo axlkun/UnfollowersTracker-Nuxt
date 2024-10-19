@@ -103,7 +103,6 @@ onMounted(() => {
   width: 90%;
   max-width: 75rem;
   margin: 10px auto;
-  background-color: #E91E63;
 
   @media only screen and (min-width: 960px) {
       width: 80%;
