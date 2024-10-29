@@ -35,6 +35,12 @@
             <v-sheet class="description-container">
 
                 <v-breadcrumbs class="pl-0" :items="items" divider=">" color="pink"></v-breadcrumbs>
+
+                <!-- Bloque del anuncio -->
+                <div class="ad-container">
+                    <div v-html="adsenseHtml"></div>
+                </div>
+
                 <v-sheet class="project-data">
                     <v-sheet class="project-description">
                         <v-sheet class="title">
@@ -105,6 +111,15 @@ import CallToAction from '../components/CallToAction.vue';
 import AntiAdblocker from '~/components/AntiAdblocker.vue';
 import { checkAdblocker } from '../../utils/utils';
 
+const adsenseHtml = `
+  <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1163363741001629"
+     data-ad-slot="3431751267"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+`;
+
 const items = ref([
     {
         title: 'UnfollowersTracker',
@@ -137,9 +152,16 @@ const loadData = async () => {
     try {
         const articleResponse = await loadArticle();
 
-        console.log(articleResponse);
         if (articleResponse.status === 200) {
             article.value = articleResponse.data.data;
+
+            const checkAdsbyGoogle = setInterval(() => {
+                if (window.adsbygoogle) {
+                    // Inicializar el anuncio
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    clearInterval(checkAdsbyGoogle); // Detener el intervalo una vez que se ha cargado
+                }
+            }, 300);
 
             useSeoMeta({
 
@@ -171,7 +193,7 @@ const loadData = async () => {
         }
     } catch (error) {
         window.location.href = "/";
-        
+
     } finally {
         loading.value = false;
     }
@@ -221,7 +243,7 @@ onMounted(async () => {
 
     @media only screen and (min-width: 1599px) {
         width: 70%;
-      }
+    }
 }
 
 .container * {
@@ -325,7 +347,7 @@ onMounted(async () => {
 
     @media only screen and (min-width: 1599px) {
         width: 70%;
-      }
+    }
 }
 
 .related-articles h2 {
