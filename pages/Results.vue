@@ -13,6 +13,11 @@
                     <p class="text-subtitle-2 mx-auto text-md-subtitle-1 text-center text-grey-darken-1 mb-md-2 font-weight-bold custom-sizing">
                         Simply attach the ZIP file you requested from Instagram below. &#128071;
                     </p>
+
+                    <v-alert
+                        text="Our website is temporarily unavailable due to scheduled maintenance. We'll be back in approximately 1 hour. Thank you for your patience!"
+                        title="Maintenance in Progress" type="warning" variant="tonal" class="custom-sizing-card mt-5 mb-5">
+                    </v-alert>
                 </v-sheet>
 
                 <v-sheet class="custom-sizing mx-auto d-flex flex-column justify-center align-center bg-grey-lighten-4">
