@@ -157,7 +157,7 @@
         <!-- Utilidades -->
 
         <!-- notificacion -->
-        <v-snackbar v-model="alert" :timeout="10000" min-height="80px" transition="scroll-y-reverse-transition"
+        <v-snackbar v-model="alert" :timeout="20000" min-height="80px" transition="scroll-y-reverse-transition"
             location="top right" class="ma-5">
             {{ alertText }}
 
@@ -230,6 +230,10 @@ const handleFileChange = (event) => {
 
 const requestAPI = async () => {
     try {
+
+        unfollowers.value = [];
+        fans.value = [];
+
         if (!selectedFile.value) {
             alertText.value = 'The ZIP file has not been selected';
             alert.value = true;
@@ -246,11 +250,13 @@ const requestAPI = async () => {
 
         isLoading.value = true;
 
-        const sendZip = await sendZIP(user);
+        const sendZipResponse = await sendZIP(user);
 
-        if (!sendZip) {
+        if (sendZipResponse.status !== 200) {
             isLoading.value = false;
-            alertText.value = 'An error occurred while sending the ZIP file. Please try again later';
+
+            // Mostrar mensaje devuelto por el backend si existe
+            alertText.value = sendZipResponse.message || 'An error occurred while sending the ZIP file.';
             alert.value = true;
             return;
         }
@@ -273,13 +279,9 @@ const requestAPI = async () => {
 
     } catch (error) {
         alertText.value = 'An unexpected error has occurred. Please try again later.';
-        console.log('Catch error: ' + error);
         alert.value = true;
     } finally {
         isLoading.value = false;
-
-        console.log(unfollowers.value)
-        console.log(fans.value)
 
         if (unfollowers.value.length >= 1 || fans.value.length >= 1) {
             setTimeout(() => {
@@ -299,6 +301,8 @@ const getUser = () => {
     if (fileName.includes("instagram") && fileName.endsWith(".zip")) {
 
         const nombreUsuario = fileName.replace(/\./g, '-');
+
+        console.log(nombreUsuario);
 
         return nombreUsuario;
     } else {
@@ -321,13 +325,18 @@ const sendZIP = async (user) => {
             },
         });
 
-        if (response.data.status == 200) {
-            return true;
-        } else {
-            return false;
-        }
+        return response.data; // devuelve todo el cuerpo
     } catch (error) {
-        return false;
+        // Si el servidor envía respuesta de error, extraemos el mensaje
+        if (error.response && error.response.data) {
+            return error.response.data;
+        }
+
+        // Error inesperado (sin respuesta del backend)
+        return {
+            status: 500,
+            message: 'Unexpected error while uploading ZIP'
+        };
     }
 };
 
@@ -340,11 +349,9 @@ const getUnfollowers = async (user) => {
         if (response.data.status == 200) {
             return response.data.unfollowers;
         } else {
-            console.log('Error: ' + response);
             return false;
         }
     } catch (error) {
-        console.log('Error: ' + error);
         return false;
     }
 };
@@ -358,11 +365,9 @@ const getFans = async (user) => {
         if (response.data.status == 200) {
             return response.data.unfollowing;
         } else {
-            console.log('Error: ' + response);
             return false;
         }
     } catch (error) {
-        console.log('Error: ' + error);
         return false;
     }
 };
