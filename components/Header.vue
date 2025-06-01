@@ -8,6 +8,7 @@
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
             <ul class="menu">
                 <li><a href="/results">Discover Unfollowers</a></li>
+                <li><a href="/pending-requests">Discover Who Ghosts You</a></li>
                 <li><a href="/#how-works">How it works</a></li>
                 <li><a href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers">Tutorial</a></li>
                 <li><a href="/#faqs">FAQ</a></li>

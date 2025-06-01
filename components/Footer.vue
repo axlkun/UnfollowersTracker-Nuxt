@@ -19,7 +19,8 @@
         <p>Free tools</p>
 
         <ul>
-          <li><a href="/results">Who doesn't follow me back on Instagram</a></li>
+          <li><a href="/results">See who doesn’t follow you back on Instagram</a></li>
+          <li><a href="/pending-requests">Find out who hasn’t accepted your follow request</a></li>
         </ul>
 
       </div>
