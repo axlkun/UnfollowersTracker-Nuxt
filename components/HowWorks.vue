@@ -23,7 +23,7 @@
                 <v-expansion-panel-title class="text-h7 text-md-h6 d-flex align-center" style="min-height: 80px"
                     :class="item.color2">
                     {{ item.title }}
-                    <svg-icon class="ma-2" style="color: gray;" type="mdi" :path="mdiChevronDown"></svg-icon>
+                    <!-- <svg-icon class="ma-2" style="color: gray;" type="mdi" :path="mdiChevronDown"></svg-icon> -->
 
                 </v-expansion-panel-title>
                 <v-expansion-panel-text style="line-height: 2;">
@@ -37,8 +37,8 @@
 </template>
 
 <script setup>
-import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiChevronDown } from '@mdi/js';
+// import SvgIcon from '@jamescoyle/vue-icon';
+// import { mdiChevronDown } from '@mdi/js';
 import { onMounted, ref } from 'vue';
 
 const stepsItems = [ /* texto para la seccion de tutorial */

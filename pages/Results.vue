@@ -29,14 +29,16 @@
                     <v-sheet
                         class="d-flex flex-sm-row flex-column text-center mt-md-5 mb-5 mb-md-7 justify-center w-100 bg-grey-lighten-4 ga-5">
                         <v-btn variant="elevated" @click="requestAPI" color="pink">
-                            <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon>
+                            <!-- <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon> -->
+                            <v-icon :icon="mdiAccountRemove" class="mr-2"/>
                             Discover Unfollowers
                         </v-btn>
 
                         <v-btn
                             href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
                             variant="tonal">
-                            <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon>
+                            <!-- <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon> -->
+                            <v-icon :icon="mdiHelp" class="mr-2"/>
                             How can I get the ZIP
                         </v-btn>
                     </v-sheet>
@@ -95,8 +97,10 @@
                             style="border-bottom: 1px solid #EEEEEE;">
                             <div class="d-flex align-center">
 
-                                <svg-icon class="ma-1" style="color: #E91E63;" type="mdi"
-                                    :path="mdiFaceManProfile"></svg-icon>
+                                <!-- <svg-icon class="ma-1" style="color: #E91E63;" type="mdi"
+                                    :path="mdiFaceManProfile"></svg-icon> -->
+
+                                <v-icon :icon="mdiFaceManProfile" class="ma-1 text-pink"/>
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
@@ -129,8 +133,10 @@
                             class="d-flex justify-space-between align-center  bg-white pa-5 mb-5"
                             style="border-bottom: 1px solid #EEEEEE;">
                             <div class="d-flex align-center">
-                                <svg-icon class="ma-1" style="color: #E91E63;" type="mdi"
-                                    :path="mdiFaceManProfile"></svg-icon>
+                                <!-- <svg-icon class="ma-1" style="color: #E91E63;" type="mdi"
+                                    :path="mdiFaceManProfile"></svg-icon> -->
+
+                                <v-icon :icon="mdiFaceManProfile" class="ma-1 text-pink"/>
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
@@ -163,7 +169,8 @@
 
             <template v-slot:actions>
                 <v-btn color="pink" variant="text" @click="alert = false">
-                    <svg-icon style="color: white;" type="mdi" :path="mdiClose"></svg-icon>
+                    <!-- <svg-icon style="color: white;" type="mdi" :path="mdiClose"></svg-icon> -->
+                    <v-icon :icon="mdiClose" class="ma-1 text-white"/>
                 </v-btn>
             </template>
         </v-snackbar>
@@ -187,8 +194,8 @@ import { ref, computed, watch } from 'vue';
 //import AntiAdblocker from '~/components/AntiAdblocker.vue';
 //import { checkAdblocker } from '../utils/utils';
 import { Vue3Lottie } from 'vue3-lottie'
-import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose, mdiInformation } from '@mdi/js';
+// import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose } from '@mdi/js';
 
 const adsenseHtml = `
   <ins class="adsbygoogle"

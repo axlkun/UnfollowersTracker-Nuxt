@@ -32,14 +32,16 @@
                     <v-sheet
                         class="d-flex flex-sm-row flex-column text-center mt-md-2 mb-5 mb-md-7 justify-center w-100 bg-grey-lighten-4 ga-5">
                         <v-btn variant="elevated" @click="requestAPI" color="deep-purple-accent-3">
-                            <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiSendCheck"></svg-icon>
+                            <!-- <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiSendCheck"></svg-icon> -->
+                            <v-icon :icon="mdiSendCheck" class="mr-2"/>
                             View Sent Requests
                         </v-btn>
 
                         <v-btn
                             href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
                             variant="tonal">
-                            <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon>
+                            <!-- <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon> -->
+                            <v-icon :icon="mdiHelp" class="mr-2"/>
                             How can I get the ZIP
                         </v-btn>
                     </v-sheet>
@@ -95,8 +97,10 @@
                             style="border-bottom: 1px solid #EEEEEE;">
                             <div class="d-flex align-center">
 
-                                <svg-icon class="ma-1" style="color: #4A148C;" type="mdi"
-                                    :path="mdiFaceManProfile"></svg-icon>
+                                <!-- <svg-icon class="ma-1" style="color: #4A148C;" type="mdi"
+                                    :path="mdiFaceManProfile"></svg-icon> -->
+
+                                <v-icon :icon="mdiFaceManProfile" class="ma-1 text-deep-purple-accent-3" />
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
@@ -140,7 +144,8 @@
 
                 <!-- TÍTULO CON ÍCONO -->
                 <v-card-title class="d-flex align-center">
-                    <svg-icon class="mr-2" style="color: gray;" type="mdi" :path="mdiAlertCircleOutline"></svg-icon>
+                    <!-- <svg-icon class="mr-2" style="color: gray;" type="mdi" :path="mdiAlertCircleOutline"></svg-icon> -->
+                    <v-icon :icon="mdiAlertCircleOutline" class="mr-2 text-gray" />
                     <span class="text-h6 font-weight-medium">UnfollowersTracker</span>
                 </v-card-title>
 
@@ -178,8 +183,8 @@ import { ref, computed, watch } from 'vue';
 //import AntiAdblocker from '~/components/AntiAdblocker.vue';
 //import { checkAdblocker } from '../utils/utils';
 import { Vue3Lottie } from 'vue3-lottie'
-import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose, mdiInformation, mdiSendCheck, mdiAlertCircleOutline  } from '@mdi/js';
+// import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiHelp, mdiFaceManProfile, mdiSendCheck, mdiAlertCircleOutline  } from '@mdi/js';
 
 const adsenseHtml = `
   <ins class="adsbygoogle"

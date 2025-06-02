@@ -5,7 +5,8 @@
             <p class="text-h7 text-md-h6 ma-5 font-weight-bold text-grey-darken-1">Don't wait any longer to find out who doesn't follow you back on Instagram. Our free tool is ready to help you manage your follower list.</p>
             <v-btn variant="elevated"
                 class="ma-5" color="pink" href="/results">
-                <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon>
+                <!-- <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon> -->
+                 <v-icon :icon="mdiAccountRemove" class="ma-1"/>
                 Discover Unfollowers
             </v-btn>
         </v-sheet>
@@ -13,7 +14,7 @@
 </template>
     
 <script setup>
-import SvgIcon from '@jamescoyle/vue-icon';
+// import SvgIcon from '@jamescoyle/vue-icon';
 import {  mdiAccountRemove } from '@mdi/js';
 </script>
     

@@ -13,7 +13,7 @@
                     <v-expansion-panel-title
                         class="text-h7 text-md-h6 text-grey-darken-4" style="min-height: 80px">
                         <h3>{{ item.title }}</h3>
-                        <svg-icon class="ml-2" style="color: grey;" type="mdi" :path="mdiPlusCircleOutline"></svg-icon>
+                        <!-- <svg-icon class="ml-2" style="color: grey;" type="mdi" :path="mdiPlusCircleOutline"></svg-icon> -->
                     </v-expansion-panel-title>
                     <v-expansion-panel-text style="line-height: 2;">
                         <div v-html="item.description"></div>

@@ -40,7 +40,8 @@
 
         <v-btn variant="elevated" href="mailto:unfollowerstracker2024@gmail.com"
                 class="ma-5" color="pink">
-                <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiEmailArrowRightOutline"></svg-icon>
+                <!-- <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiEmailArrowRightOutline"></svg-icon> -->
+                <v-icon :icon="mdiEmailArrowRightOutline" class="mr-2"/>
           Contact us
         </v-btn>
       </div>

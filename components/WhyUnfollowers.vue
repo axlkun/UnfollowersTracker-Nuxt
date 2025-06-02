@@ -11,7 +11,8 @@
         <v-sheet class="d-flex flex-md-row flex-column justify-center" style="gap: 20px;">
             <v-sheet v-for="item in whyItems" :key="item.id" elevation="2" max-width="400" rounded="lg" width="90%"
                 class="pa-4 text-center custom-sizing">
-                <svg-icon class="ma-2" style="color: #E91E63;" type="mdi" :path="item.icon" size="48"></svg-icon>
+                <!-- <svg-icon class="ma-2" style="color: #E91E63;" type="mdi" :path="item.icon" size="48"></svg-icon> -->
+                <v-icon :icon="item.icon" class="text-pink ma-2"/>
 
                 <h2 class="text-h5 mb-6">{{ item.title }}</h2>
 
@@ -26,7 +27,7 @@
 </template>
 
 <script setup>
-import SvgIcon from '@jamescoyle/vue-icon';
+// import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiSecurity, mdiLightningBolt, mdiAccountGroup } from '@mdi/js';
 
 const whyItems = [ /* texto para la seccion de por que unfollowers */

@@ -16,13 +16,15 @@
 
                     <v-sheet class="d-flex flex-md-row flex-column justify-center bg-grey-lighten-4 ga-3 ga-md-5">
                         <v-btn variant="elevated" href="/results" class="mt-5 mt-md-10 mx-center" color="pink">
-                            <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon>
+                            <!-- <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon> -->
+                            <v-icon :icon="mdiAccountRemove" class="mr-2"/>
                             Discover Unfollowers
                         </v-btn>
                         <v-btn
                             href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
                             variant="tonal" class="mt-5 mt-md-10 mx-center">
-                            <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon>
+                            <!-- <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon> -->
+                            <v-icon :icon="mdiHelp" class="mr-2"/>
                             How it works
                         </v-btn>
                     </v-sheet>
@@ -49,7 +51,7 @@
 </template>
 
 <script setup>
-import SvgIcon from '@jamescoyle/vue-icon';
+// import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiAccountRemove, mdiHelp } from '@mdi/js';
 
 //import imgHome from '../assets/hero.png';
