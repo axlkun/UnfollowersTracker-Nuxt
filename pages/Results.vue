@@ -5,12 +5,14 @@
         <v-sheet class="bg-grey-lighten-4" style="min-height: 100vh">
             <v-sheet class="d-flex flex-column justify-center bg-grey-lighten-4">
                 <v-sheet class="mb-8 bg-grey-lighten-4 pl-2 pr-2">
-                    <h1 class="text-h5 text-center mx-auto text-md-h4 mt-5 mb-5 mb-md-7 font-weight-bold text-grey-darken-3">
+                    <h1
+                        class="text-h5 text-center mx-auto text-md-h4 mt-5 mb-5 mb-md-7 font-weight-bold text-grey-darken-3">
                         Discover your
                         Fans and <span class="text-pink">Unfollowers</span>
                     </h1>
 
-                    <p class="text-subtitle-2 mx-auto text-md-subtitle-1 text-center text-grey-darken-1 mb-md-2 font-weight-bold custom-sizing">
+                    <p
+                        class="text-subtitle-2 mx-auto text-md-subtitle-1 text-center text-grey-darken-1 mb-md-2 font-weight-bold custom-sizing">
                         Simply attach the ZIP file you requested from Instagram below. &#128071;
                     </p>
 
@@ -30,7 +32,7 @@
                         class="d-flex flex-sm-row flex-column text-center mt-md-5 mb-5 mb-md-7 justify-center w-100 bg-grey-lighten-4 ga-5">
                         <v-btn variant="elevated" @click="requestAPI" color="pink">
                             <!-- <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiAccountRemove"></svg-icon> -->
-                            <v-icon :icon="mdiAccountRemove" class="mr-2"/>
+                            <v-icon :icon="mdiAccountRemove" class="mr-2" />
                             Discover Unfollowers
                         </v-btn>
 
@@ -38,7 +40,7 @@
                             href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
                             variant="tonal">
                             <!-- <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon> -->
-                            <v-icon :icon="mdiHelp" class="mr-2"/>
+                            <v-icon :icon="mdiHelp" class="mr-2" />
                             How can I get the ZIP
                         </v-btn>
                     </v-sheet>
@@ -61,12 +63,22 @@
             </div>
         </v-sheet>
 
-
-
         <div id="top-table"></div>
+        
         <v-alert v-if="unfollowers.length > 0"
             text="The 'Unfollow / Follow' button will redirect you to the User Profile. You need to complete the action there"
             title="Info" type="info" variant="tonal" class="custom-sizing-card mt-5 mb-5">
+        </v-alert>
+
+        <v-alert v-if="unfollowers.length > 0" title="🎉 New Feature Available!"
+            color="deep-purple-accent-3" variant="tonal" class="custom-sizing-card mt-5 mb-5">
+
+            <div>
+                Discover who hasn't accepted your follow request — using the same ZIP file.
+                <a href="/pending-requests" class="font-weight-medium text-decoration-underline ml-1">
+                    Try it now →
+                </a>
+            </div>
         </v-alert>
 
         <!-- seccion de resultados -->
@@ -100,7 +112,7 @@
                                 <!-- <svg-icon class="ma-1" style="color: #E91E63;" type="mdi"
                                     :path="mdiFaceManProfile"></svg-icon> -->
 
-                                <v-icon :icon="mdiFaceManProfile" class="ma-1 text-pink"/>
+                                <v-icon :icon="mdiFaceManProfile" class="ma-1 text-pink" />
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
@@ -136,7 +148,7 @@
                                 <!-- <svg-icon class="ma-1" style="color: #E91E63;" type="mdi"
                                     :path="mdiFaceManProfile"></svg-icon> -->
 
-                                <v-icon :icon="mdiFaceManProfile" class="ma-1 text-pink"/>
+                                <v-icon :icon="mdiFaceManProfile" class="ma-1 text-pink" />
 
                                 <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
                                     <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
@@ -163,17 +175,42 @@
         <!-- Utilidades -->
 
         <!-- notificacion -->
-        <v-snackbar v-model="alert" :timeout="20000" min-height="80px" transition="scroll-y-reverse-transition"
+        <!-- <v-snackbar v-model="alert" :timeout="20000" min-height="80px" transition="scroll-y-reverse-transition"
             location="top right" class="ma-5">
             {{ alertText }}
 
             <template v-slot:actions>
                 <v-btn color="pink" variant="text" @click="alert = false">
-                    <!-- <svg-icon style="color: white;" type="mdi" :path="mdiClose"></svg-icon> -->
-                    <v-icon :icon="mdiClose" class="ma-1 text-white"/>
+                    <svg-icon style="color: white;" type="mdi" :path="mdiClose"></svg-icon>
+                    <v-icon :icon="mdiClose" class="ma-1 text-white" />
                 </v-btn>
             </template>
-        </v-snackbar>
+        </v-snackbar> -->
+
+        <v-dialog v-model="alert" persistent max-width="400" class="alert-dialog">
+            <v-card class="pa-4">
+
+                <!-- TÍTULO CON ÍCONO -->
+                <v-card-title class="d-flex align-center">
+                    <!-- <svg-icon class="mr-2" style="color: gray;" type="mdi" :path="mdiAlertCircleOutline"></svg-icon> -->
+                    <v-icon :icon="mdiAlertCircleOutline" class="mr-2 text-gray" />
+                    <span class="text-h6 font-weight-medium">UnfollowersTracker</span>
+                </v-card-title>
+
+                <!-- TEXTO DEL MENSAJE -->
+                <v-card-text>
+                    {{ alertText }}
+                </v-card-text>
+
+                <!-- BOTÓN DE CIERRE -->
+                <v-card-actions class="justify-end">
+                    <v-btn @click="alert = false" color="pink">
+                        Close
+                    </v-btn>
+                </v-card-actions>
+
+            </v-card>
+        </v-dialog>
 
         <!-- loader -->
         <v-overlay :model-value="isLoading" class="align-center justify-center">
@@ -195,7 +232,7 @@ import { ref, computed, watch } from 'vue';
 //import { checkAdblocker } from '../utils/utils';
 import { Vue3Lottie } from 'vue3-lottie'
 // import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose } from '@mdi/js';
+import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose, mdiAlertCircleOutline } from '@mdi/js';
 
 const adsenseHtml = `
   <ins class="adsbygoogle"
@@ -214,7 +251,7 @@ const rules = ref([
 
 const selectedFile = ref(null);
 const alert = ref(false);
-const alertText = ref('');
+const alertText = ref('Something went wrong :(');
 const tab = ref('unfollowers');
 const unfollowers = ref([]);
 const fans = ref([]);
