@@ -19,7 +19,6 @@
   "dependencies": {
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^7.4.47",
-    "axios": "^1.6.2",
-    "vue3-lottie": "^3.3.0"
+    "axios": "^1.6.2"
   }
 }

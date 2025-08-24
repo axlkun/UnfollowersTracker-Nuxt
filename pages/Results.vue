@@ -13,7 +13,7 @@
 
                     <p
                         class="text-subtitle-2 mx-auto text-md-subtitle-1 text-center text-grey-darken-1 mb-md-2 font-weight-bold custom-sizing">
-                        Simply attach the ZIP file you requested from Instagram below. &#128071;
+                        Simply attach the ZIP file you requested from Instagram below.
                     </p>
 
                     <!--<v-alert
@@ -48,9 +48,9 @@
                     <client-only>
                         <v-sheet v-if="unfollowers.length > 0" class="bg-grey-lighten-4 d-flex align-center">
                             <p class="text-subtitle-1 text-pink text-center">
-                                Results
+                                Results &#128071;
                             </p>
-                            <Vue3Lottie class="mt-2" animationLink="/result.json" :height="45" :width="45" />
+                            
                         </v-sheet>
 
                     </client-only>
@@ -230,7 +230,6 @@ import { scrollToSection } from '../utils';
 import { ref, computed, watch } from 'vue';
 //import AntiAdblocker from '~/components/AntiAdblocker.vue';
 //import { checkAdblocker } from '../utils/utils';
-import { Vue3Lottie } from 'vue3-lottie'
 // import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose, mdiAlertCircleOutline } from '@mdi/js';
 
