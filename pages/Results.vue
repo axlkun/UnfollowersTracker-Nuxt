@@ -50,7 +50,7 @@
                             <p class="text-subtitle-1 text-pink text-center">
                                 Results &#128071;
                             </p>
-                            
+
                         </v-sheet>
 
                     </client-only>
@@ -64,14 +64,14 @@
         </v-sheet>
 
         <div id="top-table"></div>
-        
+
         <v-alert v-if="unfollowers.length > 0"
             text="The 'Unfollow / Follow' button will redirect you to the User Profile. You need to complete the action there"
             title="Info" type="info" variant="tonal" class="custom-sizing-card mt-5 mb-5">
         </v-alert>
 
-        <v-alert v-if="unfollowers.length > 0" title="🎉 New Feature Available!"
-            color="deep-purple-accent-3" variant="tonal" class="custom-sizing-card mt-5 mb-5">
+        <v-alert v-if="unfollowers.length > 0" title="🎉 New Feature Available!" color="deep-purple-accent-3"
+            variant="tonal" class="custom-sizing-card mt-5 mb-5">
 
             <div>
                 Discover who hasn't accepted your follow request — using the same ZIP file.
@@ -86,18 +86,14 @@
             style="min-height: 100vh" id="results">
 
             <v-tabs v-model="tab" fixed-tabs class="bg-transparent w-100 mb-5">
-                <v-tab>
-                    Unfollowers
-                </v-tab>
-                <v-tab>
-                    Fans
-                </v-tab>
+                <v-tab value="unfollowers">Unfollowers</v-tab>
+                <v-tab value="fans">Fans</v-tab>
             </v-tabs>
 
             <v-window v-model="tab">
 
                 <!-- seccion de unfollowers -->
-                <v-window-item key="unfollowers" value="unfollowers" class="bg-transparent mb-sm-0 mb-5">
+                <v-window-item value="unfollowers" class="bg-transparent mb-sm-0 mb-5">
 
                     <v-card class="mb-5 pb-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
                         <p>{{ unfollowers.length }} users don't follow you back</p>
@@ -135,7 +131,7 @@
                 </v-window-item>
 
                 <!-- seccion de fans -->
-                <v-window-item key="fans" value="fans">
+                <v-window-item value="fans">
                     <v-card class=" pa-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
                         <p>{{ fans.length }} you don't follow back</p>
                     </v-card>
@@ -185,7 +181,7 @@
                     <v-icon :icon="mdiClose" class="ma-1 text-white" />
                 </v-btn>
             </template>
-        </v-snackbar> -->
+</v-snackbar> -->
 
         <v-dialog v-model="alert" persistent max-width="400" class="alert-dialog">
             <v-card class="pa-4">
@@ -295,6 +291,8 @@ const requestAPI = async () => {
 
         const sendZipResponse = await sendZIP(user);
 
+        console.log("send zip", sendZipResponse)
+
         if (sendZipResponse.status !== 200) {
             isLoading.value = false;
 
@@ -306,6 +304,9 @@ const requestAPI = async () => {
 
         const unfollowersData = await getUnfollowers(user);
         const fansData = await getFans(user);
+
+        console.log("unfollowersData", unfollowersData)
+        console.log("fansData", fansData)
 
         unfollowers.value = unfollowersData;
         fans.value = fansData;
@@ -344,8 +345,6 @@ const getUser = () => {
     if (fileName.includes("instagram") && fileName.endsWith(".zip")) {
 
         const nombreUsuario = fileName.replace(/\./g, '-');
-
-        console.log(nombreUsuario);
 
         return nombreUsuario;
     } else {

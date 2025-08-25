@@ -76,15 +76,13 @@
             style="min-height: 100vh" id="results">
 
             <v-tabs v-model="tab" fixed-tabs class="bg-transparent w-100 mb-5">
-                <v-tab>
-                    Pending Follow Requests
-                </v-tab>
+                <v-tab value="pendingRequests">Pending Follow Requests</v-tab>
             </v-tabs>
 
             <v-window v-model="tab">
 
                 <!-- seccion de pendingRequests -->
-                <v-window-item key="pendingRequests" value="pendingRequests" class="bg-transparent mb-sm-0 mb-5">
+                <v-window-item value="pendingRequests" class="bg-transparent mb-sm-0 mb-5">
 
                     <v-card class="mb-5 pb-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
                         <p>{{ pendingRequests.length }} users haven’t accepted your follow requests</p>
