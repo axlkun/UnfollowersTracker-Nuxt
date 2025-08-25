@@ -50,7 +50,7 @@ const faqs = [
         icon: '⏳'
     },
     {
-        question: 'Is it safe to use Instagram unfollow tracker tools like this one?',
+        question: 'Is it safe to use Instagram Unfollowers Tracker?',
         answer: `Yes, our Instagram unfollow tracker is 100% secure. We never ask for your Instagram 
     password or login credentials, so your account stays completely safe from hacking or bans. 
     All analysis is done locally using your downloaded Instagram ZIP file, ensuring maximum privacy.`,
@@ -99,7 +99,7 @@ const faqs = [
         icon: '🚫'
     },
     {
-        question: 'Is this Instagram unfollow tracker really free?',
+        question: 'Is this Instagram Unfollowers Tracker really free?',
         answer: `Yes! Our Instagram Unfollowers Tracker is completely free to use. 
     We don’t charge any fees or require subscriptions. If you’d like to support our work, 
     you can disable your ad blocker or share the tool with friends.`,
