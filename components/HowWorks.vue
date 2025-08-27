@@ -5,8 +5,7 @@
             <div v-html="adsenseHtml"></div>
         </div>
 
-        <v-sheet class="d-flex flex-column justify-center custom-sizing mx-auto" style="min-height: 75vh"
-            id="how-works">
+        <v-sheet class="d-flex flex-column justify-center custom-sizing mx-auto" id="how-works">
 
             <v-sheet class="pa-5 text-center">
                 <h2 class="text-h5 text-md-h4 ma-1 font-weight-black text-pink">How does the Unfollowers Tracker tool
@@ -21,70 +20,70 @@
                     back on Instagram.</p>
             </v-sheet>
 
-            <v-expansion-panels v-model="openSteps" multiple>
-
-                <v-expansion-panel v-for="item in stepsItems" :key="item.id" :class="item.color" class="ma-5">
-                    <v-expansion-panel-title class="text-h7 text-md-h6 d-flex align-center" style="min-height: 80px"
-                        :class="item.color2">
-                        <span class="mr-3" aria-hidden="true">{{ item.icon }}</span>
-                        <h3 class="text-h7 text-md-h6" style="line-height: 1.5;">
-                            {{ item.title }}
-                        </h3>
-                        <!-- <svg-icon class="ma-2" style="color: gray;" type="mdi" :path="mdiChevronDown"></svg-icon> -->
-
-                    </v-expansion-panel-title>
-                    <v-expansion-panel-text style="line-height: 2;">
-                        <p v-html="item.description"></p>
-                    </v-expansion-panel-text>
-                </v-expansion-panel>
-            </v-expansion-panels>
-
         </v-sheet>
+
+        <section>
+            <v-container>
+                <!-- Grid pasos -->
+                <v-row class="mt-2 justify-center align-center steps-row" align="stretch" justify="center" dense>
+                    <template v-for="(step, index) in steps" :key="index">
+                        <!-- Paso -->
+                        <v-col cols="12" md="3" class="d-flex justify-center">
+                            <v-card class="feature-card rounded-2xl pa-6 elevation-1 ma-2 text-center"
+                                :class="`feature-card--${step.tint}`" :to="step.link" link>
+                                <v-avatar size="64" class="avatar-tint mb-4" :class="`avatar-tint--${step.tint}`">
+                                    <v-img :src="step.image" :alt="step.title" cover />
+                                </v-avatar>
+
+                                <div class="text-h6 font-weight-bold mb-2">
+                                    {{ index + 1 }}. {{ step.title }}
+                                </div>
+                                <div class="text-body-2 text-medium-emphasis">
+                                    {{ step.description }}
+                                </div>
+                            </v-card>
+                        </v-col>
+
+                        <!-- Flecha (excepto en el último) -->
+                        <v-col v-if="index < steps.length - 1" cols="12" md="1"
+                            class="d-flex justify-center align-center arrow-col">
+                            <v-icon :icon="mdiArrowRightThick" size="36" class="arrow-icon" />
+                        </v-col>
+                    </template>
+                </v-row>
+            </v-container>
+        </section>
+
     </div>
 </template>
 
 <script setup>
-// import SvgIcon from '@jamescoyle/vue-icon';
-// import { mdiChevronDown } from '@mdi/js';
 import { onMounted, ref } from 'vue';
+import { mdiArrowRightThick } from '@mdi/js'
 
-const stepsItems = [ /* texto para la seccion de tutorial */
+const steps = ref([
     {
-        id: 1,
-        color: 'bg-green-lighten-5',
-        color2: 'text-green-darken-4',
-        icon: '📥',
-        title: '1 - Request Your Information from Instagram',
-        description: `1- On Instagram go to your profile, open the top-right menu (Settings and Activity), use the search bar at the top 
-        and type <strong>"Download Your Information"</strong> and select it.<br> 
-        2- Tap on <strong>"Create export"</strong>, choose your Instagram profile and select <strong>"Export to device"</strong><br>
-        3- In the "Notify" section, select the email address where you want to receive the ZIP file<br>
-        3- Tap on <strong>"Customize information"</strong>, deselect all pre-selected options and scroll to the "Connections" section and choose 
-        ONLY <strong>"Followers and Following"</strong>, then press <strong>"Save"</strong><br>
-        4- Click on <strong>"Date range"</strong>, select <strong>"All time"</strong>, and press "Save".<br>
-        5- Click on <strong>"Format"</strong>, select <strong>"JSON"</strong>, and press <strong>"Save"</strong>. Finally, press 
-        <strong>"Start export."</strong>`
+        title: "Request your data ZIP file from Instagram",
+        description: "Go to Instagram and request your following and followers list.",
+        image: "/images/folder.png",
+        tint: "blue",
+        link: "/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers",
     },
     {
-        id: 2,
-        color: 'bg-indigo-lighten-5',
-        color2: 'text-indigo-darken-4',
-        icon: '📧',
-        title: '2 - Download the ZIP',
-        description: '1- You will receive an email from Instagram (this usually takes about 5 minutes).<br> 2- Open the email sent by Instagram with the subject <strong>"Your Meta information download is ready"</strong> and click on <strong>"Download Your Information"</strong><br> 3- This will open a new Instagram tab showing the available download. Click on "Download" and confirm that it\'s your account. The download will start automatically.'
+        title: "Download the data ZIP file",
+        description: "You'll get an email with your data ZIP file to download.",
+        image: "/images/mail.png",
+        tint: "green",
+        link: "/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers",
     },
     {
-        id: 3,
-        color: 'bg-yellow-lighten-5',
-        color2: 'text-yellow-darken-4',
-        icon: '📂',
-        title: '3 - Upload the ZIP',
-        description: 'On <a href="/results">Unfollowers Tracker tool</a>, click on "Select the ZIP file" to open the file explorer, and choose the ZIP file you downloaded earlier. Once the file is uploaded, click "Discover Unfolowers" and see who unfollowed you on Instagram!'
-    }
-]
-
-// Solo el primer panel abierto al inicio
-const openSteps = ref([0]);
+        title: "Upload to Unfollowers Tracker",
+        description: "Upload your ZIP file and discover your Instagram Unfollowers.",
+        image: "/images/boy.png",
+        tint: "pink",
+        link: "/results",
+    },
+])
 
 const adsenseHtml = `
   <ins class="adsbygoogle"
@@ -107,4 +106,67 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+/* --- FLECHAS RESPONSIVAS --- */
+.arrow-col {
+    padding: 0;
+}
+
+.arrow-icon {
+    color: #9e9e9e;
+}
+
+/* En mobile flechas se ocultan o cambian a vertical ↓ */
+@media (max-width: 960px) {
+    .arrow-icon {
+        transform: rotate(90deg);
+        /* flecha hacia abajo */
+        margin: 8px 0;
+    }
+}
+
+/* Base card (igual que ya tenías) */
+.feature-card {
+    position: relative;
+    border: 1px solid #eee;
+    background-color: #fff;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--v-shadow-3);
+    border-color: #e5e7eb;
+}
+
+.feature-card--pink {
+    background-color: #fff5f8;
+}
+
+.feature-card--blue {
+    background-color: #f3f9ff;
+}
+
+.feature-card--green {
+    background-color: #f2fbf2;
+}
+
+.avatar-tint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+}
+
+.avatar-tint--pink {
+    background: rgba(233, 30, 99, 0.12);
+}
+
+.avatar-tint--blue {
+    background: rgba(33, 150, 243, 0.12);
+}
+
+.avatar-tint--green {
+    background: rgba(76, 175, 80, 0.12);
+}
+</style>
