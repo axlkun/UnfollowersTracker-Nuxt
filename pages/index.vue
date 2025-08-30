@@ -33,7 +33,6 @@ import HowWorks from '../components/HowWorks.vue';
 import VideoTutorial from '../components/VideoTutorial.vue';
 import BlogSection from '../components/BlogSection.vue';
 import WhyUnfollowers from '../components/WhyUnfollowers.vue';
-//import ContactSection from '../components/ContactSection.vue';
 import FrequentAsks from '~/components/FrequentAsks.vue';
 import CallToAction from '../components/CallToAction.vue';
 import FeaturesSection from '~/components/FeaturesSection.vue';
