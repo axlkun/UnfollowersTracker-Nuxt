@@ -70,14 +70,13 @@
             title="Info" type="info" variant="tonal" class="custom-sizing-card mt-5 mb-5">
         </v-alert>
 
-        <v-alert v-if="unfollowers.length > 0" title="🎉 New Feature Available!" color="deep-purple-accent-3"
-            variant="tonal" class="custom-sizing-card mt-5 mb-5">
+        <v-alert v-if="unfollowers.length > 0" title="🚨 Important Notice" color="red-darken-4" variant="tonal"
+            class="custom-sizing-card mt-5 mb-5">
 
             <div>
-                Discover who hasn't accepted your follow request — using the same ZIP file.
-                <a href="/pending-requests" class="font-weight-medium text-decoration-underline ml-1">
-                    Try it now →
-                </a>
+                In the latest update, Instagram includes <strong>deactivated accounts</strong> in the exported data.
+                If you click <strong>“unfollow”</strong> and see <strong>“user not found”</strong>,
+                that account no longer exists and is <strong>not a real unfollower</strong>.
             </div>
         </v-alert>
 
@@ -167,6 +166,17 @@
                 </v-window-item>
             </v-window>
         </v-card>
+
+        <v-alert v-if="unfollowers.length > 0" title="🎉 New Feature Available!" color="deep-purple-accent-3"
+            variant="tonal" class="custom-sizing-card mt-5 mb-5">
+
+            <div>
+                Discover who hasn't accepted your follow request — using the same ZIP file.
+                <a href="/pending-requests" class="font-weight-medium text-decoration-underline ml-1">
+                    Try it now →
+                </a>
+            </div>
+        </v-alert>
 
         <!-- Utilidades -->
 
