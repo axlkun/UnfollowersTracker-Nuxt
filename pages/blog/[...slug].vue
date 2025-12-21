@@ -52,6 +52,11 @@
                             </v-chip>
                         </v-sheet>
 
+                        <!-- Bloque del anuncio -->
+                        <div class="ad-container">
+                            <div v-html="adsenseHtml"></div>
+                        </div>
+
                     </v-sheet>
 
                     <v-sheet class="project-info">
@@ -70,11 +75,6 @@
                     </v-sheet>
                 </v-sheet>
             </v-sheet>
-
-            <!-- Bloque del anuncio -->
-            <div class="ad-container">
-                <div v-html="adsenseHtml"></div>
-            </div>
 
             <v-sheet class="img-container">
                 <v-img :src="`${dominio}${article.imageUrl}`" :alt="article.alt_image" max-height="500"
