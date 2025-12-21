@@ -54,6 +54,10 @@
             </v-container>
         </section>
 
+        <div class="ad-container">
+            <div v-html="adsenseHtml2"></div>
+        </div>
+
     </div>
 </template>
 
@@ -90,6 +94,15 @@ const adsenseHtml = `
        style="display:block"
        data-ad-client="ca-pub-1163363741001629"
        data-ad-slot="3239804875"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+`;
+
+const adsenseHtml2 = `
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1163363741001629"
+       data-ad-slot="6226469671"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
 `;

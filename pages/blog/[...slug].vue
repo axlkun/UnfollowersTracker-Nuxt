@@ -36,11 +36,6 @@
 
                 <v-breadcrumbs class="pl-0" :items="items" divider=">" color="pink"></v-breadcrumbs>
 
-                <!-- Bloque del anuncio -->
-                <div class="ad-container">
-                    <div v-html="adsenseHtml"></div>
-                </div>
-
                 <v-sheet class="project-data">
                     <v-sheet class="project-description">
                         <v-sheet class="title">
@@ -75,6 +70,11 @@
                     </v-sheet>
                 </v-sheet>
             </v-sheet>
+
+            <!-- Bloque del anuncio -->
+            <div class="ad-container">
+                <div v-html="adsenseHtml"></div>
+            </div>
 
             <v-sheet class="img-container">
                 <v-img :src="`${dominio}${article.imageUrl}`" :alt="article.alt_image" max-height="500"

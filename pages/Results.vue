@@ -61,6 +61,7 @@
             <div class="ad-container">
                 <div v-html="adsenseHtml"></div>
             </div>
+            
         </v-sheet>
 
         <div id="top-table"></div>
