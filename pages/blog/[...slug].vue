@@ -172,10 +172,6 @@ const loadData = async () => {
 
             await nextTick(); // ⬅️ Esperar render del DOM
 
-            // Inicializar PRIMER anuncio
-            initAdsense();
-
-            // Inicializar SEGUNDO anuncio
             initAdsense();
 
             useSeoMeta({
@@ -215,12 +211,15 @@ const loadData = async () => {
 };
 
 const initAdsense = () => {
-    if (process.client && window.adsbygoogle) {
-        try {
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {
-            console.warn('Adsense error:', e);
-        }
+    if (!process.client) return;
+
+    if (!window.adsbygoogle) return;
+
+    try {
+        window.adsbygoogle.push({});
+    } catch (e) {
+        // Adsense lanza errores incluso cuando funciona bien
+        console.warn('Adsense warning:', e.message);
     }
 };
 
