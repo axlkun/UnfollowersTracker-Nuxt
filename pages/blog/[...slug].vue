@@ -88,9 +88,9 @@
         </v-sheet>
 
         <!-- Bloque del anuncio -->
-        <div class="ad-container">
+        <!--<div class="ad-container">
             <div v-html="adsenseHtmlRelatedArticles"></div>
-        </div>
+        </div>-->
 
         <v-sheet class="related-articles">
             <h2>Related articles</h2>
