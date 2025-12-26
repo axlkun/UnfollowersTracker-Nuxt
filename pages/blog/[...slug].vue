@@ -87,6 +87,11 @@
 
         </v-sheet>
 
+        <!-- Bloque del anuncio -->
+        <div class="ad-container">
+            <div v-html="adsenseHtmlRelatedArticles"></div>
+        </div>
+
         <v-sheet class="related-articles">
             <h2>Related articles</h2>
 
@@ -116,6 +121,15 @@ const adsenseHtml = `
      style="display:block"
      data-ad-client="ca-pub-1163363741001629"
      data-ad-slot="3431751267"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+`;
+
+const adsenseHtmlRelatedArticles = `
+  <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1163363741001629"
+     data-ad-slot="5724401632"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 `;
@@ -153,15 +167,16 @@ const loadData = async () => {
         const articleResponse = await loadArticle();
 
         if (articleResponse.status === 200) {
+            
             article.value = articleResponse.data.data;
 
-            const checkAdsbyGoogle = setInterval(() => {
-                if (window.adsbygoogle) {
-                    // Inicializar el anuncio
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    clearInterval(checkAdsbyGoogle); // Detener el intervalo una vez que se ha cargado
-                }
-            }, 300);
+            await nextTick(); // ⬅️ Esperar render del DOM
+
+            // Inicializar PRIMER anuncio
+            initAdsense();
+
+            // Inicializar SEGUNDO anuncio
+            initAdsense();
 
             useSeoMeta({
 
@@ -196,6 +211,16 @@ const loadData = async () => {
 
     } finally {
         loading.value = false;
+    }
+};
+
+const initAdsense = () => {
+    if (process.client && window.adsbygoogle) {
+        try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+            console.warn('Adsense error:', e);
+        }
     }
 };
 
