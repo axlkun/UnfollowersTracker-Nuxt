@@ -185,7 +185,7 @@ const adsenseHtml = `
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-client="ca-pub-1163363741001629"
-       data-ad-slot="4903707508"
+       data-ad-slot="8430456029"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
 `;
