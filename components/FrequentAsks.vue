@@ -1,5 +1,5 @@
 <template>
-    <v-sheet class="d-flex flex-column align-center justify-center bg-grey-lighten-4">
+    <div class="d-flex flex-column align-center justify-center bg-grey-lighten-4">
         <v-sheet class="d-flex flex-column justify-center custom-sizing mx-auto pb-5 bg-grey-lighten-4" id="faqs">
 
             <v-sheet class="pa-5 text-center bg-grey-lighten-4">
@@ -7,6 +7,10 @@
                 <p class="text-h7 text-md-h6 ma-5 font-weight-bold text-grey-darken-1">Have another question? Contact me
                     by 📧 <a href="mailto:unfollowerstracker2024@gmail.com">email</a></p>
             </v-sheet>
+
+            <div class="ad-container">
+                <div v-html="adsenseHtml"></div>
+            </div>
 
             <v-expansion-panels v-model="openPanels" multiple>
                 <v-expansion-panel v-for="(item, i) in faqs" :key="i" class="ma-2 mb-4 bg-grey-lighten-3">
@@ -21,13 +25,33 @@
             </v-expansion-panels>
 
         </v-sheet>
-    </v-sheet>
+    </div>
 
 </template>
 
 <script setup>
-import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiPlusCircleOutline } from '@mdi/js';
+
+import { onMounted } from 'vue'
+
+const adsenseHtml = `
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1163363741001629"
+       data-ad-slot="6226469671"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+`;
+
+onMounted(() => {
+  const checkAdsbyGoogle = setInterval(() => {
+    if (window.adsbygoogle) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+      clearInterval(checkAdsbyGoogle);
+    }
+  }, 300);
+});
 
 const faqs = [
     {
