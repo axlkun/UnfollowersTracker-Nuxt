@@ -8,9 +8,9 @@
                     by 📧 <a href="mailto:unfollowerstracker2024@gmail.com">email</a></p>
             </v-sheet>
 
-            <div class="ad-container">
+            <!-- <div class="ad-container">
                 <div v-html="adsenseHtml"></div>
-            </div>
+            </div> -->
 
             <v-expansion-panels v-model="openPanels" multiple>
                 <v-expansion-panel v-for="(item, i) in faqs" :key="i" class="ma-2 mb-4 bg-grey-lighten-3">
@@ -33,25 +33,25 @@
 
 import { onMounted } from 'vue'
 
-const adsenseHtml = `
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1163363741001629"
-       data-ad-slot="6226469671"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-`;
+// const adsenseHtml = `
+//   <ins class="adsbygoogle"
+//        style="display:block"
+//        data-ad-client="ca-pub-1163363741001629"
+//        data-ad-slot="6226469671"
+//        data-ad-format="auto"
+//        data-full-width-responsive="true"></ins>
+// `;
 
-onMounted(() => {
-  const checkAdsbyGoogle = setInterval(() => {
-    if (window.adsbygoogle) {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {}
-      clearInterval(checkAdsbyGoogle);
-    }
-  }, 300);
-});
+// onMounted(() => {
+//   const checkAdsbyGoogle = setInterval(() => {
+//     if (window.adsbygoogle) {
+//       try {
+//         (window.adsbygoogle = window.adsbygoogle || []).push({});
+//       } catch (e) {}
+//       clearInterval(checkAdsbyGoogle);
+//     }
+//   }, 300);
+// });
 
 const faqs = [
     {
