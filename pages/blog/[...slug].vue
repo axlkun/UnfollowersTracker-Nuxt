@@ -1,7 +1,7 @@
 <template>
     <v-sheet class="project">
 
-        <v-sheet v-if="loading" class="skeleton">
+        <v-sheet v-if="pending" class="skeleton">
             <!-- Contenedor principal -->
             <v-sheet color="#F5F5F5">
                 <v-sheet color="#F5F5F5">
@@ -30,7 +30,7 @@
 
         </v-sheet>
 
-        <v-sheet class="container" v-else>
+        <v-sheet class="container" v-else-if="article">
 
             <v-sheet class="description-container">
 
@@ -101,8 +101,8 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { computed, onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
 import api from '../api';
 import ArticlesList from '../components/ArticlesList.vue';
 import CallToAction from '../components/CallToAction.vue';
@@ -128,85 +128,67 @@ const items = ref([
 ])
 
 const route = useRoute();
-const router = useRouter();
-const slug = ref(route.params.slug);
+const slug = computed(() => route.params.slug);
 const dominio = api.defaults.baseURL;
-const article = ref(null);
-const articles = ref(null);
-const loading = ref(true);
+const siteUrl = 'https://unfollowerstracker.com';
 const adblocker = ref(false);
 
-const loadData = async () => {
-    loading.value = true;
+// useAsyncData corre en el servidor y su resultado viaja embebido en el HTML,
+// asi el crawler recibe el articulo ya renderizado en vez de un shell vacio
+// que solo se llena despues via onMounted (lo que hacia la pagina antes).
+const { data: article, pending, error } = await useAsyncData(
+    'blog-article',
+    () => api.get(`/api/articles/${slug.value}`).then(res => res.data.data),
+    { watch: [slug] }
+);
 
-    try {
-        const articleResponse = await loadArticle();
+if (error.value || !article.value) {
+    await navigateTo('/');
+}
 
-        if (articleResponse.status === 200) {
-            article.value = articleResponse.data.data;
+const { data: articles } = await useAsyncData(
+    'blog-related-articles',
+    () => api.get(`/api/related-articles/${slug.value}`)
+        .then(res => res.data.data)
+        .catch(() => []),
+    { watch: [slug] }
+);
 
-            useSeoMeta({
+useSeoMeta({
 
-                robots: 'index, follow',
-                title: () => "UnfollowersTracker | " + article.value.title,
-                author: 'Axel Cruz',
-                description: () => article.value.meta_description,
-                keywords: () => article.value.keywords,
+    robots: 'index, follow',
+    title: () => `UnfollowersTracker | ${article.value?.title}`,
+    author: 'Axel Cruz',
+    description: () => article.value?.meta_description,
+    keywords: () => article.value?.keywords,
 
-                ogTitle: () => "UnfollowersTracker | " + article.value.title,
-                ogDescription: () => article.value.meta_description,
-                ogImage: () => dominio + article.value.imageUrl,
-                ogUrl: () => dominio + "/blog/" + article.value.slug,
-                ogType: 'website',
+    ogTitle: () => `UnfollowersTracker | ${article.value?.title}`,
+    ogDescription: () => article.value?.meta_description,
+    ogImage: () => `${dominio}${article.value?.imageUrl}`,
+    ogUrl: () => `${siteUrl}/blog/${article.value?.slug}`,
+    ogType: 'article',
 
-                twitterCreator: '@Axlkun',
-                twitterImage: () => dominio + article.value.imageUrl,
-                twitterCard: 'summary_large_image',
-                twitterTitle: () => 'UnfollowersTracker | ' + article.value.title,
-                twitterDescription: () => article.value.summary
-            })
+    twitterCreator: '@Axlkun',
+    twitterImage: () => `${dominio}${article.value?.imageUrl}`,
+    twitterCard: 'summary_large_image',
+    twitterTitle: () => `UnfollowersTracker | ${article.value?.title}`,
+    twitterDescription: () => article.value?.summary
+})
 
-            showAdblockModal();
+useHead({
+    link: [
+        { rel: 'canonical', href: () => `${siteUrl}/blog/${article.value?.slug}` },
+    ],
+})
 
-            loadRelatedArticles();
-
-        } else {
-            window.location.href = "/";
-        }
-    } catch (error) {
-        window.location.href = "/";
-
-    } finally {
-        loading.value = false;
-    }
-};
-
-const loadArticle = async () => {
-    return await api.get(`/api/articles/${slug.value}`);
-};
-
-const loadRelatedArticles = async () => {
-    try {
-        const relatedArticlesResponse = await api.get(`/api/related-articles/${slug.value}`);
-        articles.value = relatedArticlesResponse.data.data;
-    } catch (error) {
-        console.error('Error al obtener artículos relacionados:', error);
-    }
-};
-
-watch(() => route.params.slug, () => {
-    slug.value = route.params.slug;
-    loadData();
-});
-
-const showAdblockModal = async () => {
+const showAdblockModal = () => {
     setTimeout(async () => {
         adblocker.value = await checkAdblocker();
     }, 3000);
 }
 
-onMounted(async () => {
-    loadData();
+onMounted(() => {
+    showAdblockModal();
 });
 
 </script>

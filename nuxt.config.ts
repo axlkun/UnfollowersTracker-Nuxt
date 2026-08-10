@@ -41,6 +41,9 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+  routeRules: {
+    '/blog/**': { isr: 3600 },
+  },
   modules: [
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
