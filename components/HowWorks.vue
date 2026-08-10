@@ -1,9 +1,7 @@
 <template>
     <div>
 
-        <div class="ad-container">
-            <div v-html="adsenseHtml"></div>
-        </div>
+        <AdSlot :key="route.fullPath" ad-slot="3239804875" />
 
         <v-sheet class="d-flex flex-column justify-center custom-sizing mx-auto" id="how-works">
 
@@ -58,8 +56,11 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import { mdiArrowRightThick } from '@mdi/js'
+import AdSlot from './AdSlot.vue';
+
+const route = useRoute();
 
 const steps = ref([
     {
@@ -85,25 +86,6 @@ const steps = ref([
     },
 ])
 
-const adsenseHtml = `
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1163363741001629"
-       data-ad-slot="3239804875"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-`;
-
-onMounted(() => {
-
-    const checkAdsbyGoogle = setInterval(() => {
-        if (window.adsbygoogle) {
-            // Inicializar el anuncio
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            clearInterval(checkAdsbyGoogle); // Detener el intervalo una vez que se ha cargado
-        }
-    }, 300);
-});
 </script>
 
 <style scoped>

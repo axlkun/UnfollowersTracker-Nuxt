@@ -7,7 +7,7 @@
         <HowWorks></HowWorks>
 
         <!-- seccion del video tutorial -->
-        <VideoTutorial></VideoTutorial>
+        <!-- <VideoTutorial></VideoTutorial> -->
 
         <!-- blog section -->
         <BlogSection :blogEntry="blogEntry"></BlogSection>

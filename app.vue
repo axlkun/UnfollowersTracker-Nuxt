@@ -103,10 +103,21 @@ onMounted(() => {
   width: 90%;
   max-width: 75rem;
   margin: 10px auto;
+  min-height: 250px;
+  overflow: hidden;
+  transition: min-height 0.3s ease, margin 0.3s ease;
 
   @media only screen and (min-width: 960px) {
       width: 80%;
+      min-height: 280px;
   }
+}
+
+/* Se colapsa suavemente si Google confirma que no hay anuncio que servir,
+   en vez de dejar un hueco en blanco fijo. */
+.ad-container--collapsed {
+  min-height: 0;
+  margin: 0 auto;
 }
 
 .reset-style {

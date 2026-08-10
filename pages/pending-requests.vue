@@ -58,9 +58,7 @@
             </v-sheet>
 
             <!-- Bloque del anuncio -->
-            <div class="ad-container">
-                <div v-html="adsenseHtml"></div>
-            </div>
+            <AdSlot :key="route.fullPath" ad-slot="8430456029" />
         </v-sheet>
 
 
@@ -180,15 +178,9 @@ import { ref, computed, watch } from 'vue';
 //import AntiAdblocker from '~/components/AntiAdblocker.vue';
 //import { checkAdblocker } from '../utils/utils';
 import { mdiHelp, mdiFaceManProfile, mdiSendCheck, mdiAlertCircleOutline  } from '@mdi/js';
+import AdSlot from '../components/AdSlot.vue';
 
-const adsenseHtml = `
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1163363741001629"
-       data-ad-slot="8430456029"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-`;
+const route = useRoute();
 
 const rules = ref([
     value => {
@@ -394,22 +386,6 @@ useSeoMeta({
     twitterDescription: 'Discover who doesn\'t accept your follow request on Instagram. Free tool to manage your follower list without passwords.'
 })
 
-onMounted(async () => {
-
-    // (adsbygoogle = window.adsbygoogle || []).push({});
-
-    // setTimeout(async () => {
-    //     adblocker.value = await checkAdblocker();
-    // }, 2000);
-
-    const checkAdsbyGoogle = setInterval(() => {
-        if (window.adsbygoogle) {
-            // Inicializar el anuncio
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            clearInterval(checkAdsbyGoogle); // Detener el intervalo una vez que se ha cargado
-        }
-    }, 300);
-});
 </script>
 
 

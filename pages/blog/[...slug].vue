@@ -53,9 +53,7 @@
                         </v-sheet>
 
                         <!-- Bloque del anuncio -->
-                        <div class="ad-container">
-                            <div v-html="adsenseHtml"></div>
-                        </div>
+                        <AdSlot :key="route.fullPath" ad-slot="3431751267" />
 
                     </v-sheet>
 
@@ -109,16 +107,8 @@ import api from '../api';
 import ArticlesList from '../components/ArticlesList.vue';
 import CallToAction from '../components/CallToAction.vue';
 import AntiAdblocker from '~/components/AntiAdblocker.vue';
+import AdSlot from '../../components/AdSlot.vue';
 import { checkAdblocker } from '../../utils/utils';
-
-const adsenseHtml = `
-  <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1163363741001629"
-     data-ad-slot="3431751267"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-`;
 
 const items = ref([
     {
@@ -154,14 +144,6 @@ const loadData = async () => {
 
         if (articleResponse.status === 200) {
             article.value = articleResponse.data.data;
-
-            const checkAdsbyGoogle = setInterval(() => {
-                if (window.adsbygoogle) {
-                    // Inicializar el anuncio
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    clearInterval(checkAdsbyGoogle); // Detener el intervalo una vez que se ha cargado
-                }
-            }, 300);
 
             useSeoMeta({
 

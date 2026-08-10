@@ -58,10 +58,8 @@
             </v-sheet>
 
             <!-- Bloque del anuncio -->
-            <div class="ad-container">
-                <div v-html="adsenseHtml"></div>
-            </div>
-            
+            <AdSlot :key="route.fullPath" ad-slot="4903707508" />
+
         </v-sheet>
 
         <div id="top-table"></div>
@@ -239,15 +237,9 @@ import { ref, computed, watch } from 'vue';
 //import { checkAdblocker } from '../utils/utils';
 // import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose, mdiAlertCircleOutline } from '@mdi/js';
+import AdSlot from '../components/AdSlot.vue';
 
-const adsenseHtml = `
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1163363741001629"
-       data-ad-slot="4903707508"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-`;
+const route = useRoute();
 
 const rules = ref([
     value => {
@@ -485,7 +477,7 @@ useSeoMeta({
     ogTitle: 'UnfollowersTracker | List of Unfollowers',
     ogDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.',
     ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
-    ogUrl: 'https://unfollowerstracker.com/',
+    ogUrl: 'https://unfollowerstracker.com/results',
     ogType: 'website',
 
     twitterCreator: '@Axlkun',
@@ -495,22 +487,6 @@ useSeoMeta({
     twitterDescription: 'Discover who doesn\'t follow you back on Instagram. Free tool to manage your follower list without passwords.'
 })
 
-onMounted(async () => {
-
-    // (adsbygoogle = window.adsbygoogle || []).push({});
-
-    // setTimeout(async () => {
-    //     adblocker.value = await checkAdblocker();
-    // }, 2000);
-
-    const checkAdsbyGoogle = setInterval(() => {
-        if (window.adsbygoogle) {
-            // Inicializar el anuncio
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            clearInterval(checkAdsbyGoogle); // Detener el intervalo una vez que se ha cargado
-        }
-    }, 300);
-});
 </script>
 
 
