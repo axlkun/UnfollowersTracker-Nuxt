@@ -62,7 +62,16 @@
 
         </v-sheet>
 
+        <!-- Contenido de contexto: da texto real a la pagina para la subasta de anuncios
+             y ayuda al usuario a interpretar sus resultados antes/despues de subir el ZIP -->
+        <ResultsGuide></ResultsGuide>
+        <ResultsFAQ></ResultsFAQ>
+
         <div id="top-table"></div>
+
+        <div v-if="unfollowers.length > 0">
+            <h2 class="text-center text-h5 text-md-h4 ma-1 font-weight-black text-pink pa-4">Your Unfollowers Results</h2>
+        </div>
 
         <v-alert v-if="unfollowers.length > 0"
             text="The 'Unfollow / Follow' button will redirect you to the User Profile. You need to complete the action there"
@@ -238,6 +247,8 @@ import { ref, computed, watch } from 'vue';
 // import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiAccountRemove, mdiHelp, mdiFaceManProfile, mdiClose, mdiAlertCircleOutline } from '@mdi/js';
 import AdSlot from '../components/AdSlot.vue';
+import ResultsGuide from '../components/ResultsGuide.vue';
+import ResultsFAQ from '../components/ResultsFAQ.vue';
 
 const route = useRoute();
 

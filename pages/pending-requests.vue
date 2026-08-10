@@ -61,9 +61,18 @@
             <AdSlot :key="route.fullPath" ad-slot="8430456029" />
         </v-sheet>
 
-
+        <!-- Contenido de contexto: da texto real a la pagina para la subasta de anuncios
+             y ayuda al usuario a interpretar sus resultados antes/despues de subir el ZIP -->
+        <PendingRequestsGuide></PendingRequestsGuide>
+        <PendingRequestsFAQ></PendingRequestsFAQ>
 
         <div id="top-table"></div>
+
+        <div v-if="pendingRequests.length > 0">
+            <h2 class="text-center text-h5 text-md-h4 ma-1 font-weight-black text-deep-purple-accent-3 pa-4">Your Pending Requests
+                Results</h2>
+        </div>
+
         <v-alert v-if="pendingRequests.length > 0"
             text="The 'Cancel Request' button will redirect you to the user's profile. You'll need to complete the action there"
             title="Info" type="info" variant="tonal" class="custom-sizing-card mt-5 mb-5">
@@ -179,6 +188,8 @@ import { ref, computed, watch } from 'vue';
 //import { checkAdblocker } from '../utils/utils';
 import { mdiHelp, mdiFaceManProfile, mdiSendCheck, mdiAlertCircleOutline  } from '@mdi/js';
 import AdSlot from '../components/AdSlot.vue';
+import PendingRequestsGuide from '../components/PendingRequestsGuide.vue';
+import PendingRequestsFAQ from '../components/PendingRequestsFAQ.vue';
 
 const route = useRoute();
 
