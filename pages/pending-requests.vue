@@ -7,20 +7,14 @@
                 <v-sheet class="mb-6 bg-grey-lighten-4 pl-2 pr-2">
                     <h1
                         class="text-h5 text-center mx-auto text-md-h4 mt-5 mb-5 mb-md-7 font-weight-bold text-grey-darken-3">
-                        Who ghosts you on Instagram? <br>
-                        See who hasn’t accepted your
-                        <span class="text-deep-purple-accent-3">follow requests</span> now
+                        See Who Hasn’t Accepted Your Instagram
+                        <span class="text-deep-purple-accent-3">Follow Requests</span>
                     </h1>
 
                     <p
                         class="text-subtitle-2 mx-auto text-md-subtitle-1 text-center text-grey-darken-1 mb-md-2 font-weight-bold custom-sizing">
-                        Simply attach the ZIP file you requested from Instagram below.
+                        Check every pending request you've sent — no password, just your Instagram ZIP file.
                     </p>
-
-                    <!--<v-alert
-                        text="Our website is temporarily unavailable due to scheduled maintenance. We'll be back in approximately 1 hour. Thank you for your patience!"
-                        title="Maintenance in Progress" type="warning" variant="tonal" class="custom-sizing-card mt-5 mb-5">
-                    </v-alert>-->
                 </v-sheet>
 
                 <v-sheet class="custom-sizing mx-auto d-flex flex-column justify-center align-center bg-grey-lighten-4">
@@ -30,29 +24,26 @@
                     </v-file-input>
 
                     <v-sheet
-                        class="d-flex flex-sm-row flex-column text-center mt-md-2 mb-5 mb-md-7 justify-center w-100 bg-grey-lighten-4 ga-5">
+                        class="d-flex flex-sm-row flex-column text-center mt-md-5 mb-5 mb-md-7 justify-center w-100 bg-grey-lighten-4 ga-5">
                         <v-btn variant="elevated" @click="requestAPI" color="deep-purple-accent-3">
-                            <!-- <svg-icon class="mr-2" style="color: white;" type="mdi" :path="mdiSendCheck"></svg-icon> -->
-                            <v-icon :icon="mdiSendCheck" class="mr-2"/>
-                            View Sent Requests
+                            <v-icon :icon="mdiSendCheck" class="mr-2" />
+                            See My Pending Requests
                         </v-btn>
 
                         <v-btn
                             href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
                             variant="tonal">
-                            <!-- <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon> -->
-                            <v-icon :icon="mdiHelp" class="mr-2"/>
+                            <v-icon :icon="mdiHelp" class="mr-2" />
                             How can I get the ZIP
                         </v-btn>
                     </v-sheet>
 
                     <client-only>
-                        <v-sheet v-if="pendingRequests.length > 0" class="bg-grey-lighten-4 d-flex align-center">
+                        <v-sheet v-if="hasSearched" class="bg-grey-lighten-4 d-flex align-center">
                             <p class="text-subtitle-1 text-deep-purple-accent-3 text-center">
                                 Results &#128071;
                             </p>
                         </v-sheet>
-
                     </client-only>
                 </v-sheet>
             </v-sheet>
@@ -68,97 +59,109 @@
 
         <div id="top-table"></div>
 
-        <div v-if="pendingRequests.length > 0">
-            <h2 class="text-center text-h5 text-md-h4 ma-1 font-weight-black text-deep-purple-accent-3 pa-4">Your Pending Requests
+        <div v-if="hasSearched" class="custom-sizing-card mx-auto mt-5 mb-10">
+
+            <h2 class="text-center text-h5 text-md-h4 ma-1 mb-6 font-weight-black text-deep-purple-accent-3 pa-4">Your
                 Results</h2>
-        </div>
 
-        <v-alert v-if="pendingRequests.length > 0"
-            text="The 'Cancel Request' button will redirect you to the user's profile. You'll need to complete the action there"
-            title="Info" type="info" variant="tonal" class="custom-sizing-card mt-5 mb-5">
-        </v-alert>
+            <!-- Resumen rapido: numero grande en vez del banner amarillo plano -->
+            <v-sheet class="d-flex justify-center mb-6">
+                <v-card rounded="lg" elevation="2" class="pa-5 text-center" style="max-width: 320px; width: 100%;">
+                    <p class="text-h3 font-weight-black text-deep-purple-accent-3 mb-1">{{ pendingRequests.length }}</p>
+                    <p class="text-body-2 text-grey-darken-1 font-weight-medium">haven't accepted your follow request
+                    </p>
+                </v-card>
+            </v-sheet>
 
-        <!-- seccion de resultados -->
-        <v-card v-if="pendingRequests.length > 0" class="d-flex flex-column bg-white mb-10 custom-sizing-card"
-            style="min-height: 100vh" id="results">
+            <v-alert v-if="pendingRequests.length > 0" density="compact" type="info" variant="tonal" class="mb-6">
+                The <strong>Cancel Request</strong> button redirects you to the user's profile — you complete the
+                action there.
+            </v-alert>
 
-            <v-tabs v-model="tab" fixed-tabs class="bg-transparent w-100 mb-5">
-                <v-tab value="pendingRequests">Pending Follow Requests</v-tab>
-            </v-tabs>
+            <!-- seccion de resultados -->
+            <v-card class="d-flex flex-column bg-white" style="min-height: 100vh" id="results" rounded="lg"
+                elevation="2">
 
-            <v-window v-model="tab">
+                <v-tabs v-model="tab" fixed-tabs class="bg-transparent w-100">
+                    <v-tab value="pendingRequests">Pending Follow Requests ({{ pendingRequests.length }})</v-tab>
+                </v-tabs>
 
-                <!-- seccion de pendingRequests -->
-                <v-window-item value="pendingRequests" class="bg-transparent mb-sm-0 mb-5">
+                <v-divider></v-divider>
 
-                    <v-card class="mb-5 pb-2 text-center bg-yellow-lighten-5 text-yellow-darken-4">
-                        <p>{{ pendingRequests.length }} users haven’t accepted your follow requests</p>
-                    </v-card>
+                <div class="pa-4 pb-2">
+                    <v-text-field v-model="searchQuery" density="compact" variant="outlined" rounded="lg"
+                        placeholder="Search by username" :prepend-inner-icon="mdiMagnify" clearable hide-details
+                        single-line>
+                    </v-text-field>
+                </div>
 
-                    <div>
-                        <div v-for="(item, index) in visibleItemsPendingRequests" :key="index"
-                            class="d-flex justify-space-between align-center  bg-white pa-5 mb-5"
-                            style="border-bottom: 1px solid #EEEEEE;">
-                            <div class="d-flex align-center">
+                <v-window v-model="tab">
 
-                                <!-- <svg-icon class="ma-1" style="color: #4A148C;" type="mdi"
-                                    :path="mdiFaceManProfile"></svg-icon> -->
+                    <!-- seccion de pendingRequests -->
+                    <v-window-item value="pendingRequests" class="bg-transparent mb-sm-0 mb-5">
 
-                                <v-icon :icon="mdiFaceManProfile" class="ma-1 text-deep-purple-accent-3" />
+                        <div v-if="filteredPendingRequests.length === 0" class="text-center pa-10">
+                            <v-icon :icon="pendingRequests.length === 0 ? mdiPartyPopper : mdiMagnify" size="40"
+                                class="text-grey-lighten-1 mb-3" />
+                            <p class="text-grey-darken-1 font-weight-medium">
+                                <span v-if="pendingRequests.length === 0">Great news — everyone has accepted your
+                                    follow requests!</span>
+                                <span v-else>No usernames match “{{ searchQuery }}”.</span>
+                            </p>
+                        </div>
 
-                                <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
-                                    <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
-                                    <p class="ma-1 text-grey" style="font-size: 14px;">Since {{ item.date }}</p>
+                        <div v-else>
+                            <div v-for="(item, index) in visibleItemsPendingRequests" :key="item.user_name"
+                                class="result-row" :class="{ 'result-row--alt': index % 2 === 1 }">
+                                <div class="d-flex align-center">
+                                    <v-avatar size="40" color="deep-purple-lighten-5" class="mr-3">
+                                        <v-icon :icon="mdiFaceManProfile" color="deep-purple-accent-3" size="22" />
+                                    </v-avatar>
+
+                                    <div class="d-flex flex-sm-row flex-column text-center align-center justify-center">
+                                        <p class="ma-1" style="font-size: 14px;">@{{ item.user_name }}</p>
+                                        <p class="ma-1 text-grey" style="font-size: 14px;">Since {{ item.date }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-sm-row flex-column">
+                                    <v-btn size="x-small" class="ma-2" variant="tonal" color="deep-purple-accent-3"
+                                        :href="item.enlace" target="_blank">Cancel Request</v-btn>
                                 </div>
                             </div>
 
-                            <div class="d-flex flex-sm-row flex-column">
-                                <v-btn size="x-small" class="ma-2" variant="tonal" color="deep-purple-accent-3" :href="item.enlace"
-                                    target="_blank">Cancel Request</v-btn>
-
-                            </div>
+                            <v-pagination v-model="currentPaginationPendingRequests" :length="totalPagesPendingRequests"
+                                :total-visible="5" rounded="circle"></v-pagination>
                         </div>
+                    </v-window-item>
+                </v-window>
+            </v-card>
 
-                        <v-pagination v-model="currentPaginationPendingRequests" :length="totalPagesPendingRequests"
-                            @input="loadPageData('pendingRequests')" :total-visible="5" rounded="circle"></v-pagination>
-                    </div>
-                </v-window-item>
-
-                <!-- seccion de fans -->
-
-            </v-window>
-        </v-card>
+            <v-alert v-if="pendingRequests.length > 0" title="🎉 Also Check This!" color="pink" variant="tonal"
+                class="mt-6">
+                <div>
+                    See who doesn't follow you back on Instagram — using the same ZIP file.
+                    <a href="/results" class="font-weight-medium text-decoration-underline ml-1">
+                        Try it now →
+                    </a>
+                </div>
+            </v-alert>
+        </div>
 
         <!-- Utilidades -->
-
-        <!-- notificacion -->
-        <!--<v-snackbar v-model="alert" :timeout="20000" min-height="80px" transition="scroll-y-reverse-transition"
-            location="top right" class="ma-5">
-            {{ alertText }}
-
-            <template v-slot:actions>
-                <v-btn color="pink" variant="text" @click="alert = false">
-                    <svg-icon style="color: white;" type="mdi" :path="mdiClose"></svg-icon>
-                </v-btn>
-            </template>
-</v-snackbar>-->
 
         <v-dialog v-model="alert" persistent max-width="400" class="alert-dialog">
             <v-card class="pa-4">
 
-                <!-- TÍTULO CON ÍCONO -->
                 <v-card-title class="d-flex align-center">
-                    <!-- <svg-icon class="mr-2" style="color: gray;" type="mdi" :path="mdiAlertCircleOutline"></svg-icon> -->
                     <v-icon :icon="mdiAlertCircleOutline" class="mr-2 text-gray" />
                     <span class="text-h6 font-weight-medium">UnfollowersTracker</span>
                 </v-card-title>
 
-                <!-- TEXTO DEL MENSAJE -->
                 <v-card-text>
                     {{ alertText }}
                 </v-card-text>
 
-                <!-- BOTÓN DE CIERRE -->
                 <v-card-actions class="justify-end">
                     <v-btn @click="alert = false" color="deep-purple-accent-3">
                         Close
@@ -173,10 +176,6 @@
             <v-progress-circular color="deep-purple-accent-3" indeterminate size="64"></v-progress-circular>
         </v-overlay>
 
-        <!-- <ClientOnly>
-            <AntiAdblocker v-if="adblocker" :adblock="adblocker"></AntiAdblocker>
-        </ClientOnly> -->
-
     </div>
 </template>
 
@@ -184,9 +183,7 @@
 import api from '../api';
 import { scrollToSection } from '../utils';
 import { ref, computed, watch } from 'vue';
-//import AntiAdblocker from '~/components/AntiAdblocker.vue';
-//import { checkAdblocker } from '../utils/utils';
-import { mdiHelp, mdiFaceManProfile, mdiSendCheck, mdiAlertCircleOutline  } from '@mdi/js';
+import { mdiHelp, mdiFaceManProfile, mdiSendCheck, mdiAlertCircleOutline, mdiMagnify, mdiPartyPopper } from '@mdi/js';
 import AdSlot from '../components/AdSlot.vue';
 import PendingRequestsGuide from '../components/PendingRequestsGuide.vue';
 import PendingRequestsFAQ from '../components/PendingRequestsFAQ.vue';
@@ -204,12 +201,11 @@ const alert = ref(false);
 const alertText = ref('Something went wrong :(');
 const tab = ref('pendingRequests');
 const pendingRequests = ref([]);
-const fans = ref([]);
-let itemsPerPage = ref(10);
+const itemsPerPage = ref(10);
 const currentPaginationPendingRequests = ref(1);
-const visibleItemsPendingRequests = ref([]);
 const isLoading = ref(false);
-//const adblocker = ref(false);
+const hasSearched = ref(false);
+const searchQuery = ref('');
 
 const handleFileChange = (event) => {
     const files = event.target.files;
@@ -224,7 +220,7 @@ const requestAPI = async () => {
     try {
 
         pendingRequests.value = [];
-        fans.value = [];
+        hasSearched.value = false;
 
         if (!selectedFile.value) {
             alertText.value = 'The ZIP file has not been selected';
@@ -263,7 +259,9 @@ const requestAPI = async () => {
 
         pendingRequests.value = pendingRequestsResponse.data;
 
-        loadPageDataPendingRequests();
+        hasSearched.value = true;
+        searchQuery.value = '';
+        currentPaginationPendingRequests.value = 1;
 
     } catch (error) {
         alertText.value = 'An unexpected error has occurred. Please try again later.';
@@ -271,7 +269,7 @@ const requestAPI = async () => {
     } finally {
         isLoading.value = false;
 
-        if (pendingRequests.value.length >= 1) {
+        if (hasSearched.value) {
             setTimeout(() => {
                 scrollToSection('results');
             }, 100);
@@ -352,26 +350,27 @@ const getPendingRequests = async (user) => {
     }
 };
 
-const loadPageDataPendingRequests = () => {
-    const startIndex = (currentPaginationPendingRequests.value - 1) * itemsPerPage.value;
-    const endIndex = startIndex + itemsPerPage.value;
-
-    visibleItemsPendingRequests.value = pendingRequests.value.slice(startIndex, endIndex);
-};
-
-const removeItemPendingRequests = (index) => {
-
-    pendingRequests.value.splice(index, 1);
-    loadPageDataPendingRequests();
-
-};
-
-const totalPagesPendingRequests = computed(() => {
-    return Math.ceil(pendingRequests.value.length / itemsPerPage.value);
+// Filtro por username: se recalcula solo, sin tocar la lista original
+const filteredPendingRequests = computed(() => {
+    const query = searchQuery.value.trim().toLowerCase();
+    if (!query) return pendingRequests.value;
+    return pendingRequests.value.filter(item => item.user_name.toLowerCase().includes(query));
 });
 
-watch(currentPaginationPendingRequests, (newPage) => {
-    loadPageDataPendingRequests();
+const totalPagesPendingRequests = computed(() => {
+    return Math.max(1, Math.ceil(filteredPendingRequests.value.length / itemsPerPage.value));
+});
+
+const visibleItemsPendingRequests = computed(() => {
+    const startIndex = (currentPaginationPendingRequests.value - 1) * itemsPerPage.value;
+    return filteredPendingRequests.value.slice(startIndex, startIndex + itemsPerPage.value);
+});
+
+watch(searchQuery, () => {
+    currentPaginationPendingRequests.value = 1;
+});
+
+watch(currentPaginationPendingRequests, () => {
     scrollToSection('top-table');
 });
 
@@ -387,7 +386,7 @@ useSeoMeta({
     ogTitle: 'UnfollowersTracker | Pending Follow Requests',
     ogDescription: 'Discover who doesn\'t accept your follow request on Instagram. Free tool to manage your follower list without passwords.',
     ogImage: 'https://unfollowerstracker.com/unfollowers-og-image.png',
-    ogUrl: 'https://unfollowerstracker.com/',
+    ogUrl: 'https://unfollowerstracker.com/pending-requests',
     ogType: 'website',
 
     twitterCreator: '@Axlkun',
@@ -409,5 +408,24 @@ useSeoMeta({
         width: 50%;
         margin: 0 auto;
     }
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #EEEEEE;
+    transition: background-color 0.15s ease;
+}
+
+.result-row--alt {
+    background-color: #FAFAFA;
+}
+
+.result-row:hover {
+    background-color: #EDE7F6;
 }
 </style>
