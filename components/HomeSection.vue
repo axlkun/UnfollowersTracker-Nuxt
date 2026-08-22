@@ -21,11 +21,10 @@
                             Discover Unfollowers
                         </v-btn>
                         <v-btn
-                            href="/blog/tutorial-how-to-use-unfollowers-tracker-to-discover-your-instagram-unfollowers"
+                            href="/pending-requests"
                             variant="tonal" class="mt-5 mt-md-10 mx-center">
-                            <!-- <svg-icon class="mr-2" style="color: black;" type="mdi" :path="mdiHelp"></svg-icon> -->
-                            <v-icon :icon="mdiHelp" class="mr-2"/>
-                            How it works
+                            <v-icon :icon="mdiAccountClock" class="mr-2"/>
+                            Check Pending Requests
                         </v-btn>
                     </v-sheet>
 
@@ -52,7 +51,7 @@
 
 <script setup>
 // import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiAccountRemove, mdiHelp } from '@mdi/js';
+import { mdiAccountRemove, mdiAccountClock } from '@mdi/js';
 
 //import imgHome from '../assets/hero.png';
 
